@@ -2,9 +2,9 @@ package me.mrCookieSlime.Slimefun.utils;
 
 public enum MachineType {
 	
-	CAPACITOR("Capacitor"),
-	GENERATOR("Generator"),
-	MACHINE("Machine");
+	CAPACITOR("Конденсатор"),
+	GENERATOR("Генератор"),
+	MACHINE("Механизм");
 	
 	private String suffix;
 	

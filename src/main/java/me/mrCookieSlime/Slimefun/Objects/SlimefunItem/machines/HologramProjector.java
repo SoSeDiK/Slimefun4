@@ -24,7 +24,7 @@ public class HologramProjector extends SimpleSlimefunItem<ItemInteractionHandler
 
 			@Override
 			public void onPlace(Player p, Block b, SlimefunItem item) {
-				BlockStorage.addBlockInfo(b, "text", "Edit me via the Projector");
+				BlockStorage.addBlockInfo(b, "text", "&bПривет! Я — Голограмма, &3настрой меня при помощи проектора снизу.");
 				BlockStorage.addBlockInfo(b, "offset", "0.5");
 				BlockStorage.addBlockInfo(b, "owner", p.getUniqueId().toString());
 

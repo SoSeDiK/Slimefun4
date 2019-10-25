@@ -39,7 +39,7 @@ public class StormStaff extends SimpleSlimefunItem<ItemInteractionHandler> {
 		ItemMeta im = item.getItemMeta();
 		List<String> lore = im.getLore();
 		
-		lore.set(4, ChatColor.translateAlternateColorCodes('&', "&e" + MAX_USES + " Uses &7left"));
+		lore.set(4, ChatColor.translateAlternateColorCodes('&', "&7Осталось использований: &e" + MAX_USES));
 		
 		im.setLore(lore);
 		item.setItemMeta(im);
@@ -89,7 +89,7 @@ public class StormStaff extends SimpleSlimefunItem<ItemInteractionHandler> {
 										usageKey, PersistentDataType.INTEGER, --currentUses
 									);
 									itemLore.set(4, ChatColor.translateAlternateColorCodes('&',
-										"&e" + currentUses + ' ' + (currentUses > 1 ? "Uses": "Use") + " &7left"));
+										"&7Осталось использований: &e" + currentUses));
 									itemMeta.setLore(itemLore);
 									item.setItemMeta(itemMeta);
 								}

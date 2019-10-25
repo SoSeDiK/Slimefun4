@@ -242,7 +242,7 @@ public abstract class AGenerator extends SlimefunItem implements RecipeDisplayIt
 	
 	@Override
 	public String getRecipeSectionLabel() {
-		return "&7\u21E9 Available Types of Fuel \u21E9";
+		return "&7\u21E9 Доступные виды топлива \u21E9";
 	}
 	
 	@Override
@@ -253,9 +253,9 @@ public abstract class AGenerator extends SlimefunItem implements RecipeDisplayIt
 			ItemStack item = fuel.getInput().clone();
 			ItemMeta im = item.getItemMeta();
 			List<String> lore = new ArrayList<>();
-			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Lasts " + getTimeLeft(fuel.getTicks() / 2)));
-			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &e\u26A1 &7" + getEnergyProduction() * 2) + " J/s");
-			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &e\u26A1 &7" + DoubleHandler.getFancyDouble((double) fuel.getTicks() * getEnergyProduction()) + " J in total"));
+			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &7Длительность: " + getTimeLeft(fuel.getTicks() / 2)));
+			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &e\u26A1 &7" + getEnergyProduction() * 2) + " Дж/с");
+			lore.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &e\u26A1 &7" + DoubleHandler.getFancyDouble((double) fuel.getTicks() * getEnergyProduction()) + " Дж всего"));
 			im.setLore(lore);
 			item.setItemMeta(im);
 			list.add(item);
@@ -269,10 +269,10 @@ public abstract class AGenerator extends SlimefunItem implements RecipeDisplayIt
 		String timeleft = "";
         final int minutes = (int) (seconds / 60L);
         if (minutes > 0) {
-            timeleft += minutes + "m ";
+            timeleft += minutes + "м ";
         }
         seconds -= minutes * 60;
-        return "&7" + timeleft + seconds + "s";
+        return "&7" + timeleft + seconds + "с";
 	}
 
 }

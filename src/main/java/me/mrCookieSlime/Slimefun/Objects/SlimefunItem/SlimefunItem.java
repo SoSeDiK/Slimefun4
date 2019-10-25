@@ -172,7 +172,7 @@ public class SlimefunItem {
 			SlimefunPlugin.getItemCfg().setDefaultValue(this.id + ".allow-enchanting", this.enchantable);
 			SlimefunPlugin.getItemCfg().setDefaultValue(this.id + ".allow-disenchanting", this.disenchantable);
 			SlimefunPlugin.getItemCfg().setDefaultValue(this.id + ".required-permission", this.permission);
-			SlimefunPlugin.getItemCfg().setDefaultValue(this.id + ".no-permission-tooltip", new String[] {"&4&lLOCKED", "", "&rYou do not have Permission", "&rto access this Item"});
+			SlimefunPlugin.getItemCfg().setDefaultValue(this.id + ".no-permission-tooltip", new String[] {"&4&lЗАКРЫТО", "", "&rУ Вас нет доступа к этому предмету"});
 
 			if (this.keys != null && this.values != null) {
 				for (int i = 0; i < this.keys.length; i++) {
@@ -320,6 +320,7 @@ public class SlimefunItem {
 
 			if (recipeType.toItem().isSimilar(RecipeType.MOB_DROP.toItem())) {
 				String mob = ChatColor.stripColor(recipe[4].getItemMeta().getDisplayName()).toUpperCase().replace(' ', '_');
+				if (mob.equals("ЖЕЛЕЗНЫЙ_ГОЛЕМ")) mob = "IRON_GOLEM";
 				try {
 					EntityType entity = EntityType.valueOf(mob);
 					List<ItemStack> dropping = SlimefunPlugin.getUtilities().drops.getOrDefault(entity, new ArrayList<>());

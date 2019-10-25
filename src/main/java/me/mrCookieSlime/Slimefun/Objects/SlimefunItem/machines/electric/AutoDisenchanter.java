@@ -34,7 +34,7 @@ public class AutoDisenchanter extends AContainer {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&5Auto-Disenchanter";
+		return "&5Автоматизированный разачаровыватель";
 	}
 
 	@Override

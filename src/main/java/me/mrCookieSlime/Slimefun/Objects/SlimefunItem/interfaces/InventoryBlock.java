@@ -54,7 +54,7 @@ public interface InventoryBlock {
 				inv.setItem(i, BlockStorage.getInventory(b).getItemInSlot(getOutputSlots()[i]));
 			}
 			else {
-				inv.setItem(i, new CustomItem(Material.COMMAND_BLOCK, " &4ALL YOUR PLACEHOLDERS ARE BELONG TO US"));
+				inv.setItem(i, new CustomItem(Material.COMMAND_BLOCK, " &4ВСЕ ВАШИ ПЛЕЙСХОЛДЕРЫ ПРИНАДЛЕЖАТ НАМ"));
 			}
 		}
 		

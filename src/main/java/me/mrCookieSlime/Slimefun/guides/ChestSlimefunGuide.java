@@ -51,7 +51,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 
 	@Override
 	public ItemStack getItem() {
-		return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aSlimefun Guide &7(Chest GUI)", "", "&eRight Click &8\u21E8 &7Browse Items", "&eShift + Right Click &8\u21E8 &7Open Settings / Credits");
+		return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aРуководство Slimefun &7(меню)", "", "&eПравый клик &8\u21E8 &7просмотр", "&eShift + правый клик &8\u21E8 &7открыть настройки");
 	}
 
 	@Override
@@ -133,15 +133,15 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 					else {
 						List<String> parents = new ArrayList<>();
 						parents.add("");
-						parents.add(ChatColor.translateAlternateColorCodes('&', "&rYou need to unlock all Items"));
-						parents.add(ChatColor.translateAlternateColorCodes('&', "&rfrom the following Categories first:"));
+						parents.add(ChatColor.translateAlternateColorCodes('&', "&rСначала Вы должны разблокировать"));
+						parents.add(ChatColor.translateAlternateColorCodes('&', "&rвсе предметы из этих категорий:"));
 						parents.add("");
 
 						for (Category parent : ((LockedCategory) category).getParents()) {
 							parents.add(parent.getItem().getItemMeta().getDisplayName());
 						}
 
-						menu.addItem(index, new CustomItem(Material.BARRIER, "&4LOCKED &7- &r" + category.getItem().getItemMeta().getDisplayName(), parents.toArray(new String[0])));
+						menu.addItem(index, new CustomItem(Material.BARRIER, "&4ЗАКРЫТО &7- &r" + category.getItem().getItemMeta().getDisplayName(), parents.toArray(new String[0])));
 						menu.addMenuClickHandler(index, (pl, slot, item, action) -> false);
 						index++;
 					}
@@ -151,7 +151,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 
 		final int finalPages = pages;
 
-		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Previous Page", "", "&7(" + page + " / " + pages + ")"));
+		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Предыдущая страница", "", "&7(" + page + " / " + pages + ")"));
 		menu.addMenuClickHandler(46, (pl, slot, item, action) -> {
 			int next = page - 1;
 			if (next < 1) next = finalPages;
@@ -159,7 +159,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			return false;
 		});
 
-		menu.addItem(52, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rNext Page \u21E8", "", "&7(" + page + " / " + pages + ")"));
+		menu.addItem(52, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rСледующая страница \u21E8", "", "&7(" + page + " / " + pages + ")"));
 		menu.addMenuClickHandler(52, (pl, slot, item, action) -> {
 			int next = page + 1;
 			if (next > finalPages) next = 1;
@@ -188,7 +188,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
 		}
 
-		menu.addItem(4, new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&7\u21E6 Back"));
+		menu.addItem(4, new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&7\u21E6 Назад"));
 		menu.addMenuClickHandler(4, (pl, slot, item, action) -> {
 			openMainMenu(profile, survival, 1);
 			return false;
@@ -204,7 +204,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
 		}
 
-		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Previous Page", "", "&7(" + page + " / " + pages + ")"));
+		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Предыдущая страница", "", "&7(" + page + " / " + pages + ")"));
 		menu.addMenuClickHandler(46, (pl, slot, item, action) -> {
 			int next = page - 1;
 			if (next < 1) next = pages;
@@ -212,7 +212,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			return false;
 		});
 
-		menu.addItem(52, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rNext Page \u21E8", "", "&7(" + page + " / " + pages + ")"));
+		menu.addItem(52, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rСледующая страница \u21E8", "", "&7(" + page + " / " + pages + ")"));
 		menu.addMenuClickHandler(52, (pl, slot, item, action) -> {
 			int next = page + 1;
 			if (next > pages) next = 1;
@@ -230,7 +230,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 				final Research research = sfitem.getResearch();
 				if (survival && research != null && !profile.hasUnlocked(research)) {
 					if (Slimefun.hasPermission(p, sfitem, false)) {
-						menu.addItem(index, new CustomItem(Material.BARRIER, "&r" + ItemUtils.getItemName(sfitem.getItem()), "&4&lLOCKED", "", "&a> Click to unlock", "", "&7Cost: &b" + research.getCost() + " Level"));
+						menu.addItem(index, new CustomItem(Material.BARRIER, "&r" + ItemUtils.getItemName(sfitem.getItem()), "&4&lЗАКРЫТО", "", "&a> Нажмите, чтобы разблокировать", "", "&7Стоимость в уровнях: &b" + research.getCost()));
 						menu.addMenuClickHandler(index, (pl, slot, item, action) -> {
 							if (!Research.isResearching(pl)) {
 								if (research.canUnlock(pl)) {
@@ -296,7 +296,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		Player p = profile.getPlayer();
 		if (p == null) return;
 		
-		final ChestMenu menu = new ChestMenu("Searching for: " + shorten("", input));
+		final ChestMenu menu = new ChestMenu("Поиск: " + shorten("", input));
 		String searchTerm = input.toLowerCase();
 		
 		if (addToHistory) {
@@ -415,7 +415,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		
 		if (item.hasWiki()) {
 			try {
-				menu.addItem(8, new CustomItem(Material.KNOWLEDGE_BOOK, "&rView this Item on our Wiki &7(Slimefun Wiki)", "", "&7\u21E8 Click to open"));
+				menu.addItem(8, new CustomItem(Material.KNOWLEDGE_BOOK, "&rИнформация о предмете &7(Slimefun Wiki)", "", "&7\u21E8 Нажмите, чтобы открыть страницу"));
 				menu.addMenuClickHandler(8, (pl, slot, itemstack, action) -> {
 					pl.closeInventory();
 					pl.sendMessage("");
@@ -430,7 +430,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 
 		if (Slimefun.getItemConfig().contains(item.getID() + ".youtube")) {
 			try {
-				menu.addItem(7, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rDemonstration Video &7(Youtube)", "", "&7\u21E8 Click to watch"));
+				menu.addItem(7, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rДемонстрационное видео &7(Youtube)", "", "&7\u21E8 Нажмите для просмотра"));
 				menu.addMenuClickHandler(7, (pl, slot, itemstack, action) -> {
 					pl.closeInventory();
 					pl.sendMessage("");
@@ -571,9 +571,9 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		if (playerHistory.size() > 1) {
 
 			menu.addItem(slot, new CustomItem(new ItemStack(Material.ENCHANTED_BOOK),
-				"&7\u21E6 Back", "",
-				"&rLeft Click: &7Go back to previous Page",
-				"&rShift + left Click: &7Go back to Main Menu")
+				"&7\u21E6 Назад", "",
+				"&rЛевый клик: &7предыдущая страница",
+				"&rShift + левый клик: &7основное меню")
 			);
 
 			menu.addMenuClickHandler(slot, (pl, s, is, action) -> {
@@ -589,7 +589,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 
 		}
 		else {
-			menu.addItem(slot, new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&7\u21E6 Back", "", "&rLeft Click: &7Go back to Main Menu"));
+			menu.addItem(slot, new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&7\u21E6 Назад", "", "&rЛевый клик: &7основное меню"));
 			menu.addMenuClickHandler(slot, (pl, s, is, action) -> {
 				openMainMenu(profile, survival, 1);
 				return false;
@@ -602,8 +602,8 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			SlimefunItem slimefunItem = SlimefunItem.getByItem(item);
 			if (slimefunItem == null) return item;
 
-			String lore = Slimefun.hasPermission(p, slimefunItem, false) ? "&rNeeds to be unlocked elsewhere" : "&rNo Permission";
-			return Slimefun.hasUnlocked(p, slimefunItem, false) ? item: new CustomItem(Material.BARRIER, ItemUtils.getItemName(item), "&4&lLOCKED", "", lore);
+			String lore = Slimefun.hasPermission(p, slimefunItem, false) ? "&rДолжно быть разблокировано в одной из категорий" : "&rУ Вас нет прав для этого";
+			return Slimefun.hasUnlocked(p, slimefunItem, false) ? item: new CustomItem(Material.BARRIER, ItemUtils.getItemName(item), "&4&lЗАКРЫТО", "", lore);
 		}
 		else {
 			return item;
@@ -623,7 +623,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 				}
 			}
 			else {
-				menu.replaceExistingItem(28, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a\u21E6 Previous Page"));
+				menu.replaceExistingItem(28, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a\u21E6 Предыдущая страница"));
 				menu.addMenuClickHandler(28, (pl, slot, itemstack, action) -> {
 					displayRecipes(profile, menu, sfItem, page - 1);
 					pl.playSound(pl.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1, 1);
@@ -632,7 +632,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			}
 
 			if (recipes.size() > (18 * (page + 1))) {
-				menu.replaceExistingItem(34, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aNext Page \u21E8"));
+				menu.replaceExistingItem(34, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aСледующая страница \u21E8"));
 				menu.addMenuClickHandler(34, (pl, slot, itemstack, action) -> {
 					displayRecipes(profile, menu, sfItem, page + 1);
 					pl.playSound(pl.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1, 1);
@@ -671,7 +671,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 	}
 	
 	private static ChestMenu create() {
-		ChestMenu menu = new ChestMenu("Slimefun Guide");
+		ChestMenu menu = new ChestMenu("Руководство Slimefun");
 
 		menu.setEmptySlotsClickable(false);
 		menu.addMenuOpeningHandler(pl -> pl.playSound(pl.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1, 1));

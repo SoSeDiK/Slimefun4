@@ -94,8 +94,8 @@ public class EnhancedCraftingTable extends MultiBlockMachine {
 
 							if (backpack != null) {
 								for (String line: backpack.getItemMeta().getLore()) {
-									if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&7ID: ")) && line.contains("#")) {
-										id = line.replace(ChatColor.translateAlternateColorCodes('&', "&7ID: "), "");
+									if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: ")) && line.contains("#")) {
+										id = line.replace(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: "), "");
 										PlayerProfile.fromUUID(UUID.fromString(id.split("#")[0])).getBackpack(Integer.parseInt(id.split("#")[1])).setSize(size);
 										break;
 									}
@@ -104,7 +104,7 @@ public class EnhancedCraftingTable extends MultiBlockMachine {
 
 							if (id.equals("")) {
 								for (int line = 0; line < adding.getItemMeta().getLore().size(); line++) {
-									if (adding.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7ID: <ID>"))) {
+									if (adding.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: <отсутствует>"))) {
 										int backpackID = PlayerProfile.get(p).createBackpack(size).getID();
 
                                         BackpackListener.setBackpackId(p, adding, line, backpackID);
@@ -113,10 +113,10 @@ public class EnhancedCraftingTable extends MultiBlockMachine {
 							}
 							else {
 								for (int line = 0; line < adding.getItemMeta().getLore().size(); line++) {
-									if (adding.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7ID: <ID>"))) {
+									if (adding.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: <отсутствует>"))) {
 										ItemMeta im = adding.getItemMeta();
 										List<String> lore = im.getLore();
-										lore.set(line, lore.get(line).replace("<ID>", id));
+										lore.set(line, lore.get(line).replace("<отсутствует>", id));
 										im.setLore(lore);
 										adding.setItemMeta(im);
 										break;

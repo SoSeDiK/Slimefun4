@@ -31,16 +31,16 @@ public final class IntegerFormat {
 		int hours = (int) ((System.currentTimeMillis() - timestamp) / (1000 * 60 * 60));
 		
 		if (hours == 0) {
-			return "> 1h";
+			return "> 1ч";
 		}
 		else if ((hours / 24) == 0) {
-			return (hours % 24) + "h";
+			return (hours % 24) + "ч";
 		}
 		else if (hours % 24 == 0) {
-			return (hours / 24) + "d";
+			return (hours / 24) + "д";
 		}
 		else {
-			return (hours / 24) + "d " + (hours % 24) + "h";
+			return (hours / 24) + "д " + (hours % 24) + "ч";
 		}
 	}
 

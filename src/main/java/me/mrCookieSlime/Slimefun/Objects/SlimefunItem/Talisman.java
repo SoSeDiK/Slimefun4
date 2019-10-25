@@ -80,14 +80,14 @@ public class Talisman extends SlimefunItem {
 
     public SlimefunItemStack upgrade() {
         List<String> lore = new ArrayList<>();
-        lore.add("&7&oEnder Infused");
+        lore.add("&7&oПропитан энергией Эндера");
         lore.add("");
         
         for (String line : getItem().getItemMeta().getLore()) {
             lore.add(line);
         }
         
-        return new SlimefunItemStack("ENDER_" + getID(), getItem().getType(), "&5Ender " + ChatColor.stripColor(getItem().getItemMeta().getDisplayName()), lore.toArray(new String[lore.size()]));
+        return new SlimefunItemStack("ENDER_" + getID(), getItem().getType(), "&5Эндер-" + ChatColor.stripColor(getItem().getItemMeta().getDisplayName().toLowerCase()), lore.toArray(new String[lore.size()]));
     }
 
     @Override

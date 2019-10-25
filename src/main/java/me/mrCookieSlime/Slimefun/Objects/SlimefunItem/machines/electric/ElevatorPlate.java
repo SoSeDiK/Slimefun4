@@ -24,7 +24,7 @@ public class ElevatorPlate extends SimpleSlimefunItem<ItemInteractionHandler> {
 
 			@Override
 			public void onPlace(Player p, Block b, SlimefunItem item) {
-				BlockStorage.addBlockInfo(b, "floor", "&rFloor #0");
+				BlockStorage.addBlockInfo(b, "floor", "&rЭтаж #0");
 				BlockStorage.addBlockInfo(b, "owner", p.getUniqueId().toString());
 			}
 

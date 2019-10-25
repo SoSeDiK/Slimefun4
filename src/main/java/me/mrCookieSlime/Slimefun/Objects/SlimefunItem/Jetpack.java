@@ -11,7 +11,7 @@ public class Jetpack extends DamagableChargableItem {
 	private final double thrust;
 
 	public Jetpack(SlimefunItemStack item, ItemStack[] recipe, double thrust) {
-		super(Categories.TECH, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe, "Jetpack");
+		super(Categories.TECH, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe, "Реактивный ранец");
 		this.thrust = thrust;
 	}
 	

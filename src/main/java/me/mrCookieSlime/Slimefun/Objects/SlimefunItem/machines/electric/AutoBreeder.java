@@ -32,7 +32,7 @@ public class AutoBreeder extends SlimefunItem implements InventoryBlock {
 	
 	public AutoBreeder(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, recipeType, recipe);
-		createPreset(this, "&6Auto Breeder", this::constructMenu);
+		createPreset(this, "&6Автоматизированный размножитель", this::constructMenu);
 		
 		registerBlockHandler(getID(), (p, b, tool, reason) -> {
 			BlockMenu inv = BlockStorage.getInventory(b);

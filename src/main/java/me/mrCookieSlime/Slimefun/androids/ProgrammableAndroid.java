@@ -141,7 +141,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 			registerFuel(new MachineFuel(3000, SlimefunItems.BOOSTED_URANIUM));
 		}
 
-		new BlockMenuPreset(name, "Programmable Android") {
+		new BlockMenuPreset(name, "Программируемый Андроид") {
 
 			@Override
 			public void init() {
@@ -164,7 +164,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 			@Override
 			public void newInstance(BlockMenu menu, final Block b) {
 				try {
-					menu.replaceExistingItem(15, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTAxYzdiNTcyNjE3ODk3NGIzYjNhMDFiNDJhNTkwZTU0MzY2MDI2ZmQ0MzgwOGYyYTc4NzY0ODg0M2E3ZjVhIn19fQ=="), "&aStart/Continue"));
+					menu.replaceExistingItem(15, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTAxYzdiNTcyNjE3ODk3NGIzYjNhMDFiNDJhNTkwZTU0MzY2MDI2ZmQ0MzgwOGYyYTc4NzY0ODg0M2E3ZjVhIn19fQ=="), "&aНачать/Продолжить"));
 					menu.addMenuClickHandler(15, (p, slot, item, action) -> {
 						SlimefunPlugin.getLocal().sendMessage(p, "robot.started", true);
 						BlockStorage.addBlockInfo(b, "paused", "false");
@@ -172,14 +172,14 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 						return false;
 					});
 
-					menu.replaceExistingItem(17, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYxMzlmZDFjNTY1NGU1NmU5ZTRlMmM4YmU3ZWIyYmQ1YjQ5OWQ2MzM2MTY2NjNmZWVlOTliNzQzNTJhZDY0In19fQ=="), "&4Pause"));
+					menu.replaceExistingItem(17, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYxMzlmZDFjNTY1NGU1NmU5ZTRlMmM4YmU3ZWIyYmQ1YjQ5OWQ2MzM2MTY2NjNmZWVlOTliNzQzNTJhZDY0In19fQ=="), "&4Остановиться"));
 					menu.addMenuClickHandler(17, (p, slot, item, action) -> {
 						BlockStorage.addBlockInfo(b, "paused", "true");
 						SlimefunPlugin.getLocal().sendMessage(p, "robot.stopped", true);
 						return false;
 					});
 
-					menu.replaceExistingItem(16, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDc4ZjJiN2U1ZTc1NjM5ZWE3ZmI3OTZjMzVkMzY0YzRkZjI4YjQyNDNlNjZiNzYyNzdhYWRjZDYyNjEzMzcifX19"), "&bMemory Core", "", "&8\u21E8 &7Click to open the Script Editor"));
+					menu.replaceExistingItem(16, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDc4ZjJiN2U1ZTc1NjM5ZWE3ZmI3OTZjMzVkMzY0YzRkZjI4YjQyNDNlNjZiNzYyNzdhYWRjZDYyNjEzMzcifX19"), "&bОперативная память", "", "&8\u21E8 &7Нажмите, чтобы открыть редактор скриптов"));
 					menu.addMenuClickHandler(16, (p, slot, item, action) -> {
 						BlockStorage.addBlockInfo(b, "paused", "true");
 						SlimefunPlugin.getLocal().sendMessage(p, "robot.stopped", true);
@@ -641,39 +641,39 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 		}
 
 		if (getTier() == 1) {
-			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cFuel Input &8\u21E9", "", "&rThis Android runs on solid Fuel", "&re.g. Coal, Wood, etc..."), (p, slot, item, action) -> false);
+			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cТопливный слот &8\u21E9", "", "&rЭтот Андроид работает на твёрдом топливе", "&r(уголь, древесина, доски или огненный стержень)"), (p, slot, item, action) -> false);
 		}
 		else if (getTier() == 2){
-			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cFuel Input &8\u21E9", "", "&rThis Android runs on liquid Fuel", "&re.g. Lava, Oil, Fuel, etc..."), (p, slot, item, action) -> false);
+			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cТопливный слот &8\u21E9", "", "&rЭтот Андроид работает на жидком топливе", "&r(ведро лавы, нефти или топлива)"), (p, slot, item, action) -> false);
 		}
 		else {
-			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cFuel Input &8\u21E9", "", "&rThis Android runs on radioactive Fuel", "&re.g. Uranium, Neptunium or Boosted Uranium"), (p, slot, item, action) -> false);
+			preset.addItem(34, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&8\u21E9 &cТопливный слот &8\u21E9", "", "&rЭтот Андроид работает на радиоактивном топливе", "&r(уран, нептуний или форсированный уран)"), (p, slot, item, action) -> false);
 		}
 	}
 
 	public void openScriptEditor(Player p, final Block b) {
-		ChestMenu menu = new ChestMenu("&eScript Editor");
+		ChestMenu menu = new ChestMenu("&eРедактор cкрипта");
 		
 		try {
-			menu.addItem(1, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDliZjZkYjRhZWRhOWQ4ODIyYjlmNzM2NTM4ZThjMThiOWE0ODQ0Zjg0ZWI0NTUwNGFkZmJmZWU4N2ViIn19fQ=="), "&2> Edit Script", "", "&aEdits your current Script"));
+			menu.addItem(1, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDliZjZkYjRhZWRhOWQ4ODIyYjlmNzM2NTM4ZThjMThiOWE0ODQ0Zjg0ZWI0NTUwNGFkZmJmZWU4N2ViIn19fQ=="), "&2> Редактировать скрипт", "", "&aИзменить структуру текущего скрипта"));
 			menu.addMenuClickHandler(1, (pl, slot, item, action) -> {
 				openScript(pl, b, BlockStorage.getLocationInfo(b.getLocation(), "script"));
 				return false;
 			});
 	
-			menu.addItem(3, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxZDg5NzljMTg3OGEwNTk4N2E3ZmFmMjFiNTZkMWI3NDRmOWQwNjhjNzRjZmZjZGUxZWExZWRhZDU4NTIifX19"), "&4> Create new Script", "", "&cDeletes your current Script", "&cand creates a blank one"));
+			menu.addItem(3, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxZDg5NzljMTg3OGEwNTk4N2E3ZmFmMjFiNTZkMWI3NDRmOWQwNjhjNzRjZmZjZGUxZWExZWRhZDU4NTIifX19"), "&4> Создать новый скрипт", "", "&cУдалить текущий скрипт и создать пустой"));
 			menu.addMenuClickHandler(3, (pl, slot, item, action) -> {
 				openScript(pl, b, "START-TURN_LEFT-REPEAT");
 				return false;
 			});
 	
-			menu.addItem(5, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzAxNTg2ZTM5ZjZmZmE2M2I0ZmIzMDFiNjVjYTdkYThhOTJmNzM1M2FhYWI4OWQzODg2NTc5MTI1ZGZiYWY5In19fQ=="), "&6> Download a Script", "", "&eDownload a Script from the Server", "&eYou can edit or simply use it"));
+			menu.addItem(5, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzAxNTg2ZTM5ZjZmZmE2M2I0ZmIzMDFiNjVjYTdkYThhOTJmNzM1M2FhYWI4OWQzODg2NTc5MTI1ZGZiYWY5In19fQ=="), "&6> Загрузить скрипт", "", "&eУстановить готовый скрипт из доступных", "&eЕго можно отредактировать или сразу использовать"));
 			menu.addMenuClickHandler(5, (pl, slot, item, action) -> {
 				openScriptDownloader(pl, b, 1);
 				return false;
 			});
 	
-			menu.addItem(8, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE4NWM5N2RiYjgzNTNkZTY1MjY5OGQyNGI2NDMyN2I3OTNhM2YzMmE5OGJlNjdiNzE5ZmJlZGFiMzVlIn19fQ=="), "&6> Back", "", "&7Return to the Android's interface"));
+			menu.addItem(8, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE4NWM5N2RiYjgzNTNkZTY1MjY5OGQyNGI2NDMyN2I3OTNhM2YzMmE5OGJlNjdiNzE5ZmJlZGFiMzVlIn19fQ=="), "&6> Назад", "", "&7Вернуться в меню Андроида"));
 			menu.addMenuClickHandler(8, (pl, slot, item, action) -> {
 				BlockStorage.getInventory(b).open(p);
 				return false;
@@ -687,10 +687,10 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 	}
 
 	public void openScript(final Player p, final Block b, final String script) {
-		ChestMenu menu = new ChestMenu("&eScript Editor");
+		ChestMenu menu = new ChestMenu("&eРедактор действий");
 		final String[] commands = script.split("-");
 
-		menu.addItem(0, new CustomItem(ScriptPart.START.toItemStack(), ScriptPart.START.toItemStack().getItemMeta().getDisplayName(), "", "&7\u21E8 &eLeft Click &7to return to the Android's interface"));
+		menu.addItem(0, new CustomItem(ScriptPart.START.toItemStack(), ScriptPart.START.toItemStack().getItemMeta().getDisplayName(), "", "&7\u21E8 &eЛевый клик&7, чтобы вернуться в меню Андроида"));
 		menu.addMenuClickHandler(0, (pl, slot, item, action) -> {
 			BlockStorage.getInventory(b).open(pl);
 			return false;
@@ -704,7 +704,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 
 				if (additional == 1) {
 					try {
-						menu.addItem(i, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxZDg5NzljMTg3OGEwNTk4N2E3ZmFmMjFiNTZkMWI3NDRmOWQwNjhjNzRjZmZjZGUxZWExZWRhZDU4NTIifX19"), "&7> Add new Command"));
+						menu.addItem(i, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTcxZDg5NzljMTg3OGEwNTk4N2E3ZmFmMjFiNTZkMWI3NDRmOWQwNjhjNzRjZmZjZGUxZWExZWRhZDU4NTIifX19"), "&7> Добавить новое действие"));
 						menu.addMenuClickHandler(i, (pl, slot, item, action) -> {
 							openScriptComponentEditor(pl, b, script, index);
 							return false;
@@ -715,7 +715,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 					}
 				}
 
-				menu.addItem(i + additional, new CustomItem(ScriptPart.REPEAT.toItemStack(), ScriptPart.REPEAT.toItemStack().getItemMeta().getDisplayName(), "", "&7\u21E8 &eLeft Click &7to return to the Android's interface"));
+				menu.addItem(i + additional, new CustomItem(ScriptPart.REPEAT.toItemStack(), ScriptPart.REPEAT.toItemStack().getItemMeta().getDisplayName(), "", "&7\u21E8 &eЛевый клик&7, чтобы вернуться в меню Андроида"));
 				menu.addMenuClickHandler(i + additional, (pl, slot, item, action) -> {
 					BlockStorage.getInventory(b).open(pl);
 					return false;
@@ -723,7 +723,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 			}
 			else {
 				ItemStack stack = ScriptPart.valueOf(commands[i]).toItemStack();
-				menu.addItem(i, new CustomItem(stack, stack.getItemMeta().getDisplayName(), "", "&7\u21E8 &eLeft Click &7to edit", "&7\u21E8 &eRight Click &7to delete", "&7\u21E8 &eShift + Right Click &7to duplicate"));
+				menu.addItem(i, new CustomItem(stack, stack.getItemMeta().getDisplayName(), "", "&7\u21E8 &eЛевый клик &7для редактирования", "&7\u21E8 &eПравый клик &7для удаления", "&7\u21E8 &eShift + правый клик &7для создания копии"));
 				menu.addMenuClickHandler(i, (pl, slot, item, action) -> {
 					if (action.isRightClicked() && action.isShiftClicked()) {
 						if (commands.length == 54) return false;
@@ -769,7 +769,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 	}
 
 	private void openScriptDownloader(final Player p, final Block b, final int page) {
-		final ChestMenu menu = new ChestMenu("Android Scripts");
+		final ChestMenu menu = new ChestMenu("Доступные скрипты для Андроида");
 
 		menu.addMenuOpeningHandler(pl -> pl.playSound(pl.getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 0.7F, 0.7F));
 
@@ -783,7 +783,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 			menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
 		}
 
-		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Previous Page", "", "&7(" + page + " / " + pages + ")"));
+		menu.addItem(46, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&r\u21E6 Предыдущая страница", "", "&7(" + page + " / " + pages + ")"));
 		menu.addMenuClickHandler(46, (pl, slot, item, action) -> {
 			int next = page - 1;
 			if (next < 1) next = pages;
@@ -794,7 +794,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 		});
 		
 		try {
-			menu.addItem(48, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTA1YTJjYWI4YjY4ZWE1N2UzYWY5OTJhMzZlNDdjOGZmOWFhODdjYzg3NzYyODE5NjZmOGMzY2YzMWEzOCJ9fX0="), "&eUpload a Script", "", "&6Click &7to upload your Android's Script", "&7to the Database"));
+			menu.addItem(48, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTA1YTJjYWI4YjY4ZWE1N2UzYWY5OTJhMzZlNDdjOGZmOWFhODdjYzg3NzYyODE5NjZmOGMzY2YzMWEzOCJ9fX0="), "&eПоделиться скриптом", "", "&6Нажмите&7, чтобы загрузить текущий", "&7скрипт в базу данных"));
 			menu.addMenuClickHandler(48, (pl, slot, item, action) -> {
 				final String code = BlockStorage.getLocationInfo(b.getLocation(), "script");
 				int num = 1;
@@ -831,7 +831,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 				return false;
 			});
 	
-			menu.addItem(50, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rNext Page \u21E8", "", "&7(" + page + " / " + pages + ")"));
+			menu.addItem(50, new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&rСледующая страница \u21E8", "", "&7(" + page + " / " + pages + ")"));
 			menu.addMenuClickHandler(50, (pl, slot, item, action) -> {
 				int next = page + 1;
 				if (next > pages) next = 1;
@@ -841,7 +841,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 				return false;
 			});
 	
-			menu.addItem(53, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE4NWM5N2RiYjgzNTNkZTY1MjY5OGQyNGI2NDMyN2I3OTNhM2YzMmE5OGJlNjdiNzE5ZmJlZGFiMzVlIn19fQ=="), "&6> Back", "", "&7Return to the Android's interface"));
+			menu.addItem(53, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTE4NWM5N2RiYjgzNTNkZTY1MjY5OGQyNGI2NDMyN2I3OTNhM2YzMmE5OGJlNjdiNzE5ZmJlZGFiMzVlIn19fQ=="), "&6> Назад", "", "&7Вернуться в меню Андроида"));
 			menu.addMenuClickHandler(53, (pl, slot, item, action) -> {
 				openScriptEditor(pl, b);
 				return false;
@@ -863,10 +863,10 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 				String author = (op != null && op.getName() != null) ? op.getName(): script.getString("author_name");
 
 				if (script.getString("author").equals(p.getUniqueId().toString())) {
-					menu.addItem(index, new CustomItem(this.getItem(), "&b" + script.getString("name"), "&7by &r" + author, "", "&7Downloads: &r" + script.getInt("downloads"), "&7Rating: " + getScriptRatingPercentage(script), "&a" + getScriptRating(script, true) + " \u263A &7- &4\u2639 " + getScriptRating(script, false), "", "&eLeft Click &rto download this Script", "&4(This will override your current Script)"));
+					menu.addItem(index, new CustomItem(this.getItem(), "&b" + script.getString("name"), "&7от &r" + author, "", "&7Загрузок: &r" + script.getInt("downloads"), "&7Оценка: " + getScriptRatingPercentage(script), "&a" + getScriptRating(script, true) + " \u263A &7- &4\u2639 " + getScriptRating(script, false), "", "&eЛевый клик &rдля загрузки скрипта", "&4(это перезапишет Ваш текущий скрипт)"));
 				}
 				else {
-					menu.addItem(index, new CustomItem(this.getItem(), "&b" + script.getString("name"), "&7by &r" + author, "", "&7Downloads: &r" + script.getInt("downloads"), "&7Rating: " + getScriptRatingPercentage(script), "&a" + getScriptRating(script, true) + " \u263A &7- &4\u2639 " + getScriptRating(script, false), "", "&eLeft Click &rto download this Script", "&4(This will override your current Script)", "&eShift + Left Click &rto leave a positive Rating", "&eShift + Right Click &rto leave a negative Rating"));
+					menu.addItem(index, new CustomItem(this.getItem(), "&b" + script.getString("name"), "&7от &r" + author, "", "&7Загрузок: &r" + script.getInt("downloads"), "&7Оценка: " + getScriptRatingPercentage(script), "&a" + getScriptRating(script, true) + " \u263A &7- &4\u2639 " + getScriptRating(script, false), "", "&eЛевый клик &rдля загрузки скрипта", "&4(это перезапишет Ваш текущий скрипт)", "&eShift + левый клик&r, чтобы оставить хороший отзыв", "&eShift + правый клик&r, чтобы оставить плохой отзыв"));
 				}
 
 				menu.addMenuClickHandler(index, (pl, slot, item, action) -> {
@@ -946,7 +946,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 	}
 
 	protected void openScriptComponentEditor(Player p, final Block b, final String script, final int index) {
-		ChestMenu menu = new ChestMenu("&eScript Editor");
+		ChestMenu menu = new ChestMenu("&eРедактор действий");
 
 		final String[] commands = script.split("-");
 
@@ -955,7 +955,7 @@ public abstract class ProgrammableAndroid extends SlimefunItem implements Invent
 		}
 		
 		try {
-			menu.addItem(9, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYxMzlmZDFjNTY1NGU1NmU5ZTRlMmM4YmU3ZWIyYmQ1YjQ5OWQ2MzM2MTY2NjNmZWVlOTliNzQzNTJhZDY0In19fQ=="), "&rDo nothing"), (pl, slot, item, action) -> {
+			menu.addItem(9, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYxMzlmZDFjNTY1NGU1NmU5ZTRlMmM4YmU3ZWIyYmQ1YjQ5OWQ2MzM2MTY2NjNmZWVlOTliNzQzNTJhZDY0In19fQ=="), "&rНичего не делать"), (pl, slot, item, action) -> {
 				int i = 0;
 				StringBuilder builder = new StringBuilder("START-");
 				

@@ -25,7 +25,7 @@ public class EnergyRegulator extends SlimefunItem {
 			@Override
 			public void onPlace(Player p, Block b, SlimefunItem item) {
 				// Spawn the hologram
-				EnergyHologram.update(b, "&7Connecting...");
+				EnergyHologram.update(b, "&7Подключение...");
 			}
 
 			@Override

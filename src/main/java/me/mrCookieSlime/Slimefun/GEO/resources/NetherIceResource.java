@@ -15,7 +15,7 @@ public class NetherIceResource implements OreGenResource {
 
 	@Override
 	public String getName() {
-		return "Nether Ice";
+		return "Незеритовый лёд";
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class NetherIceResource implements OreGenResource {
 
 	@Override
 	public String getMeasurementUnit() {
-		return "Blocks";
+		return "Блоков";
 	}
 
 	@Override

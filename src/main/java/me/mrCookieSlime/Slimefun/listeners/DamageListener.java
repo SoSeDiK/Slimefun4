@@ -36,7 +36,7 @@ public class DamageListener implements Listener {
         if (e.getEntity() instanceof Player) {
             Player p = (Player) e.getEntity();
             if (p.getInventory().containsAtLeast(SlimefunItems.GPS_EMERGENCY_TRANSMITTER, 1)) {
-                Slimefun.getGPSNetwork().addWaypoint(p, "&4Deathpoint &7" + format.format(new Date()), p.getLocation().getBlock().getLocation());
+                Slimefun.getGPSNetwork().addWaypoint(p, "&4Точка смерти &7" + format.format(new Date()), p.getLocation().getBlock().getLocation());
             }
             
             for (int slot = 0; slot < p.getInventory().getSize(); slot++) {

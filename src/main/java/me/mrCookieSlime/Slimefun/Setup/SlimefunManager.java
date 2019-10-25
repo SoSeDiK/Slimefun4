@@ -129,11 +129,11 @@ public final class SlimefunManager {
 
 		String colors = ChatColor.YELLOW.toString() + ChatColor.YELLOW.toString() + ChatColor.GRAY.toString();
 		for (String string: lore) {
-			if (!string.equals(ChatColor.GRAY + "Soulbound") && !string.startsWith(colors)) string1.append("-NEW LINE-").append(string);
+			if (!string.equals(ChatColor.GRAY + "Персонализированный предмет") && !string.startsWith(colors)) string1.append("-NEW LINE-").append(string);
 		}
 
 		for (String string: lore2) {
-			if (!string.equals(ChatColor.GRAY + "Soulbound") && !string.startsWith(colors)) string2.append("-NEW LINE-").append(string);
+			if (!string.equals(ChatColor.GRAY + "Персонализированный предмет") && !string.startsWith(colors)) string2.append("-NEW LINE-").append(string);
 		}
 		return string1.toString().equals(string2.toString());
 	}
@@ -157,7 +157,7 @@ public final class SlimefunManager {
 			}
 			else if (item.hasItemMeta()) {
 				ItemMeta im = item.getItemMeta();
-				return (im.hasLore() && im.getLore().contains(ChatColor.GRAY + "Soulbound"));
+				return (im.hasLore() && im.getLore().contains(ChatColor.GRAY + "Персонализированный предмет"));
 			}
 			return false;
 		}

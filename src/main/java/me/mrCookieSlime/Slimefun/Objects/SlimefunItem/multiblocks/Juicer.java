@@ -27,7 +27,7 @@ public class Juicer extends MultiBlockMachine {
 				Categories.MACHINES_1, 
 				SlimefunItems.JUICER, 
 				"JUICER",
-				new ItemStack[] {null, new ItemStack(Material.GLASS), null, null, new ItemStack(Material.NETHER_BRICK_FENCE), null, null, new CustomItem(Material.DISPENSER, "Dispenser (Facing up)"), null},
+				new ItemStack[] {null, new ItemStack(Material.GLASS), null, null, new ItemStack(Material.NETHER_BRICK_FENCE), null, null, new CustomItem(Material.DISPENSER, "Раздатчик (направлен вверх)"), null},
 				new ItemStack[0],
 				BlockFace.SELF
 		);

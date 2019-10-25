@@ -35,7 +35,7 @@ public class TeleporterCommand extends SubCommand {
 			}
 			else SlimefunPlugin.getLocal().sendMessage(sender, "messages.no-permission", true);
 		}
-		else SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf teleporter <Player>"));
+		else SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf teleporter <игрок>"));
 	}
 
 }

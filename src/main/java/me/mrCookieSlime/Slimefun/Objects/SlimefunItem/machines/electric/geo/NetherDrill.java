@@ -19,7 +19,7 @@ public abstract class NetherDrill extends ADrill {
 
 	@Override
 	public OreGenResource getOreGenResource() {
-		return OreGenSystem.getResource("Nether Ice");
+		return OreGenSystem.getResource("Незеритовый лёд");
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public abstract class NetherDrill extends ADrill {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&4Nether Drill";
+		return "&4Незеритовый бур";
 	}
 
 	@Override

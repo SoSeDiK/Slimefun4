@@ -31,7 +31,7 @@ public class SearchCommand extends SubCommand {
 					PlayerProfile.get((Player) sender, profile -> SlimefunGuide.openSearch(profile, query, true, true));
 				}
 				else {
-					SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf search <SearchTerm>"));
+					SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf search <термин для поиска>"));
 				}
 			}
 			else {

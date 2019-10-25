@@ -43,7 +43,7 @@ public abstract class CoalGenerator extends AGenerator {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&cCoal Generator";
+		return "&cУгольный генератор";
 	}
 
 }

@@ -38,7 +38,7 @@ public class BackpackInventory {
 		cfg.setValue("backpacks." + id + ".size", size);
 		profile.markDirty();
 		
-		inventory = Bukkit.createInventory(null, size, "Backpack [" + size + " Slots]");
+		inventory = Bukkit.createInventory(null, size, "Рюкзак [" + size + " слотов]");
 	}
 	
 	public int getID() {
@@ -63,7 +63,7 @@ public class BackpackInventory {
 		this.size = size;
 		cfg.setValue("backpacks." + id + ".size", size);
 		
-		Inventory inventory = Bukkit.createInventory(null, size, "Backpack [" + size + " Slots]");
+		Inventory inventory = Bukkit.createInventory(null, size, "Рюкзак [" + size + " слотов]");
 		
 		for (int slot = 0; slot < this.inventory.getSize(); slot++) {
 			inventory.setItem(slot, this.inventory.getItem(slot));

@@ -11,7 +11,7 @@ public class JetBoots extends DamagableChargableItem {
 	private double speed;
 
 	public JetBoots(SlimefunItemStack item, ItemStack[] recipe, double speed) {
-		super(Categories.TECH, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe, "Jet Boots");
+		super(Categories.TECH, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe, "Реактивные сапоги");
 		this.speed = speed;
 	}
 	

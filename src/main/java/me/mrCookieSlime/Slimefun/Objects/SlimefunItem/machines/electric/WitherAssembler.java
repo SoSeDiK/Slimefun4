@@ -43,7 +43,7 @@ public class WitherAssembler extends SlimefunItem {
 	public WitherAssembler(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
 		
-		new BlockMenuPreset(name, "&5Wither Assembler") {
+		new BlockMenuPreset(name, "&5Иссушающий ассемблер") {
 			
 			@Override
 			public void init() {
@@ -54,7 +54,7 @@ public class WitherAssembler extends SlimefunItem {
 			public void newInstance(final BlockMenu menu, final Block b) {
 				try {
 					if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals("false")) {
-						menu.replaceExistingItem(22, new CustomItem(new ItemStack(Material.GUNPOWDER), "&7Enabled: &4\u2718", "", "&e> Click to enable this Machine"));
+						menu.replaceExistingItem(22, new CustomItem(new ItemStack(Material.GUNPOWDER), "&7Состояние: &4\u2718", "", "&e> Нажмите для включения"));
 						menu.addMenuClickHandler(22, (p, slot, item, action) -> {
 							BlockStorage.addBlockInfo(b, "enabled", "true");
 							newInstance(menu, b);
@@ -62,7 +62,7 @@ public class WitherAssembler extends SlimefunItem {
 						});
 					}
 					else {
-						menu.replaceExistingItem(22, new CustomItem(new ItemStack(Material.REDSTONE), "&7Enabled: &2\u2714", "", "&e> Click to disable this Machine"));
+						menu.replaceExistingItem(22, new CustomItem(new ItemStack(Material.REDSTONE), "&7Состояние: &2\u2714", "", "&e> Нажмите для отключения"));
 						menu.addMenuClickHandler(22, (p, slot, item, action) -> {
 							BlockStorage.addBlockInfo(b, "enabled", "false");
 							newInstance(menu, b);
@@ -72,7 +72,7 @@ public class WitherAssembler extends SlimefunItem {
 					
 					double offset = (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "offset") == null) ? 3.0F: Double.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "offset"));
 					
-					menu.replaceExistingItem(31, new CustomItem(new ItemStack(Material.PISTON), "&7Offset: &3" + offset + " Block(s)", "", "&rLeft Click: &7+0.1", "&rRight Click: &7-0.1"));
+					menu.replaceExistingItem(31, new CustomItem(new ItemStack(Material.PISTON), "&7Смещение: &3" + offset + " блок(ов)", "", "&rЛевый клик: &7+0.1", "&rПравый клик: &7-0.1"));
 					menu.addMenuClickHandler(31, (p, slot, item, action) -> {
 						double offsetv = DoubleHandler.fixDouble(Double.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "offset")) + (action.isRightClicked() ? -0.1F : 0.1F));
 						BlockStorage.addBlockInfo(b, "offset", String.valueOf(offsetv));
@@ -155,15 +155,15 @@ public class WitherAssembler extends SlimefunItem {
 			);
 		}
 		
-		preset.addItem(1, new CustomItem(new ItemStack(Material.WITHER_SKELETON_SKULL, (byte) 1), "&7Wither Skull Slot", "", "&rThis Slot accepts Wither Skeleton Skulls"),
+		preset.addItem(1, new CustomItem(new ItemStack(Material.WITHER_SKELETON_SKULL, (byte) 1), "&7Слот для черепов Визер-скелета", "", "&rПринимает головы Визер-скелетов"),
 			(p, slot, item, action) -> false
 		);
 		
-		preset.addItem(7, new CustomItem(new ItemStack(Material.SOUL_SAND), "&7Soul Sand Slot", "", "&rThis Slot accepts Soul Sand"),
+		preset.addItem(7, new CustomItem(new ItemStack(Material.SOUL_SAND), "&7Слот для песка душ", "", "&rПринимает песок душ"),
 			(p, slot, item, action) -> false
 		);
 		
-		preset.addItem(13, new CustomItem(new ItemStack(Material.CLOCK), "&7Cooldown: &b30 Seconds", "", "&rThis Machine takes up to half a Minute to operate", "&rso give it some Time!"),
+		preset.addItem(13, new CustomItem(new ItemStack(Material.CLOCK), "&7Задержка: &b30 секунд", "", "&rЭтой машине нужно полминуты, чтобы начать работать.", "&rПоэтому подождите немного!"),
 			(p, slot, item, action) -> false
 		);
 	}

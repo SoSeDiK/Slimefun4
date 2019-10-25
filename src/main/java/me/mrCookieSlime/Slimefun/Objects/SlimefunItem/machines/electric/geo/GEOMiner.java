@@ -46,7 +46,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 			@Override
 			public void onPlace(Player p, Block b, SlimefunItem item) {
 				// Spawn the hologram
-				SimpleHologram.update(b, "&7Idling...");
+				SimpleHologram.update(b, "&7Ожидание...");
 			}
 
 			@Override
@@ -79,7 +79,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 	
 	@Override
 	public String getInventoryTitle() {
-		return "&6GEO-Miner";
+		return "&6Геокопатель";
 	}
 	
 	@Override
@@ -170,7 +170,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 			}
 		}
 		else if (!BlockStorage.hasChunkInfo(b.getChunk())) {
-			SimpleHologram.update(b, "&4GEO-Scan required!");
+			SimpleHologram.update(b, "&4Требуется геосканирование!");
 		}
 		else {
 			Chunk chunk = b.getChunk();
@@ -178,7 +178,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 			for (OreGenResource resource: OreGenSystem.listResources()) {
 				if (!resource.isLiquid()) {
 					if (!OreGenSystem.wasResourceGenerated(resource, chunk)) {
-						SimpleHologram.update(b, "&4GEO-Scan required!");
+						SimpleHologram.update(b, "&4Требуется геосканирование!");
 						return;
 					}
 					else {
@@ -190,7 +190,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 							processing.put(b, r);
 							progress.put(b, r.getTicks());
 							OreGenSystem.setSupplies(resource, b.getChunk(), supplies - 1);
-							SimpleHologram.update(b, "&7Mining: &r" + resource.getName());
+							SimpleHologram.update(b, "&7Добыча: &r" + resource.getName().toLowerCase());
 							return;
 						}
 					}
@@ -198,7 +198,7 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 				}
 			}
 			
-			SimpleHologram.update(b, "&7Finished");
+			SimpleHologram.update(b, "&7Завершено");
 		}
 	}
 	

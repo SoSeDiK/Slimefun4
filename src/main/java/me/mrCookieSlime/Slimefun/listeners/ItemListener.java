@@ -258,7 +258,7 @@ public class ItemListener implements Listener {
 							if (index == modes.size()) index = 0;
 
 							final int finalIndex = index;
-							SlimefunPlugin.getLocal().sendMessage(p, "messages.mode-change", true, msg -> msg.replace("%device%", "Multi Tool").replace("%mode%", (String) Slimefun.getItemValue(slimefunItem.getID(), "mode." + modes.get(finalIndex) + ".name")));
+							SlimefunPlugin.getLocal().sendMessage(p, "messages.mode-change", true, msg -> msg.replace("%device%", "Мультиинструмент").replace("%mode%", (String) Slimefun.getItemValue(slimefunItem.getID(), "mode." + modes.get(finalIndex) + ".name")));
 							utilities.mode.put(p.getUniqueId(), index);
 						}
 					}

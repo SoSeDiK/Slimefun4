@@ -76,7 +76,7 @@ public class SoulboundRune extends SimpleSlimefunItem<ItemDropHandler> {
                                 l.getWorld().createExplosion(l, 0.0F);
                                 l.getWorld().playSound(l, Sound.ENTITY_GENERIC_EXPLODE, 0.3F, 1F);
 
-                                lore.add(ChatColor.GRAY + "Soulbound");
+                                lore.add(ChatColor.GRAY + "Персонализированный предмет");
 
                                 enchMeta.setLore(lore);
                                 ench.setItemMeta(enchMeta);

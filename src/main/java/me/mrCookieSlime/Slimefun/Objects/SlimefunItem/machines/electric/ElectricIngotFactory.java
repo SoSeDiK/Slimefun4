@@ -41,7 +41,7 @@ public abstract class ElectricIngotFactory extends AContainer implements RecipeD
 
 	@Override
 	public String getInventoryTitle() {
-		return "&cElectric Ingot Factory";
+		return "&cЭлектрический завод слитков";
 	}
 
 }

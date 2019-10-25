@@ -33,7 +33,7 @@ public class XPCollector extends SlimefunItem implements InventoryBlock {
 	
 	public XPCollector(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
-		createPreset(this, "&aEXP Collector", this::constructMenu);
+		createPreset(this, "&aХранилище опыта", this::constructMenu);
 		
 		registerBlockHandler(name, new SlimefunBlockHandler() {
 			
@@ -111,9 +111,9 @@ public class XPCollector extends SlimefunItem implements InventoryBlock {
 			
 			int withdrawn = 0;
 			for (int level = 0; level < getEXP(b); level = level + 10) {
-				if (fits(b, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"))) {
+				if (fits(b, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"))) {
 					withdrawn = withdrawn + 10;
-					pushItems(b, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"));
+					pushItems(b, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"));
 				}
 			}
 			BlockStorage.addBlockInfo(b, "stored-exp", String.valueOf(xp - withdrawn));

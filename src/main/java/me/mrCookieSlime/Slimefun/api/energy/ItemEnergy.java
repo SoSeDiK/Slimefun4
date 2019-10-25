@@ -13,14 +13,14 @@ public final class ItemEnergy {
 	
 	private ItemEnergy() {}
 	
-	//	"&c&o&8\u21E8 &e\u26A1 &70 / 50 J"
+	//	"&c&o&8\u21E8 &e\u26A1 &70 / 50 Дж"
 	
 	public static float getStoredEnergy(ItemStack item) {
 		if (item == null || item.getType() == null || item.getType() == Material.AIR) return 0F;
 		if (!item.hasItemMeta() || !item.getItemMeta().hasLore()) return 0F;
 		
 		for (String line: item.getItemMeta().getLore()) {
-			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" J")) {
+			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" Дж")) {
 				return Float.valueOf(line.split(" / ")[0].replace(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7"), ""));
 			}
 		}
@@ -33,7 +33,7 @@ public final class ItemEnergy {
 		if (!item.hasItemMeta() || !item.getItemMeta().hasLore()) return 0F;
 
 		for (String line: item.getItemMeta().getLore()) {
-			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" J")) {
+			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" Дж")) {
 				return Float.valueOf(line.split(" / ")[1].replace(" J", ""));
 			}
 		}
@@ -70,7 +70,7 @@ public final class ItemEnergy {
 		int index = -1;
 		for (int i = 0; i < lore.size(); i++) {
 			String line = lore.get(i);
-			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" J")) {
+			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" Дж")) {
 				index = i;
 				break;
 			}
@@ -78,7 +78,7 @@ public final class ItemEnergy {
 
 		BigDecimal decimal = BigDecimal.valueOf(stored).setScale(2, BigDecimal.ROUND_HALF_UP);
 
-		lore.set(index, ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7") + decimal.floatValue() + " / " + capacity + " J");
+		lore.set(index, ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7") + decimal.floatValue() + " / " + capacity + " Дж");
 		
 		ItemMeta im = item.getItemMeta();
 		im.setLore(lore);

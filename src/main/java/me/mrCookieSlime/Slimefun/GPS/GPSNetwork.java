@@ -63,7 +63,7 @@ public class GPSNetwork {
 	}
 	
 	public void openTransmitterControlPanel(Player p) {
-		ChestMenu menu = new ChestMenu("&9Control Panel");
+		ChestMenu menu = new ChestMenu("&9Панель управления");
 		
 		for (int slot : border) {
 			menu.addItem(slot, new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), " "),
@@ -72,17 +72,17 @@ public class GPSNetwork {
 		}
 		
 		try {
-			menu.addItem(2, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&7Transmitter Overview &e(Selected)"));
+			menu.addItem(2, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&7Просмотр передатчика &e(выбрано)"));
 			menu.addMenuClickHandler(2,
 				(pl, slot, item, action) -> false
 			);
 			
-			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRjZmJhNThmYWYxZjY0ODQ3ODg0MTExODIyYjY0YWZhMjFkN2ZjNjJkNDQ4MWYxNGYzZjNiY2I2MzMwIn19fQ=="), "&7Network Info", "", "&8\u21E8 &7Status: " + (getNetworkComplexity(p.getUniqueId()) > 0 ? "&2&lONLINE": "&4&lOFFLINE"), "&8\u21E8 &7Complexity: &r" + getNetworkComplexity(p.getUniqueId())));
+			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRjZmJhNThmYWYxZjY0ODQ3ODg0MTExODIyYjY0YWZhMjFkN2ZjNjJkNDQ4MWYxNGYzZjNiY2I2MzMwIn19fQ=="), "&7Информация о сети", "", "&8\u21E8 &7Состояние: " + (getNetworkComplexity(p.getUniqueId()) > 0 ? "&2&lПОДКЛЮЧЕНА": "&4&lОТКЛЮЧЕНА"), "&8\u21E8 &7Сила сигнала: &r" + getNetworkComplexity(p.getUniqueId())));
 			menu.addMenuClickHandler(4,
 				(pl, slot, item, action) -> false
 			);
 			
-			menu.addItem(6, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Waypoint Overview &r(Select)"));
+			menu.addItem(6, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Просмотр точек &r(нажмите для переключения)"));
 			menu.addMenuClickHandler(6, (pl, slot, item, action) -> {
 				openWaypointControlPanel(pl);
 				return false;
@@ -93,7 +93,7 @@ public class GPSNetwork {
 				if (index >= inventory.length) break;
 				int slot = inventory[index];
 				
-				menu.addItem(slot, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&bGPS Transmitter", "&8\u21E8 &7World: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "", "&8\u21E8 &7Signal Strength: &r" + l.getBlockY(), "&8\u21E8 &7Ping: &r" + DoubleHandler.fixDouble(1000D / l.getY()) + "ms"));
+				menu.addItem(slot, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&bGPS-трекер", "&8\u21E8 &7Мир: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "", "&8\u21E8 &7Сила сигнала: &r" + l.getBlockY(), "&8\u21E8 &7Задержка: &r" + DoubleHandler.fixDouble(1000D / l.getY()) + "мс"));
 				menu.addMenuClickHandler(slot, (pl, slotn, item, action) -> false);
 				
 				index++;
@@ -108,7 +108,7 @@ public class GPSNetwork {
 	public static ItemStack getPlanet(Map.Entry<String, Location> entry) throws Exception {
 		Location l = entry.getValue();
 		
-		if (entry.getKey().startsWith("&4Deathpoint")) {
+		if (entry.getKey().startsWith("&4Точка смерти")) {
 			return CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWFlMzg1NWY5NTJjZDRhMDNjMTQ4YTk0NmUzZjgxMmE1OTU1YWQzNWNiY2I1MjYyN2VhNGFjZDQ3ZDMwODEifX19");
 		}
 		else if (l.getWorld().getEnvironment() == Environment.NETHER) {
@@ -123,23 +123,23 @@ public class GPSNetwork {
 	}
 	
 	public void openWaypointControlPanel(Player p) {
-		ChestMenu menu = new ChestMenu("&9Control Panel");
+		ChestMenu menu = new ChestMenu("&9Панель управления");
 		
 		for (int slot: border) {
 			menu.addItem(slot, new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), " "), (pl, slotn, item, action) -> false);
 		}
 		
 		try {
-			menu.addItem(2, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&7Transmitter Overview &r(Select)"));
+			menu.addItem(2, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0="), "&7Просмотр передатчика &r(нажмите для переключения)"));
 			menu.addMenuClickHandler(2, (pl, slot, item, action) -> {
 				openTransmitterControlPanel(pl);
 				return false;
 			});
 			
-			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRjZmJhNThmYWYxZjY0ODQ3ODg0MTExODIyYjY0YWZhMjFkN2ZjNjJkNDQ4MWYxNGYzZjNiY2I2MzMwIn19fQ=="), "&7Network Info", "", "&8\u21E8 &7Status: " + (getNetworkComplexity(p.getUniqueId()) > 0 ? "&2&lONLINE": "&4&lOFFLINE"), "&8\u21E8 &7Complexity: &r" + getNetworkComplexity(p.getUniqueId())));
+			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRjZmJhNThmYWYxZjY0ODQ3ODg0MTExODIyYjY0YWZhMjFkN2ZjNjJkNDQ4MWYxNGYzZjNiY2I2MzMwIn19fQ=="), "&7Информация о сети", "", "&8\u21E8 &7Состояние: " + (getNetworkComplexity(p.getUniqueId()) > 0 ? "&2&lПОДКЛЮЧЕНА": "&4&lОТКЛЮЧЕНА"), "&8\u21E8 &7Сила сигнала: &r" + getNetworkComplexity(p.getUniqueId())));
 			menu.addMenuClickHandler(4, (pl, slot, item, action) -> false);
 			
-			menu.addItem(6, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Waypoint Overview &e(Selected)"));
+			menu.addItem(6, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Просмотр точек &e(выбрано)"));
 			menu.addMenuClickHandler(6, (pl, slot, item, action) -> false);
 			
 			int index = 0;
@@ -150,7 +150,7 @@ public class GPSNetwork {
 				Location l = entry.getValue();
 				ItemStack globe = getPlanet(entry);
 				
-				menu.addItem(slot, new CustomItem(globe, entry.getKey(), "&8\u21E8 &7World: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "", "&8\u21E8 &cClick to delete"));
+				menu.addItem(slot, new CustomItem(globe, entry.getKey(), "&8\u21E8 &7Мир: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "", "&8\u21E8 &cНажмите для удаления"));
 				menu.addMenuClickHandler(slot, (pl, slotn, item, action) -> {
 					String id = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', entry.getKey())).toUpperCase().replace(' ', '_');
 					Config cfg = new Config("data-storage/Slimefun/waypoints/" + pl.getUniqueId().toString() + ".yml");
@@ -221,7 +221,7 @@ public class GPSNetwork {
 		p.playSound(p.getLocation(), Sound.UI_BUTTON_CLICK, 1F, 1F);
 		SlimefunPlugin.getUtilities().teleporterUsers.add(p.getUniqueId());
 		
-		ChestMenu menu = new ChestMenu("&3Teleporter");
+		ChestMenu menu = new ChestMenu("&3Телепортер");
 		
 		menu.addMenuCloseHandler(pl -> SlimefunPlugin.getUtilities().teleporterUsers.remove(pl.getUniqueId()));
 		
@@ -232,7 +232,7 @@ public class GPSNetwork {
 		}
 		
 		try {
-			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Waypoint Overview &e(Select a Destination)"));
+			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzljODg4MWU0MjkxNWE5ZDI5YmI2MWExNmZiMjZkMDU5OTEzMjA0ZDI2NWRmNWI0MzliM2Q3OTJhY2Q1NiJ9fX0="), "&7Просмотр точек &e(выберите пункт назначения)"));
 			menu.addMenuClickHandler(4, (pl, slot, item, action) -> false);
 			
 			final Location source = new Location(b.getWorld(), b.getX() + 0.5D, b.getY() + 2D, b.getZ() + 0.5D);
@@ -244,7 +244,7 @@ public class GPSNetwork {
 				final Location l = entry.getValue();
 				ItemStack globe = getPlanet(entry);
 				
-				menu.addItem(slot, new CustomItem(globe, entry.getKey(), "&8\u21E8 &7World: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "&8\u21E8 &7Estimated Teleportation Time: &r" + (50 / TeleportationSequence.getSpeed(Slimefun.getGPSNetwork().getNetworkComplexity(uuid), source, l)) + "s", "", "&8\u21E8 &cClick to select"));
+				menu.addItem(slot, new CustomItem(globe, entry.getKey(), "&8\u21E8 &7Мир: &r" + l.getWorld().getName(), "&8\u21E8 &7X: &r" + l.getX(), "&8\u21E8 &7Y: &r" + l.getY(), "&8\u21E8 &7Z: &r" + l.getZ(), "&8\u21E8 &7Расчётное время телепортации: &r" + (50 / TeleportationSequence.getSpeed(Slimefun.getGPSNetwork().getNetworkComplexity(uuid), source, l)) + "с", "", "&8\u21E8 &cНажмите для выбора"));
 				menu.addMenuClickHandler(slot, (pl, slotn, item, action) -> {
 						pl.closeInventory();
 						TeleportationSequence.start(pl.getUniqueId(), complexity, source, l, false);

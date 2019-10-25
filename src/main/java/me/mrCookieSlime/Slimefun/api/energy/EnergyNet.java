@@ -117,7 +117,7 @@ public class EnergyNet extends Network {
 
 	public void tick(Block b) {
 		if (!regulator.equals(b.getLocation())) {
-			EnergyHologram.update(b, "&4Multiple Energy Regulators connected");
+			EnergyHologram.update(b, "&4Подключено несколько регуляторов электричества");
 			return;
 		}
 		super.tick();
@@ -125,7 +125,7 @@ public class EnergyNet extends Network {
 		double demand = 0.0D;
 
 		if (connectorNodes.isEmpty() && terminusNodes.isEmpty()) {
-			EnergyHologram.update(b, "&4No Energy Network found");
+			EnergyHologram.update(b, "&4Электрическая сеть не найдена");
 		}
 		else {
 			Set<Location> exploded = new HashSet<>();

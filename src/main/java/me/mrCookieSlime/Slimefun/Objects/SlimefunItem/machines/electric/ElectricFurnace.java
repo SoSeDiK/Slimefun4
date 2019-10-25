@@ -47,7 +47,7 @@ public abstract class ElectricFurnace extends AContainer {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&bElectric Furnace";
+		return "&bЭлектрическая печь";
 	}
 
 }

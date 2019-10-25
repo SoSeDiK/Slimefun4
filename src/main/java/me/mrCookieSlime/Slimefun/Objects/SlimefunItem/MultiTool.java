@@ -15,11 +15,11 @@ public class MultiTool extends DamagableChargableItem {
 	private List<Integer> modes;
 
 	public MultiTool(ItemStack item, String id, RecipeType recipeType, ItemStack[] recipe, String[] keys, Object[] values) {
-		super(Categories.TECH, item, id, recipeType, recipe, "Multi Tool", keys, values);
+		super(Categories.TECH, item, id, recipeType, recipe, "Мультиинструмент", keys, values);
 	}
 
 	public MultiTool(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, String[] keys, Object[] values) {
-		super(Categories.TECH, item, recipeType, recipe, "Multi Tool", keys, values);
+		super(Categories.TECH, item, recipeType, recipe, "Мультиинструмент", keys, values);
 	}
 	
 	@Override

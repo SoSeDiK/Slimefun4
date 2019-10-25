@@ -52,7 +52,7 @@ public final class TeleportationSequence {
 		
 		if (p != null) {
 			try {
-				TitleBuilder title = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&4Teleportation cancelled"));
+				TitleBuilder title = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&4Телепортация отменена"));
 				TitleBuilder subtitle = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&40%"));
 				
 				title.send(TitleType.TITLE, p);
@@ -68,7 +68,7 @@ public final class TeleportationSequence {
 		if (isValid(p, source)) {
 			try {
 				if (progress > 99) {
-					TitleBuilder title = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&3Teleported!"));
+					TitleBuilder title = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&3Телепортирование!"));
 					TitleBuilder subtitle = (TitleBuilder) new TitleBuilder(20, 60, 20).addText(ChatColor.translateAlternateColorCodes('&', "&b100%"));
 					
 					title.send(TitleType.TITLE, p);
@@ -78,7 +78,7 @@ public final class TeleportationSequence {
 					
 					if (resistance) {
 						p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 600, 20));
-						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lYou have been given 30 Seconds of Invulnerability!"));
+						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lВы получили 30 секунд неуязвимости!"));
 					}
 					
 					destination.getWorld().spawnParticle(Particle.PORTAL,new Location(destination.getWorld(), destination.getX(), destination.getY() + 1, destination.getZ()),progress * 2, 0.2F, 0.8F, 0.2F );
@@ -86,7 +86,7 @@ public final class TeleportationSequence {
 					SlimefunPlugin.getUtilities().teleporterUsers.remove(uuid);
 				}
 				else {
-					TitleBuilder title = (TitleBuilder) new TitleBuilder(0, 60, 0).addText(ChatColor.translateAlternateColorCodes('&', "&3Teleporting..."));
+					TitleBuilder title = (TitleBuilder) new TitleBuilder(0, 60, 0).addText(ChatColor.translateAlternateColorCodes('&', "&3Телепортация…"));
 					TitleBuilder subtitle = (TitleBuilder) new TitleBuilder(0, 60, 0).addText(ChatColor.translateAlternateColorCodes('&', "&b" + progress + "%"));
 					
 					title.send(TitleType.TITLE, p);

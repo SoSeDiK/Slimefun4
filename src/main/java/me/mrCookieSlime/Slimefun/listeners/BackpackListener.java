@@ -89,7 +89,7 @@ public class BackpackListener implements Listener {
 	private static void openBackpack(ItemStack item, PlayerProfile profile, int size) {
 		Player p = profile.getPlayer();
 		for (int line = 0; line < item.getItemMeta().getLore().size(); line++) {
-			if (item.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7ID: <ID>"))) {
+			if (item.getItemMeta().getLore().get(line).equals(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: <отсутствует>"))) {
 				BackpackInventory backpack = profile.createBackpack(size);
 
 				setBackpackId(p, item, line, backpack.getID());
@@ -109,7 +109,7 @@ public class BackpackListener implements Listener {
     public static void setBackpackId(Player p, ItemStack item, int line, int id) {
         ItemMeta im = item.getItemMeta();
         List<String> lore = im.getLore();
-        lore.set(line, lore.get(line).replace("<ID>", p.getUniqueId() + "#" + id));
+        lore.set(line, lore.get(line).replace("<отсутствует>", p.getUniqueId() + "#" + id));
         im.setLore(lore);
         item.setItemMeta(im);
     }

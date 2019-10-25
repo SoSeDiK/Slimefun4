@@ -55,7 +55,7 @@ public class AutoDrier extends AContainer implements RecipeDisplayItem {
 
     @Override
     public String getInventoryTitle() {
-        return "&eAuto Drier";
+        return "&eАвтоматизированный высушиватель";
     }
 
     @Override

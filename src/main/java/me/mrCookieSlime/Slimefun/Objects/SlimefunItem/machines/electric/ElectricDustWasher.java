@@ -27,7 +27,7 @@ public abstract class ElectricDustWasher extends AContainer {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&bElectric Dust Washer";
+		return "&bЭлектрический очиститель пыли";
 	}
 
 	@Override

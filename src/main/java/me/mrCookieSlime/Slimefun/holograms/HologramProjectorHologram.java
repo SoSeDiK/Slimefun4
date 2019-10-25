@@ -44,9 +44,9 @@ public final class HologramProjectorHologram {
 	}
 
 	public static void openEditor(Player p, final Block projector) {
-		ChestMenu menu = new ChestMenu("Hologram Settings");
+		ChestMenu menu = new ChestMenu("Настройки голограммы");
 		
-		menu.addItem(0, new CustomItem(new ItemStack(Material.NAME_TAG), "&7Text &e(Click to edit)", "", "&r" + ChatColor.translateAlternateColorCodes('&', BlockStorage.getLocationInfo(projector.getLocation(), "text"))));
+		menu.addItem(0, new CustomItem(new ItemStack(Material.NAME_TAG), "&7Текст &e(нажмите для изменения)", "", "&r" + ChatColor.translateAlternateColorCodes('&', BlockStorage.getLocationInfo(projector.getLocation(), "text"))));
 		menu.addMenuClickHandler(0, (pl, slot, item, action) -> {
 			pl.closeInventory();
 			SlimefunPlugin.getLocal().sendMessage(pl, "machines.HOLOGRAM_PROJECTOR.enter-text", true);
@@ -59,7 +59,7 @@ public final class HologramProjectorHologram {
 			return false;
 		});
 		
-		menu.addItem(1, new CustomItem(new ItemStack(Material.CLOCK), "&7Offset: &e" + DoubleHandler.fixDouble(Double.valueOf(BlockStorage.getLocationInfo(projector.getLocation(), "offset")) + 1.0D), "", "&rLeft Click: &7+0.1", "&rRight Click: &7-0.1"));
+		menu.addItem(1, new CustomItem(new ItemStack(Material.CLOCK), "&7Смещение: &e" + DoubleHandler.fixDouble(Double.valueOf(BlockStorage.getLocationInfo(projector.getLocation(), "offset")) + 1.0D), "", "&rЛевый клик: &7+0.1", "&rПравый клик: &7-0.1"));
 		menu.addMenuClickHandler(1, (pl, slot, item, action) -> {
 			double offset = DoubleHandler.fixDouble(Double.valueOf(BlockStorage.getLocationInfo(projector.getLocation(), "offset")) + (action.isRightClicked() ? -0.1F : 0.1F));
 			ArmorStand hologram = getArmorStand(projector, true);

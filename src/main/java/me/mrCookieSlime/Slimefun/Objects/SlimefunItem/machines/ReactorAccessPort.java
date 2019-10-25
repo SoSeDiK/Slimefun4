@@ -30,7 +30,7 @@ public class ReactorAccessPort extends SlimefunItem {
 	public ReactorAccessPort(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
 
-		new BlockMenuPreset(name, "&2Reactor Access Port") {
+		new BlockMenuPreset(name, "&2Порт доступа к реактору") {
 
 			@Override
 			public void init() {
@@ -137,9 +137,9 @@ public class ReactorAccessPort extends SlimefunItem {
 			preset.addItem(i, new CustomItem(new ItemStack(Material.GREEN_STAINED_GLASS_PANE), " "), (p, slot, item, action) -> false);
 		}
 
-		preset.addItem(1, new CustomItem(SlimefunItems.URANIUM, "&7Fuel Slot", "", "&rThis Slot accepts radioactive Fuel such as:", "&2Uranium &ror &aNeptunium"), (p, slot, item, action) -> false);
-		preset.addItem(22, new CustomItem(SlimefunItems.PLUTONIUM, "&7Byproduct Slot", "", "&rThis Slot contains the Reactor's Byproduct", "&rsuch as &aNeptunium &ror &7Plutonium"), (p, slot, item, action) -> false);
-		preset.addItem(7, new CustomItem(SlimefunItems.REACTOR_COOLANT_CELL, "&bCoolant Slot", "", "&rThis Slot accepts Coolant Cells", "&4Without any Coolant Cells, your Reactor", "&4will explode"),(p, slot, item, action) -> false);
+		preset.addItem(1, new CustomItem(SlimefunItems.URANIUM, "&7Топливный слот", "", "&rПринимает радиоактивное топливо:", "&2уран &rили &aнептуний"), (p, slot, item, action) -> false);
+		preset.addItem(22, new CustomItem(SlimefunItems.PLUTONIUM, "&7Слот субпродуктов", "", "&rПринимает остальные продукты реактора, например:", "&aнептуний &rили &7плутоний"), (p, slot, item, action) -> false);
+		preset.addItem(7, new CustomItem(SlimefunItems.REACTOR_COOLANT_CELL, "&bСлот охлаждающей жидкости", "", "&rПринимает ячейки охлаждающей жидкости", "&4Без каких-либо ячеек охлаждающей жидкости", "&4реактор просто взорвётся"),(p, slot, item, action) -> false);
 	}
 
 	public int[] getInputSlots() {

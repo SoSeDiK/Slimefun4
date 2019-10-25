@@ -43,7 +43,7 @@ public abstract class OilPump extends AContainer {
 					return false;
 				}
 				
-				if (!OreGenSystem.wasResourceGenerated(OreGenSystem.getResource("Oil"), b.getChunk())) {
+				if (!OreGenSystem.wasResourceGenerated(OreGenSystem.getResource("Нефть"), b.getChunk())) {
 					SlimefunPlugin.getLocal().sendMessage(p, "gps.geo.scan-required", true);
 					return false;
 				}
@@ -65,7 +65,7 @@ public abstract class OilPump extends AContainer {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&4Oil Pump";
+		return "&4Нефтяной насос";
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public abstract class OilPump extends AContainer {
 			}
 		}
 		else {
-			OreGenResource oil = OreGenSystem.getResource("Oil");
+			OreGenResource oil = OreGenSystem.getResource("Нефть");
 			int supplies = OreGenSystem.getSupplies(oil, b.getChunk(), false);
 			if (supplies > 0) {
 				for (int slot: getInputSlots()) {

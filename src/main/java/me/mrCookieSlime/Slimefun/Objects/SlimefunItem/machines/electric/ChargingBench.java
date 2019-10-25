@@ -19,7 +19,7 @@ public class ChargingBench extends AContainer {
 
 	@Override
 	public String getInventoryTitle() {
-		return "&3Charging Bench";
+		return "&3Зарядное устройство-верстак";
 	}
 
 	@Override

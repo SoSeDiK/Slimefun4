@@ -48,7 +48,7 @@ public class CargoNet extends Network {
 	public static final int TERMINAL_OUT_SLOT = 17;
 
 	private static final ChestTerminalSorter sorter = new ChestTerminalSorter();
-	private static final ItemStack terminal_noitem_item = new CustomItem(new ItemStack(Material.BARRIER), "&4No Item cached");
+	private static final ItemStack terminal_noitem_item = new CustomItem(new ItemStack(Material.BARRIER), "&4Нет кэшированных предметов");
 	private static final MenuClickHandler terminal_noitem_handler = (p, slot, item, action) -> false;
 
 	public static CargoNet getNetworkFromLocation(Location l) {
@@ -140,15 +140,15 @@ public class CargoNet extends Network {
 
 	public void tick(final Block b) {
 		if (!regulator.equals(b.getLocation())) {
-			SimpleHologram.update(b, "&4Multiple Cargo Regulators connected");
+			SimpleHologram.update(b, "&4Подключено несколько грузовых регуляторов");
 			return;
 		}
 		super.tick();
 		if (connectorNodes.isEmpty() && terminusNodes.isEmpty()) {
-			SimpleHologram.update(b, "&7Status: &4&lOFFLINE");
+			SimpleHologram.update(b, "&7Состояние: &4&lОТКЛЮЧЕН");
 		}
 		else {
-			SimpleHologram.update(b, "&7Status: &a&lONLINE");
+			SimpleHologram.update(b, "&7Состояние: &a&lПОДКЛЮЧЕН");
 			final Map<Integer, List<Location>> output = new HashMap<>();
 
 			List<Location> list = new LinkedList<>();
@@ -463,9 +463,9 @@ public class CargoNet extends Network {
 								ItemMeta im = stack.getItemMeta();
 								List<String> lore = new ArrayList<>();
 								lore.add("");
-								lore.add(ChatColor.translateAlternateColorCodes('&', "&7Stored Items: &r" + DoubleHandler.getFancyDouble(item.getAmount())));
-								if (stack.getMaxStackSize() > 1) lore.add(ChatColor.translateAlternateColorCodes('&', "&7<Left Click: Request 1 | Right Click: Request " + (item.getAmount() > stack.getMaxStackSize() ? stack.getMaxStackSize(): item.getAmount()) + ">"));
-								else lore.add(ChatColor.translateAlternateColorCodes('&', "&7<Left Click: Request 1>"));
+								lore.add(ChatColor.translateAlternateColorCodes('&', "&7Предметов хранится: &r" + DoubleHandler.getFancyDouble(item.getAmount())));
+								if (stack.getMaxStackSize() > 1) lore.add(ChatColor.translateAlternateColorCodes('&', "&7<Левый клик: запросить 1 | Правый клик: запросить " + (item.getAmount() > stack.getMaxStackSize() ? stack.getMaxStackSize(): item.getAmount()) + ">"));
+								else lore.add(ChatColor.translateAlternateColorCodes('&', "&7<Левый клик: запросить 1>"));
 
 								lore.add("");
 								if (im.hasLore()) {

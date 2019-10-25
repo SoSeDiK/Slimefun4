@@ -34,7 +34,7 @@ public class AnimalGrowthAccelerator extends SlimefunItem implements InventoryBl
 	
 	public AnimalGrowthAccelerator(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
-		createPreset(this, "&bGrowth Accelerator", this::constructMenu);
+		createPreset(this, "&bУскоритель роста животных", this::constructMenu);
 		
 		registerBlockHandler(name, (p, b, tool, reason) -> {
 			BlockMenu inv = BlockStorage.getInventory(b);

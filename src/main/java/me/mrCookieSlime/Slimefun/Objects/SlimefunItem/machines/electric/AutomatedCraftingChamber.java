@@ -42,7 +42,7 @@ public abstract class AutomatedCraftingChamber extends SlimefunItem implements I
 	public AutomatedCraftingChamber(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
 		
-		new BlockMenuPreset(name, "&6Automated Crafting Chamber") {
+		new BlockMenuPreset(name, "&6Автоматизированная камера крафта") {
 			
 			@Override
 			public void init() {
@@ -52,7 +52,7 @@ public abstract class AutomatedCraftingChamber extends SlimefunItem implements I
 			@Override
 			public void newInstance(final BlockMenu menu, final Block b) {
 				if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals("false")) {
-					menu.replaceExistingItem(6, new CustomItem(new ItemStack(Material.GUNPOWDER), "&7Enabled: &4\u2718", "", "&e> Click to enable this Machine"));
+					menu.replaceExistingItem(6, new CustomItem(new ItemStack(Material.GUNPOWDER), "&7Состояние: &4\u2718", "", "&e> Нажмите, чтобы включить эту машину"));
 					menu.addMenuClickHandler(6, (p, slot, item, action) -> {
 						BlockStorage.addBlockInfo(b, "enabled", "true");
 						newInstance(menu, b);
@@ -60,7 +60,7 @@ public abstract class AutomatedCraftingChamber extends SlimefunItem implements I
 					});
 				}
 				else {
-					menu.replaceExistingItem(6, new CustomItem(new ItemStack(Material.REDSTONE), "&7Enabled: &2\u2714", "", "&e> Click to disable this Machine"));
+					menu.replaceExistingItem(6, new CustomItem(new ItemStack(Material.REDSTONE), "&7Состояние: &2\u2714", "", "&e> Нажмите, чтобы отключить эту машину"));
 					menu.addMenuClickHandler(6, (p, slot, item, action) -> {
 						BlockStorage.addBlockInfo(b, "enabled", "false");
 						newInstance(menu, b);
@@ -156,7 +156,7 @@ public abstract class AutomatedCraftingChamber extends SlimefunItem implements I
 			});
 		}
 
-		preset.addItem(2, new CustomItem(new ItemStack(Material.CRAFTING_TABLE), "&eRecipe", "", "&bPut in the Recipe you want to craft", "&4Enhanced Crafting Table Recipes ONLY"), (p, slot, item, action) -> false);
+		preset.addItem(2, new CustomItem(new ItemStack(Material.CRAFTING_TABLE), "&eРецепт", "", "&bВыложите здесь рецепт предмета, который машина должна создать", "&4Рецепты ТОЛЬКО для улучшенного верстака"), (p, slot, item, action) -> false);
 	}
 	
 	public abstract int getEnergyConsumption();

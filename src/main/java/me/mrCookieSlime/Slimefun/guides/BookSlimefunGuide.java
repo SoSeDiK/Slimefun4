@@ -35,7 +35,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 
 	@Override
 	public ItemStack getItem() {
-		return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aSlimefun Guide &7(Book GUI)", "", "&eRight Click &8\u21E8 &7Browse Items", "&eShift + Right Click &8\u21E8 &7Open Settings / Credits");
+		return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aРуководство Slimefun &7(книга)", "", "&eПравый клик &8\u21E8 &7просмотр", "&eShift + правый клик &8\u21E8 &7открыть настройки");
 	}
 
 	@Override
@@ -87,12 +87,12 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 							actions.add(null);
 						}
 					}
-					texts.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &6Tier " + tier));
+					texts.add(ChatColor.translateAlternateColorCodes('&', "&8\u21E8 &6Ступень " + tier));
 					tooltips.add(null);
 					actions.add(null);
 				}
 				if (category instanceof LockedCategory && !((LockedCategory) category).hasUnlocked(p, profile)) {
-					StringBuilder parents = new StringBuilder(ChatColor.translateAlternateColorCodes('&', "&4&lLOCKED\n\n&7In order to unlock this Category,\n&7you need to unlock all Items from\n&7the following Categories first:\n"));
+					StringBuilder parents = new StringBuilder(ChatColor.translateAlternateColorCodes('&', "&4&lЗАКРЫТО\n\n&7Чтобы разблокировать этот раздел,\n&7Вы должны сначала открыть все\n&7предметы из этих категорий:\n"));
 
 					for (Category parent: ((LockedCategory) category).getParents()) {
 						parents.append(ChatColor.translateAlternateColorCodes('&', "\n&c" + StringUtils.formatItemName(parent.getItem(), false)));
@@ -105,7 +105,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 				else if (category instanceof SeasonalCategory) {
 					if (((SeasonalCategory) category).isUnlocked()) {
 						texts.add(ChatColor.translateAlternateColorCodes('&', shorten("&a", StringUtils.formatItemName(category.getItem(), false))));
-						tooltips.add(ChatColor.translateAlternateColorCodes('&', "&eClick to open the following Category:\n" + StringUtils.formatItemName(category.getItem(), false)));
+						tooltips.add(ChatColor.translateAlternateColorCodes('&', "&eНажмите, чтобы открыть следующую категорию:\n" + StringUtils.formatItemName(category.getItem(), false)));
 						actions.add(new PlayerRunnable(1) {
 							@Override
 							public void run(final Player p) {
@@ -116,7 +116,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 				}
 				else {
 					texts.add(ChatColor.translateAlternateColorCodes('&', shorten("&a", StringUtils.formatItemName(category.getItem(), false))));
-					tooltips.add(ChatColor.translateAlternateColorCodes('&', "&eClick to open the following Category:\n" + StringUtils.formatItemName(category.getItem(), false)));
+					tooltips.add(ChatColor.translateAlternateColorCodes('&', "&eНажмите, чтобы открыть следующую категорию:\n" + StringUtils.formatItemName(category.getItem(), false)));
 					actions.add(new PlayerRunnable(1) {
 						@Override
 						public void run(final Player p) {
@@ -141,7 +141,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 
 		for (int i = 0; i < texts.size(); i = i + 10) {
 			TellRawMessage pageMessage = new TellRawMessage();
-			pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&b&l- Slimefun Guide -\n\n"));
+			pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&b&l- Руководство Slimefun -\n\n"));
 			for (int j = i; j < texts.size() && j < i + 10; j++) {
 				pageMessage.addText(texts.get(j) + "\n");
 				if (tooltips.get(j) != null) pageMessage.addHoverEvent(HoverAction.SHOW_TEXT, tooltips.get(j));
@@ -150,7 +150,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 			pages.add(pageMessage);
 		}
 
-		new CustomBookOverlay("Slimefun Guide", "TheBusyBiscuit", pages.toArray(new TellRawMessage[0])).open(p);
+		new CustomBookOverlay("Руководство Slimefun", "TheBusyBiscuit", pages.toArray(new TellRawMessage[0])).open(p);
 	}
 
 	@Override
@@ -176,7 +176,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 						    final Research research = item.getResearch();
 
 							texts.add(ChatColor.translateAlternateColorCodes('&', shorten("&7", StringUtils.formatItemName(item.getItem(), false))));
-							tooltips.add(ChatColor.translateAlternateColorCodes('&', StringUtils.formatItemName(item.getItem(), false) + "\n&c&lLOCKED\n\n&7Cost: " + (p.getLevel() >= research.getCost() ? "&b": "&4") + research.getCost() + " Levels\n\n&a> Click to unlock"));
+							tooltips.add(ChatColor.translateAlternateColorCodes('&', StringUtils.formatItemName(item.getItem(), false) + "\n&c&lЗАКРЫТО\n\n&7Стоимость в уровнях: " + (p.getLevel() >= research.getCost() ? "&b": "&4") + research.getCost() + "\n\n&a> Нажмите, чтобы разблокировать"));
 							actions.add(new PlayerRunnable(2) {
 
 								@Override
@@ -219,7 +219,7 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 								}
 							}
 
-							tooltip.append(ChatColor.translateAlternateColorCodes('&', "\n\n&e&oClick for more Info"));
+							tooltip.append(ChatColor.translateAlternateColorCodes('&', "\n\n&e&oНажмите для большей информации"));
 
 							tooltips.add(tooltip.toString());
 							actions.add(new PlayerRunnable(2) {
@@ -234,14 +234,14 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 				}
 				else {
 					texts.add(ChatColor.translateAlternateColorCodes('&', shorten("&4", StringUtils.formatItemName(item.getItem(), false))));
-					tooltips.add(ChatColor.translateAlternateColorCodes('&', "&cNo Permission!"));
+					tooltips.add(ChatColor.translateAlternateColorCodes('&', "&cНет прав!"));
 					actions.add(null);
 				}
 			}
 
 			for (int i = 0; i < texts.size(); i = i + 10) {
 				TellRawMessage pageMessage = new TellRawMessage();
-				pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&b&l- Slimefun Guide -\n\n"));
+				pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&b&l- Руководство Slimefun -\n\n"));
 
 				for (int j = i; j < texts.size() && j < i + 10; j++) {
 					pageMessage.addText(texts.get(j) + "\n");
@@ -250,8 +250,8 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 				}
 
 				pageMessage.addText("\n");
-				pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&6\u21E6 &lBack"));
-				pageMessage.addHoverEvent(HoverAction.SHOW_TEXT, ChatColor.translateAlternateColorCodes('&', "&eClick to go back to the Category Overview"));
+				pageMessage.addText(ChatColor.translateAlternateColorCodes('&', "&6\u21E6 &lНазад"));
+				pageMessage.addHoverEvent(HoverAction.SHOW_TEXT, ChatColor.translateAlternateColorCodes('&', "&eНажмите, чтобы вернуться к обзору категории"));
 				pageMessage.addClickEvent(new PlayerRunnable(2) {
 
 					@Override
@@ -263,10 +263,10 @@ public class BookSlimefunGuide implements ISlimefunGuide {
 				pages.add(pageMessage);
 			}
 
-			new CustomBookOverlay("Slimefun Guide", "TheBusyBiscuit", pages.toArray(new TellRawMessage[0])).open(p);
+			new CustomBookOverlay("Руководство Slimefun", "TheBusyBiscuit", pages.toArray(new TellRawMessage[0])).open(p);
 		}
 		else {
-			p.sendMessage(ChatColor.RED + "That Category is too big to open :/");
+			p.sendMessage(ChatColor.RED + "Категория слишком большая для открытия :/");
 		}
 	}
 

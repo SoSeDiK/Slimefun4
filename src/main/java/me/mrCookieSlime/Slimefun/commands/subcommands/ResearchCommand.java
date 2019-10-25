@@ -77,7 +77,7 @@ public class ResearchCommand extends SubCommand {
 			else SlimefunPlugin.getLocal().sendMessage(sender, "messages.no-permission", true);
 		}
 		else {
-			SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf research <Player> <all/reset/Research>"));
+			SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf research <игрок> <all/reset/название исследования>"));
 		}
 	}
 

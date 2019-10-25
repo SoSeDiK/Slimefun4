@@ -1,7 +1,7 @@
 name: Slimefun
 version: ${project.version}
-author: The Slimefun 4 Community
-description: Slimefun basically turns your entire Server into a FTB modpack without installing a single mod
+author: Сообщество Slimefun 4
+description: Slimefun добавляет просто огромное количество новых предметов без каких-либо модов!
 website: https://github.com/TheBusyBiscuit/Slimefun4
 
 main: me.mrCookieSlime.Slimefun.SlimefunPlugin
@@ -11,46 +11,46 @@ api-version: 1.14
 
 commands:
   slimefun:
-    description: basic Slimefun command
+    description: Базовая команда
     aliases: sf
-    usage: /sf <argument>
+    usage: /sf <аргумент>
 permissions:
   slimefun.cheat.items:
-    description: Allows you to cheat Items
+    description: Разрешение на выдачу предметов
     default: op
   slimefun.cheat.researches:
-    description: Allows you to cheat Researches
+    description: Разрешение на выдачу достижений
     default: op
   slimefun.stats.others:
-    description: Allows you to see the Stats from other Players
+    description: Разрешение на просмотр статистики других игроков
     default: op
   slimefun.android.upload-script:
-    description: Allows you to upload an Android Script
+    description: Разрешение на загрузку своего скрипта для Андроида
     default: op
   slimefun.command.timings:
-    description: Allows you to do /sf timings
+    description: Разрешение на /sf timings
     default: op
   slimefun.command.teleporter:
-    description: Allows you to do /sf teleporter
+    description: Разрешение на /sf teleporter
     default: op
   slimefun.command.versions:
-    description: Allows you to do /sf versions
+    description: Разрешение на /sf versions
     default: op
   slimefun.command.guide:
-    description: Allows you to obtain the Slimefun guide book
+    description: Разрешение на получение руководства Slimefun
     default: true
   slimefun.command.search:
-    description: Allows you to do /sf search
+    description: Разрешение на /sf search
     default: true
   slimefun.command.open_guide:
-    description: Allows you to open the SF guide without the book
+    description: Разрешение на открытие руководства Slimefun без книги
     default: op
   slimefun.android.bypass:
-    description: Allows you to edit other Players Androids
+    description: Разрешение на редактирование чужих Андроидов
     default: op
   slimefun.cargo.bypass:
-    description: Allows you to edit other Players Cargo Blocks
+    description: Разрешение на редактирование грузовых блоков других игроков
     default: op
   slimefun.inventory.bypass:
-    description: Allows you to open all Slimefun Machines
+    description: Разрешение на открытие инвентарей всех механизмов
     default: op

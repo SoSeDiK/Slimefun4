@@ -327,7 +327,7 @@ public final class SlimefunSetup {
 		.register(true);
 
 		new SlimefunItem(Categories.TECH_MISC, (SlimefunItemStack) SlimefunItems.BASIC_CIRCUIT_BOARD, RecipeType.MOB_DROP,
-		new ItemStack[] {null, null, null, null, new CustomItem(new ItemStack(Material.POPPY), "&a&oIron Golem"), null, null, null, null})
+		new ItemStack[] {null, null, null, null, new CustomItem(new ItemStack(Material.POPPY), "&a&oЖелезный голем"), null, null, null, null})
 		.register(true);
 
 		new SlimefunItem(Categories.TECH_MISC, (SlimefunItemStack) SlimefunItems.ADVANCED_CIRCUIT_BOARD, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -619,37 +619,37 @@ public final class SlimefunSetup {
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.DURALUMIN_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.DURALUMIN_INGOT, null, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.DURALUMIN_INGOT, null, SlimefunItems.DURALUMIN_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.SOLDER_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.SOLDER_INGOT, null, SlimefunItems.SOLDER_INGOT, SlimefunItems.SOLDER_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.SOLDER_INGOT, null, SlimefunItems.SOLDER_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.BILLON_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.BILLON_INGOT, null, SlimefunItems.BILLON_INGOT, SlimefunItems.BILLON_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.BILLON_INGOT, null, SlimefunItems.BILLON_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.STEEL_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.STEEL_INGOT, null, SlimefunItems.STEEL_INGOT, SlimefunItems.STEEL_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.STEEL_INGOT, null, SlimefunItems.STEEL_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.DAMASCUS_STEEL_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.DAMASCUS_STEEL_INGOT, null, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.DAMASCUS_STEEL_INGOT, null, SlimefunItems.DAMASCUS_STEEL_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.REINFORCED_ALLOY_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.CARBONADO_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.CARBONADO, null, SlimefunItems.CARBONADO, SlimefunItems.CARBONADO, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.CARBONADO, null, SlimefunItems.CARBONADO, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item", "mode.4.enabled", "mode.4.name", "mode.4.item"}, new Object[] {true, "Portable Crafter", "PORTABLE_CRAFTER", true, "Magic Eye of Ender", "MAGIC_EYE_OF_ENDER", true, "Wind Staff", "STAFF_ELEMENTAL_WIND", true, "Grappling Hook", "GRAPPLING_HOOK", true, "Gold Pan", "GOLD_PAN"})
+		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item", "mode.4.enabled", "mode.4.name", "mode.4.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK", true, "Рудопромывочный лоток", "GOLD_PAN"})
 		.register(true);
 
 		new OreWasher().register();
@@ -799,7 +799,7 @@ public final class SlimefunSetup {
 		new ItemStack[] {SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.ALUMINUM_DUST, SlimefunItems.ALUMINUM_INGOT, new ItemStack(Material.GLASS_PANE), null, null, null, null, null})
 		.register(true);
 
-		SlimefunManager.registerArmorSet(SlimefunItems.CHAIN, new ItemStack[] {new ItemStack(Material.CHAINMAIL_HELMET), new ItemStack(Material.CHAINMAIL_CHESTPLATE), new ItemStack(Material.CHAINMAIL_LEGGINGS), new ItemStack(Material.CHAINMAIL_BOOTS)}, "CHAIN", true, true);
+		SlimefunManager.registerArmorSet(SlimefunItems.CHAIN, new ItemStack[] {SlimefunItems.CHAINMAIL_HELMET, SlimefunItems.CHAINMAIL_CHESTPLATE, SlimefunItems.CHAINMAIL_LEGGINGS, SlimefunItems.CHAINMAIL_BOOTS}, "CHAIN", true, true);
 
 		new Talisman((SlimefunItemStack) SlimefunItems.TALISMAN_WHIRLWIND,
 		new ItemStack[] {SlimefunItems.MAGIC_LUMP_3, null, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.STAFF_WIND, SlimefunItems.TALISMAN_TRAVELLER, SlimefunItems.STAFF_WIND, SlimefunItems.MAGIC_LUMP_3, null, SlimefunItems.MAGIC_LUMP_3}
@@ -1033,7 +1033,7 @@ public final class SlimefunSetup {
 			@Override
 			public boolean onInteract(final Player p, MultiBlock mb, final Block b) {
 				if (mb.isMultiBlock(SlimefunItem.getByID("DIGITAL_MINER"))) {
-					p.sendMessage(ChatColor.DARK_RED + "THIS MACHINE WILL SOON BE REMOVED!");
+					p.sendMessage(ChatColor.DARK_RED + "ЭТА МАШИНА СКОРО БУДЕТ УДАЛЕНА!");
 					if (CSCoreLib.getLib().getProtectionManager().canAccessChest(p.getUniqueId(), b, true) && Slimefun.hasUnlocked(p, SlimefunItems.DIGITAL_MINER, true)) {
 						Block chestBlock = b.getRelative(BlockFace.UP);
 
@@ -1091,7 +1091,7 @@ public final class SlimefunSetup {
 			@Override
 			public boolean onInteract(final Player p, MultiBlock mb, final Block b) {
 				if (mb.isMultiBlock(SlimefunItem.getByID("ADVANCED_DIGITAL_MINER"))) {
-					p.sendMessage(ChatColor.DARK_RED + "THIS MACHINE WILL SOON BE REMOVED!");
+					p.sendMessage(ChatColor.DARK_RED + "ЭТА МАШИНА СКОРО БУДЕТ УДАЛЕНА!");
 					if (CSCoreLib.getLib().getProtectionManager().canAccessChest(p.getUniqueId(), b, true) && Slimefun.hasUnlocked(p, SlimefunItems.ADVANCED_DIGITAL_MINER, true)) {
 						Block chestBlock = b.getRelative(BlockFace.UP);
 
@@ -1357,14 +1357,14 @@ public final class SlimefunSetup {
 		.register(true);
 
 		new SlimefunItem(Categories.MAGIC, (SlimefunItemStack) SlimefunItems.REPAIRED_SPAWNER, RecipeType.ANCIENT_ALTAR,
-		new ItemStack[] {SlimefunItems.RUNE_ENDER, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"), SlimefunItems.ESSENCE_OF_AFTERLIFE, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"), SlimefunItems.BROKEN_SPAWNER, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"), SlimefunItems.ESSENCE_OF_AFTERLIFE, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aFlask of Knowledge"), SlimefunItems.RUNE_ENDER})
+		new ItemStack[] {SlimefunItems.RUNE_ENDER, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"), SlimefunItems.ESSENCE_OF_AFTERLIFE, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"), SlimefunItems.BROKEN_SPAWNER, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"), SlimefunItems.ESSENCE_OF_AFTERLIFE, new CustomItem(Material.EXPERIENCE_BOTTLE, "&aНастой знаний"), SlimefunItems.RUNE_ENDER})
 		.register(true, (BlockPlaceHandler) (e, item) -> {
 			if (SlimefunManager.isItemSimiliar(item, SlimefunItems.REPAIRED_SPAWNER, false)) {
 				EntityType type = null;
 				
 				for (String line: item.getItemMeta().getLore()) {
-					if (ChatColor.stripColor(line).startsWith("Type: ") && !line.contains("<Type>")) {
-						type = EntityType.valueOf(ChatColor.stripColor(line).replace("Type: ", "").replace(' ', '_').toUpperCase());
+					if (ChatColor.stripColor(line).startsWith("Тип: ") && !line.contains("<тип>")) {
+						type = EntityType.valueOf(ChatColor.stripColor(line).replace("Тип: ", "").replace(' ', '_').toUpperCase());
 					}
 				}
 				
@@ -1501,7 +1501,7 @@ public final class SlimefunSetup {
 		new ItemStack[] {null, null, null, SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.GLASS_PANE), SlimefunItems.MAGIC_LUMP_2, null, SlimefunItems.MAGIC_LUMP_2, null}, new CustomItem(SlimefunItems.FLASK_OF_KNOWLEDGE, 8))
 		.register(true);
 
-		new ExcludedBlock(Categories.BIRTHDAY, new CustomItem(new ItemStack(Material.CAKE), "&bBirthday Cake"), "BIRTHDAY_CAKE", RecipeType.ENHANCED_CRAFTING_TABLE,
+		new ExcludedBlock(Categories.BIRTHDAY, new CustomItem(new ItemStack(Material.CAKE), "&bТорт на день рождения"), "BIRTHDAY_CAKE", RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {null, new ItemStack(Material.TORCH), null, new ItemStack(Material.SUGAR), new ItemStack(Material.CAKE), new ItemStack(Material.SUGAR), null, null, null})
 		.register(true);
 
@@ -2101,8 +2101,8 @@ public final class SlimefunSetup {
 					if (e.getClickedBlock() != null && ChargableBlock.isChargable(e.getClickedBlock())) {
 						e.setCancelled(true);
 						p.sendMessage("");
-						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bStored Energy: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getCharge(e.getClickedBlock())) + " J"));
-						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bCapacity: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getMaxCharge(e.getClickedBlock())) + " J"));
+						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bНакопленное электричество: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getCharge(e.getClickedBlock())) + " Дж"));
+						p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bВместимость: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getMaxCharge(e.getClickedBlock())) + " Дж"));
 						p.sendMessage("");
 					}
 					return true;
@@ -2645,7 +2645,7 @@ public final class SlimefunSetup {
 		}.registerChargeableBlock(true, 512);
 
 		new NetherDrill(Categories.GPS, SlimefunItems.NETHER_DRILL, "NETHER_DRILL", RecipeType.ENHANCED_CRAFTING_TABLE,
-		new ItemStack[] {null, null, null, null, new CustomItem(Material.BARRIER, "&4DEPRECATED", "", "&cThis Item will soon be removed.", "&cUse the GEO Miner instead."), null, null, null, null}){
+		new ItemStack[] {null, null, null, null, new CustomItem(Material.BARRIER, "&4УСТАРЕВШИЙ ПРЕДМЕТ", "", "&cЭтот предмет скоро будет удалён.", "&cИспользуйте геокопатель."), null, null, null, null}){
 			
 			@Override
 			public int getSpeed() {
@@ -3014,7 +3014,7 @@ public final class SlimefunSetup {
 
             @Override
 			public String getInventoryTitle() {
-				return "&2Nuclear Reactor";
+				return "&2Ядерный реактор";
 			}
 
 			@Override
@@ -3057,7 +3057,7 @@ public final class SlimefunSetup {
 
 			@Override
 			public String getInventoryTitle() {
-				return "&fNether Star Reactor";
+				return "&fНезеритовый звёздный реактор";
 			}
 
 			@Override
@@ -3112,10 +3112,10 @@ public final class SlimefunSetup {
 				if (id == null || !id.equals("CARGO_NODE")) return false;
 
 				if (CargoNet.getNetworkFromLocation(e.getClickedBlock().getLocation()) != null) {
-					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Connected: " + "&2\u2714"));
+					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Соединение: " + "&2\u2714"));
 				}
 				else {
-					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Connected: " + "&4\u2718"));
+					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Соединение: " + "&4\u2718"));
 				}
 				return true;
 			}

@@ -64,7 +64,7 @@ public class GiveCommand extends SubCommand {
                 }
                 else SlimefunPlugin.getLocal().sendMessage(sender, "messages.not-online", true, msg -> msg.replace("%player%", args[1]));
 	        }
-	        else SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf give <Player> <Slimefun Item> [Amount]"));
+	        else SlimefunPlugin.getLocal().sendMessage(sender, "messages.usage", true, msg -> msg.replace("%usage%", "/sf give <игрок> <предмет со Slimefun> [количество]"));
 		}
 		else SlimefunPlugin.getLocal().sendMessage(sender, "messages.no-permission", true);
 	}

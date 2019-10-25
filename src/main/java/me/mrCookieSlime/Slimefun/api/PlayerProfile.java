@@ -204,11 +204,11 @@ public final class PlayerProfile {
 		else progress = "&a" + progress + " &r% ";
 
 		sender.sendMessage("");
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Statistics for Player: &b" + name));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Статистика игрока &b" + name));
 		sender.sendMessage("");
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Title: &b" + getTitle()));
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Research Progress: " + progress + "&e(" + researched.size() + " / " + Research.list().size() + ")"));
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Total XP Levels spent: &b" + levels));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Ранг: &b" + getTitle()));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Прогресс открытий: " + progress + "&e(" + researched.size() + " / " + Research.list().size() + ")"));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Всего потрачено уровней опыта: &b" + levels));
 	}
 
 	public Player getPlayer() {
@@ -296,10 +296,10 @@ public final class PlayerProfile {
 		String uuid = "";
 		
 		for (String line: item.getItemMeta().getLore()) {
-			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&7ID: ")) && line.contains("#")) {
+			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: ")) && line.contains("#")) {
 				try {
 					id = Optional.of(Integer.parseInt(line.split("#")[1]));
-					uuid = line.split("#")[0].replace(ChatColor.translateAlternateColorCodes('&', "&7ID: "), "");
+					uuid = line.split("#")[0].replace(ChatColor.translateAlternateColorCodes('&', "&7Идентификатор: "), "");
 				} catch(NumberFormatException x) {
 					return null;
 				}

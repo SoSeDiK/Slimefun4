@@ -24,7 +24,7 @@ public class PortableDustbin extends SimpleSlimefunItem<ItemInteractionHandler> 
 		return (e, p, item) -> {
 			if (SlimefunManager.isItemSimiliar(item, SlimefunItems.PORTABLE_DUSTBIN, true)) {
 				e.setCancelled(true);
-				p.openInventory(Bukkit.createInventory(null, 9 * 3, ChatColor.DARK_RED + "Delete Items"));
+				p.openInventory(Bukkit.createInventory(null, 9 * 3, ChatColor.DARK_RED + "Удаление предметов"));
 				p.playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 1, 1);
 				return true;
 			}

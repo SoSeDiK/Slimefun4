@@ -25,7 +25,7 @@ public final class GEOScanner {
 			return;
 		}
 		
-		ChestMenu menu = new ChestMenu("&4GEO-Scan Results");
+		ChestMenu menu = new ChestMenu("&4Результаты сканирования");
 		for (int slot : geoscan_border) {
 			menu.addItem(slot, new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), " "),
 				(pl, slotn, item, action) -> false
@@ -33,7 +33,7 @@ public final class GEOScanner {
 		}
 		
 		try {
-			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ0OWI5MzE4ZTMzMTU4ZTY0YTQ2YWIwZGUxMjFjM2Q0MDAwMGUzMzMyYzE1NzQ5MzJiM2M4NDlkOGZhMGRjMiJ9fX0="), "&eScanned Chunk", "", "&8\u21E8 &7World: " + chunk.getWorld().getName(), "&8\u21E8 &7X: " + chunk.getX() + " Z: " + chunk.getZ()), (pl, slot, stack, action) -> false);
+			menu.addItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ0OWI5MzE4ZTMzMTU4ZTY0YTQ2YWIwZGUxMjFjM2Q0MDAwMGUzMzMyYzE1NzQ5MzJiM2M4NDlkOGZhMGRjMiJ9fX0="), "&eПросканированный чанк", "", "&8\u21E8 &7Мир: " + chunk.getWorld().getName(), "&8\u21E8 &7X: " + chunk.getX() + " Z: " + chunk.getZ()), (pl, slot, stack, action) -> false);
 		} catch (Exception e) {
 			Slimefun.getLogger().log(Level.SEVERE, "Error while scanning a chunk for Slimefun " + Slimefun.getVersion(), e);
 		}
@@ -42,7 +42,7 @@ public final class GEOScanner {
 		for (OreGenResource resource: OreGenSystem.listResources()) {
 			int supply = OreGenSystem.getSupplies(resource, chunk, true);
 			
-			ItemStack item = new CustomItem(resource.getItem(), "&r" + resource.getName(), "&8\u21E8 &e" + supply + ' ' + resource.getMeasurementUnit());
+			ItemStack item = new CustomItem(resource.getItem(), "&r" + resource.getName(), "&8\u21E8 &e" + resource.getMeasurementUnit() + ": " + supply);
 			if (supply > 1) {
 				item.setAmount(supply > item.getMaxStackSize() ? item.getMaxStackSize(): supply);
 			}

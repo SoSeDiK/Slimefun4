@@ -21,7 +21,7 @@ public class TrashCan extends SlimefunItem implements InventoryBlock {
 
 	public TrashCan(Category category, ItemStack item, String name, RecipeType recipeType, ItemStack[] recipe) {
 		super(category, item, name, recipeType, recipe);
-		createPreset(this, "&4Trash Can", this::constructMenu);
+		createPreset(this, "&4Удаление предметов", this::constructMenu);
 	}
 	
 	private void constructMenu(BlockMenuPreset preset) {

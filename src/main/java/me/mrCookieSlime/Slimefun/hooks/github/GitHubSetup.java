@@ -9,13 +9,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 
 public final class GitHubSetup {
 	
 	private static final String REPOSITORY = "TheBusyBiscuit/Slimefun4";
 	
-	private static final String ROLE_AUTHOR = "&cAuthor";
+	private static final String ROLE_AUTHOR = "&cАвтор";
 	
 	private GitHubSetup() {}
 	
@@ -40,7 +41,7 @@ public final class GitHubSetup {
 			    		SlimefunPlugin.getUtilities().contributors.add(contributor);
 			    	}
 			    }
-			    SlimefunPlugin.getUtilities().contributors.add(new Contributor("AquaLazuryt", "&6Lead Head Artist", 0));
+			    SlimefunPlugin.getUtilities().contributors.add(new Contributor("AquaLazuryt", "&6Главный по текстурам голов", 0));
 				
 				SlimefunPlugin.instance.getServer().getScheduler().runTaskAsynchronously(SlimefunPlugin.instance, () -> {
 					for (JsonElement e: array) {
@@ -76,7 +77,8 @@ public final class GitHubSetup {
 			public void onFailure() {
 				SlimefunPlugin.getUtilities().contributors.clear();
 				SlimefunPlugin.getUtilities().contributors.add(new Contributor("TheBusyBiscuit", ROLE_AUTHOR, 1));
-				SlimefunPlugin.getUtilities().contributors.add(new Contributor("AquaLazuryt", "&6Lead Head Artist", 0));
+				SlimefunPlugin.getUtilities().contributors.add(new Contributor("SoSeDiK", "&6Локализатор", 1));
+				SlimefunPlugin.getUtilities().contributors.add(new Contributor("AquaLazuryt", "&6Главный по текстурам голов", 0));
 			}
 			
 			@Override
