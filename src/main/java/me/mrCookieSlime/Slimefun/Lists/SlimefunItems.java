@@ -205,10 +205,10 @@ public final class SlimefunItems {
 	}
 	
 	/*		 Armor 		*/
-	public static final ItemStack GLOWSTONE_HELMET = new SlimefunItemStack("GLOWSTONE_HELMET", Material.LEATHER_HELMET, Color.YELLOW, "&e&lСветокаменный шлем", "", "&a&oСияет ярче солнца!", "", "&9+ Night Vision");
-	public static final ItemStack GLOWSTONE_CHESTPLATE = new SlimefunItemStack("GLOWSTONE_CHESTPLATE", Material.LEATHER_CHESTPLATE, Color.YELLOW, "&e&lСветокаменный нагрудник", "", "&a&oСияет ярче солнца!", "", "&9+ Night Vision");
-	public static final ItemStack GLOWSTONE_LEGGINGS = new SlimefunItemStack("GLOWSTONE_LEGGINGS", Material.LEATHER_LEGGINGS, Color.YELLOW, "&e&lСветокаменные штаны", "", "&a&oСияет ярче солнца!", "", "&9+ Night Vision");
-	public static final ItemStack GLOWSTONE_BOOTS = new SlimefunItemStack("GLOWSTONE_BOOTS", Material.LEATHER_BOOTS, Color.YELLOW, "&e&lСветокаменные ботинки", "", "&a&oСияет ярче солнца!", "", "&9+ Night Vision");
+	public static final ItemStack GLOWSTONE_HELMET = new SlimefunItemStack("GLOWSTONE_HELMET", Material.LEATHER_HELMET, Color.YELLOW, "&e&lСветокаменный шлем", "", "&a&oСияет ярче солнца!", "", "&9+ Ночное зрение");
+	public static final ItemStack GLOWSTONE_CHESTPLATE = new SlimefunItemStack("GLOWSTONE_CHESTPLATE", Material.LEATHER_CHESTPLATE, Color.YELLOW, "&e&lСветокаменный нагрудник", "", "&a&oСияет ярче солнца!", "", "&9+ Ночное зрение");
+	public static final ItemStack GLOWSTONE_LEGGINGS = new SlimefunItemStack("GLOWSTONE_LEGGINGS", Material.LEATHER_LEGGINGS, Color.YELLOW, "&e&lСветокаменные штаны", "", "&a&oСияет ярче солнца!", "", "&9+ Ночное зрение");
+	public static final ItemStack GLOWSTONE_BOOTS = new SlimefunItemStack("GLOWSTONE_BOOTS", Material.LEATHER_BOOTS, Color.YELLOW, "&e&lСветокаменные ботинки", "", "&a&oСияет ярче солнца!", "", "&9+ Ночное зрение");
 	
 	public static final ItemStack ENDER_HELMET = new SlimefunItemStack("ENDER_HELMET", Material.LEATHER_HELMET, Color.fromRGB(28, 25, 112), "&5&lЭндер-шлем", "", "&a&oИногда он тут, а иногда там! O_о");
 	public static final ItemStack ENDER_CHESTPLATE = new SlimefunItemStack("ENDER_CHESTPLATE", Material.LEATHER_CHESTPLATE, Color.fromRGB(28, 25, 112), "&5&lЭндер-нагрудник", "", "&a&oИногда он тут, а иногда там! O_о");
