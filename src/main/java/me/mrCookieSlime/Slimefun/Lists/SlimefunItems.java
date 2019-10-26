@@ -353,8 +353,8 @@ public final class SlimefunItems {
 	public static final ItemStack CARGO_MOTOR = new SlimefunItemStack("CARGO_MOTOR", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGNiY2EwMTJmNjdlNTRkZTlhZWU3MmZmNDI0ZTA1NmMyYWU1OGRlNWVhY2M5NDlhYjJiY2Q5NjgzY2VjIn19fQ==", "&3Грузовой двигатель");
 	public static final ItemStack SCROLL_OF_DIMENSIONAL_TELEPOSITION = new SlimefunItemStack("SCROLL_OF_DIMENSIONAL_TELEPOSITION", Material.PAPER, "&6Свиток пространственной телепозиции", "", "&cЭтот свиток способен создавать временную", "&cчёрную дыру, которая втянет близлежащие", "&cобъекты в себя и передаст их в другое", "&cизмерение, где всё обернулось вокруг", "", "&rКратко: заставляет всё сделать поворот на 180 градусов");
 	public static final ItemStack TOME_OF_KNOWLEDGE_SHARING = new SlimefunItemStack("TOME_OF_KNOWLEDGE_SHARING", Material.BOOK, "&6Том обмена знаниями", "&7Владелец: &b<отсутствует>", "", "&eПравый клик&7, чтобы закрепить свои исследования", "", "", "&eПравый клик&7 для получения всех исследований", "&7предыдущего владельца");
-	public static final ItemStack HARDENED_GLASS = new SlimefunItemStack("HARDENED_GLASS", Material.LIGHT_GRAY_STAINED_GLASS, "&7Закалённое стекло", "", "&rВыдерживает взрывы");
-	public static final ItemStack WITHER_PROOF_OBSIDIAN = new SlimefunItemStack("WITHER_PROOF_OBSIDIAN", Material.OBSIDIAN, "&5Всестойкий обсидиан", "", "&rВыдерживает взрывы", "&rВыдерживает Визеров");
+	public static final ItemStack HARDENED_GLASS = new SlimefunItemStack("HARDENED_GLASS", Material.LIGHT_GRAY_STAINED_GLASS, "&7Закалённое стекло", "", "&rВзрывоустойчивое");
+	public static final ItemStack WITHER_PROOF_OBSIDIAN = new SlimefunItemStack("WITHER_PROOF_OBSIDIAN", Material.OBSIDIAN, "&5Всестойкий обсидиан", "", "&rВзрывоустойчивый", "&rВыдерживает Визеров");
 	public static final ItemStack WITHER_PROOF_GLASS = new SlimefunItemStack("WITHER_PROOF_GLASS", Material.PURPLE_STAINED_GLASS, "&5Всестойкое стекло", "", "&rВыдерживает взрывы", "&rВыдерживает Визеров");
 	public static final ItemStack REINFORCED_PLATE = new SlimefunItemStack("REINFORCED_PLATE", Material.PAPER, "&7Армированная плита");
 	public static final ItemStack ANCIENT_PEDESTAL = new SlimefunItemStack("ANCIENT_PEDESTAL", Material.DISPENSER, "&dДревний пьедестал", "", "&5Часть древнего алтаря");
@@ -621,13 +621,14 @@ public final class SlimefunItems {
 		imS.setEffect(FireworkEffect.builder().with(Type.BURST).withColor(Color.fromRGB(47, 0, 117)).build());
 		imS.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Древняя руна &8&l[&5&lС частицей души&8&l]"));
 		List<String> lore = new ArrayList<>();
-		lore.add(ChatColor.YELLOW + "Бросьте эту руну на брошенный предмет, чтобы");
-		lore.add(ChatColor.DARK_PURPLE + "присвоить " + ChatColor.YELLOW + "этот предмет себе.");
+		lore.add(ChatColor.YELLOW + "Бросьте эту руну на брошенный предмет,");
+		lore.add(ChatColor.DARK_PURPLE + "чтобы присвоить " + ChatColor.YELLOW + "этот предмет себе.");
 		lore.add(" ");
 		lore.add(ChatColor.YELLOW + "Рекомендуется использовать эту руну только");
 		lore.add(ChatColor.YELLOW + "на " + ChatColor.GOLD + "важных для Вас " + ChatColor.YELLOW + "предметах.");
 		lore.add(" ");
-		lore.add(ChatColor.YELLOW + "Предметы, присвоенные Вами, не будут выпадать при смерти.");
+		lore.add(ChatColor.YELLOW + "Предметы, присвоенные Вами, не будут");
+		lore.add(ChatColor.YELLOW + "выпадать при смерти.");
 		imS.setLore(lore);
 		itemS.setItemMeta(imS);
 		RUNE_SOULBOUND = new SlimefunItemStack("ANCIENT_RUNE_SOULBOUND", itemS);
