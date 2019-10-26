@@ -169,7 +169,7 @@ public final class SlimefunItems {
 	public static final ItemStack GRANDMAS_WALKING_STICK = new SlimefunItemStack("GRANDMAS_WALKING_STICK", Material.STICK, "&7Трость старой бабушки");
 	public static final ItemStack GRANDPAS_WALKING_STICK = new SlimefunItemStack("GRANDPAS_WALKING_STICK", Material.STICK, "&7Трость старого дедушки");
 	public static final ItemStack SWORD_OF_BEHEADING = new SlimefunItemStack("SWORD_OF_BEHEADING", Material.IRON_SWORD, "&6Меч обезглавливания", "&7Обезглавливание II", "", "&rШанс обезглавить мобов при убийстве", "&r(бонус: больше шансов для Визер-скелетов)");
-	public static final ItemStack BLADE_OF_VAMPIRES = new SlimefunItemStack("BLADE_OF_VAMPIRES", Material.GOLDEN_SWORD, "&cВампирский клинок", "&7Отбирание жизни I", "", "&r45% шанс восстановить 2 сердца при атаке", "&rrecover 2 Hearts of your Health");
+	public static final ItemStack BLADE_OF_VAMPIRES = new SlimefunItemStack("BLADE_OF_VAMPIRES", Material.GOLDEN_SWORD, "&cВампирский клинок", "&7Отбирание жизни I", "", "&r45% шанс восстановить 2 сердца при атаке");
 	public static final ItemStack SEISMIC_AXE = new SlimefunItemStack("SEISMIC_AXE", Material.IRON_AXE, "&aСейсмический топор", "", "&7&oДля вызова землетрясений…", "", "&7&eПравый клик&7, чтобы использовать");
 	
 	static {
