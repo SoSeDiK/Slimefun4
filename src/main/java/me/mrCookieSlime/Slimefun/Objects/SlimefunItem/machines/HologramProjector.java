@@ -1,5 +1,6 @@
 package me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines;
 
+import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +25,7 @@ public class HologramProjector extends SimpleSlimefunItem<ItemInteractionHandler
 
 			@Override
 			public void onPlace(Player p, Block b, SlimefunItem item) {
-				BlockStorage.addBlockInfo(b, "text", "&bПривет! Я — Голограмма, &3настрой меня при помощи проектора снизу.");
+				BlockStorage.addBlockInfo(b, "text", ChatColor.translateAlternateColorCodes('&', "&bПривет! Я — Голограмма, &3настрой меня при помощи проектора снизу."));
 				BlockStorage.addBlockInfo(b, "offset", "0.5");
 				BlockStorage.addBlockInfo(b, "owner", p.getUniqueId().toString());
 
