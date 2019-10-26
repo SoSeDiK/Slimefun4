@@ -143,7 +143,7 @@ public class CargoInputNode extends SlimefunItem {
 						);
 					}
 					else {
-						menu.replaceExistingItem(42, new CustomItem(new ItemStack(MaterialCollections.getAllWoolColors().get(channel)), "&bChannel ID: &3" + (channel + 1)));
+						menu.replaceExistingItem(42, new CustomItem(new ItemStack(MaterialCollections.getAllWoolColors().get(channel)), "&bИдентификатор канала: &3" + (channel + 1)));
 						menu.addMenuClickHandler(42,
 							(p, slot, item, action) -> false
 						);
@@ -197,7 +197,7 @@ public class CargoInputNode extends SlimefunItem {
 			@Override
 			public boolean onBreak(Player p, Block b, SlimefunItem item, UnregisterReason reason) {
 				BlockMenu inv = BlockStorage.getInventory(b);
-				
+
 				if (inv != null) {
 					for (int slot : getInputSlots()) {
 						if (inv.getItemInSlot(slot) != null) {
