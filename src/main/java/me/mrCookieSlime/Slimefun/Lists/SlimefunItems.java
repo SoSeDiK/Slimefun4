@@ -414,7 +414,7 @@ public final class SlimefunItems {
 	/*		Alloy (Iron + Gold)			*/
 	public static final ItemStack GILDED_IRON = new SlimefunItemStack("GILDED_IRON", Material.GOLD_INGOT, "&6&lПозолоченное железо");
 	/*		Alloy (Redston + Ferrosilicon)	*/
-	public static final ItemStack REDSTONE_ALLOY = new SlimefunItemStack("REDSTONE_ALLOY", Material.BRICK, "&cРедстоуновый спав");
+	public static final ItemStack REDSTONE_ALLOY = new SlimefunItemStack("REDSTONE_ALLOY", Material.BRICK, "&cРедстоуновый сплав");
 	/*		Alloy (Iron + Copper)		*/
 	public static final ItemStack NICKEL_INGOT = new SlimefunItemStack("NICKEL_INGOT", Material.IRON_INGOT, "&bНикелевый слиток");
 	/*		Alloy (Nickel + Iron + Copper)		*/
