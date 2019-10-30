@@ -34,7 +34,7 @@ public final class ItemEnergy {
 
 		for (String line: item.getItemMeta().getLore()) {
 			if (line.startsWith(ChatColor.translateAlternateColorCodes('&', "&c&o&8\u21E8 &e\u26A1 &7")) && line.contains(" / ") && line.endsWith(" Дж")) {
-				return Float.valueOf(line.split(" / ")[1].replace(" J", ""));
+				return Float.valueOf(line.split(" / ")[1].replace(" Дж", ""));
 			}
 		}
 

@@ -545,8 +545,8 @@ public final class SlimefunItems {
 	
 	public static final ItemStack SOULBOUND_HELMET = new SlimefunItemStack("SOULBOUND_HELMET", Material.DIAMOND_HELMET, "&cПерсональный шлем", "&7&oНе выпадает при смерти");
 	public static final ItemStack SOULBOUND_CHESTPLATE = new SlimefunItemStack("SOULBOUND_CHESTPLATE", Material.DIAMOND_CHESTPLATE, "&cПерсональный нагрудник", "&7&oНе выпадает при смерти");
-	public static final ItemStack SOULBOUND_LEGGINGS = new SlimefunItemStack("SOULBOUND_LEGGINGS", Material.DIAMOND_LEGGINGS, "&cПерсональные штаны", "&7&oНе выпадает при смерти");
-	public static final ItemStack SOULBOUND_BOOTS = new SlimefunItemStack("SOULBOUND_BOOTS", Material.DIAMOND_BOOTS, "&cПерсональные ботинки", "&7&oНе выпадает при смерти");
+	public static final ItemStack SOULBOUND_LEGGINGS = new SlimefunItemStack("SOULBOUND_LEGGINGS", Material.DIAMOND_LEGGINGS, "&cПерсональные штаны", "&7&oНе выпадают при смерти");
+	public static final ItemStack SOULBOUND_BOOTS = new SlimefunItemStack("SOULBOUND_BOOTS", Material.DIAMOND_BOOTS, "&cПерсональные ботинки", "&7&oНе выпадают при смерти");
 	
 	/*		Runes				*/
 	public static final ItemStack BLANK_RUNE;
