@@ -814,8 +814,8 @@ public final class SlimefunItems {
 	public static final ItemStack CHARGING_BENCH = new SlimefunItemStack("CHARGING_BENCH", Material.CRAFTING_TABLE, "&6Зарядное устройство-верстак", "", "&rЗаряжает предметы (например, реактивный ранец)", "", MachineTier.BASIC.and(MachineType.MACHINE), "&8\u21E8 &e\u26A1 &7Резервный запас: &7128 Дж", "&8\u21E8 &e\u26A1 &7Потери электричества: &c50%");
 
 	public static final ItemStack WITHER_ASSEMBLER = new SlimefunItemStack("WITHER_ASSEMBLER", Material.OBSIDIAN, "&5Иссушающий ассемблер", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Задержка: &b30 секунд", "&8\u21E8 &e\u26A1 &7Резервный запас: &74096 Дж", "&8\u21E8 &e\u26A1 &74096 Дж/Визер");
-	
-	public static final ItemStack TRASH_CAN = new SlimefunItemStack("TRASH_CAN", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJkNDEwNDJjZTk5MTQ3Y2MzOGNhYzllNDY3NDE1NzZlN2VlNzkxMjgzZTZmYWM4ZDMyOTJjYWUyOTM1ZjFmIn19fQ==", "&3Мусорное ведро", "", "&rУничтожает все вещи, помещённые в него");
+
+	public static final ItemStack TRASH_CAN = new SlimefunItemStack("TRASH_CAN_BLOCK", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJkNDEwNDJjZTk5MTQ3Y2MzOGNhYzllNDY3NDE1NzZlN2VlNzkxMjgzZTZmYWM4ZDMyOTJjYWUyOTM1ZjFmIn19fQ==", "&3Мусорное ведро", "", "&rУничтожает все вещи, помещённые в него");
 	
 	public static final ItemStack ELYTRA = new CustomItem(Material.ELYTRA, "&rЭлитры");
 	public static final ItemStack ELYTRA_SCALE = new SlimefunItemStack("ELYTRA_SCALE", Material.FEATHER, "&bЧешуя элитр");

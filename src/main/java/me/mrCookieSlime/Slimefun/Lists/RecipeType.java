@@ -3,14 +3,15 @@ package me.mrCookieSlime.Slimefun.Lists;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import io.github.thebusybiscuit.cscorelib2.recipes.MinecraftRecipe;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunGadget;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunMachine;
 import me.mrCookieSlime.Slimefun.api.SlimefunRecipes;
-
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 public class RecipeType {
 	
@@ -30,25 +31,28 @@ public class RecipeType {
 	public static final RecipeType JUICER = new RecipeType(new CustomItem(Material.GLASS_BOTTLE, "&eСоковыжималка", "", "&a&oВыжмите все соки из предмета"), "JUICER");
 	public static final RecipeType ANCIENT_ALTAR = new RecipeType(new CustomItem(Material.ENCHANTING_TABLE, "&4Древний алтарь", "", "&dСоздайте предмет, выполнив", "&dритуал на древнем алтаре"));
 	public static final RecipeType HEATED_PRESSURE_CHAMBER = new RecipeType(new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS), "&cОбогреваемая барокамера", "", "&a&oСожмите, используя обогреваемую барокамеру"), "HEATED_PRESSURE_CHAMBER");
-	
+
 	public static final RecipeType SHAPED_RECIPE = new RecipeType(new CustomItem(Material.CRAFTING_TABLE, "&eОбычный рецепт", "", "&a&oПростой рецепт на верстаке…"));
 	public static final RecipeType SHAPELESS_RECIPE = new RecipeType(new CustomItem(Material.CRAFTING_TABLE, "&eБесформенный рецепт", "", "&a&oПростой рецепт на верстаке…"));
 	public static final RecipeType FURNACE = new RecipeType(new CustomItem(Material.FURNACE, "&eПлавится в печке", "", "&a&oПереплавка в обычной печи"));
-	public static final RecipeType NULL = new RecipeType(null);
+	public static final RecipeType NULL = new RecipeType((ItemStack) null);
 	
 	private ItemStack item;
 	private String machine;
-	
-	public RecipeType(ItemStack item) {
-		this.item = item;
-		this.machine = "";
-	}
 	
 	public RecipeType(ItemStack item, String machine) {
 		this.item = item;
 		this.machine = machine;
 	}
-	
+
+	public RecipeType(ItemStack item) {
+		this(item, "");
+	}
+
+	public RecipeType(MinecraftRecipe<?> recipe) {
+		this(new ItemStack(recipe.getMachine()));
+	}
+
 	public RecipeType(String machine, int seconds, ItemStack[] input, ItemStack[] output) {
 		this.machine = machine;
 		this.item = getMachine().getItem();
