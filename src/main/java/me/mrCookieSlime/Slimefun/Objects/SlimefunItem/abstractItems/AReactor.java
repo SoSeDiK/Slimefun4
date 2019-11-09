@@ -90,7 +90,7 @@ public abstract class AReactor extends SlimefunItem implements RecipeDisplayItem
 					}
 					
 					if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "reactor-mode").equals("generator")) {
-						menu.replaceExistingItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&7Фокусировка: &eэлектричество", "", "&6Ваш реактор будет сосредоточен на генерации электричества", "&6Если Ваша электрическая сеть не требует электричества,", "&6то ничего вырабатываться не будет", "", "&7> Нажмите для переключения на &eпроизводство"));
+						menu.replaceExistingItem(4, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="), "&7Фокусировка: &eэлектричество", "", "&6Ваш реактор будет сосредоточен", "&6на генерации электричества.", "&6Если Ваша электрическая сеть", "&6не требует электричества, то", "&6ничего вырабатываться не будет", "", "&7> Нажмите для переключения на &eпроизводство"));
 						menu.addMenuClickHandler(4, (p, slot, item, action) -> {
 							BlockStorage.addBlockInfo(b, "reactor-mode", "production");
 							newInstance(menu, b);
@@ -98,7 +98,7 @@ public abstract class AReactor extends SlimefunItem implements RecipeDisplayItem
 						});
 					}
 					else {
-						menu.replaceExistingItem(4, new CustomItem(SlimefunItems.PLUTONIUM, "&7Фокусировка: &eпроизводство", "", "&6Ваш реактор будет сосредоточен на производстве товаров", "&6Если Ваша электрическая сеть не требует электричества,", "&6он продолжит работать, но не будет", "&6создавать какую-либо продукцию", "", "&7> Нажми для сосредоточения на &eгенерации электричества"));
+						menu.replaceExistingItem(4, new CustomItem(SlimefunItems.PLUTONIUM, "&7Фокусировка: &eпроизводство", "", "&6Ваш реактор будет сосредоточен", "&6на производстве товаров.", "&6Если Ваша электрическая сеть", "&6не требует электричества, он", "&6продолжит работать, но не будет", "&6создавать какую-либо продукцию.", "", "&7> Нажмите для сосредоточения на &eгенерации электричества"));
 						menu.addMenuClickHandler(4, (p, slot, item, action) -> {
 							BlockStorage.addBlockInfo(b, "reactor-mode", "generator");
 							newInstance(menu, b);
@@ -191,7 +191,7 @@ public abstract class AReactor extends SlimefunItem implements RecipeDisplayItem
 
 		preset.addItem(22, new CustomItem(new ItemStack(Material.BLACK_STAINED_GLASS_PANE), " "), (p, slot, item, action) -> false);
 
-		preset.addItem(1, new CustomItem(SlimefunItems.URANIUM, "&7Топливный слот", "", "&rThis Slot accepts radioactive Fuel such as:", "&2Uranium &ror &aNeptunium"), (p, slot, item, action) -> false);
+		preset.addItem(1, new CustomItem(SlimefunItems.URANIUM, "&7Топливный слот", "", "&rПринимает радиоактивное топливо:", "&2уран &rили &aнептуний"), (p, slot, item, action) -> false);
 
 		for (int i : border_2) {
 			preset.addItem(i, new CustomItem(new ItemStack(Material.CYAN_STAINED_GLASS_PANE), " "), (p, slot, item, action) -> false);
