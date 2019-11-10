@@ -117,7 +117,7 @@ public abstract class AReactor extends SlimefunItem implements RecipeDisplayItem
 						});
 					} 
 					else {
-						menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.RED_WOOL), "&7Порт доступа", "", "&cНе обнаружен", "", "&7Порт доступа должен быть расмещён", "&73 блоками выше реактора!"));
+						menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.RED_WOOL), "&7Порт доступа", "", "&cНе обнаружен", "", "&7Порт доступа должен быть размещён", "&7тремя блоками выше реактора!"));
 						menu.addMenuClickHandler(INFO_SLOT, (p, slot, item, action) -> {
 							newInstance(menu, b);
 							menu.open(p);

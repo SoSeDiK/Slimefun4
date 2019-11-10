@@ -48,7 +48,7 @@ public class ReactorAccessPort extends SlimefunItem {
 			public void newInstance(final BlockMenu menu, final Block b) {
 				BlockMenu reactor = getReactorMenu(b.getLocation());
 				if (reactor != null) {
-					menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.GREEN_WOOL), "&7Reactor", "", "&6Detected", "", "&7> Click to view Reactor"));
+					menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.GREEN_WOOL), "&7Реактор", "", "&6Обнаружен", "", "&7> Нажмите для просмотра"));
 					menu.addMenuClickHandler(INFO_SLOT, (p, slot, item, action) -> {
 						if(reactor != null) {
 							reactor.open(p);
@@ -59,7 +59,7 @@ public class ReactorAccessPort extends SlimefunItem {
 					});
 				} 
 				else {
-					menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.RED_WOOL), "&7Reactor", "", "&cNot detected", "", "&7Reactor must be", "&7placed 3 blocks below", "&7the access port!"));
+					menu.replaceExistingItem(INFO_SLOT, new CustomItem(new ItemStack(Material.RED_WOOL), "&7Реактор", "", "&cНе обнаружен", "", "&7Реатор должен быть размещён", "&7тремя блоками ниже порта", "&7доступа к реактору!"));
 					menu.addMenuClickHandler(INFO_SLOT, (p, slot, item, action) -> {
 						newInstance(menu, b);
 						return false;
