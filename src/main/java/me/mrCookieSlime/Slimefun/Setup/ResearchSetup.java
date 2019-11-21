@@ -10,13 +10,13 @@ import me.mrCookieSlime.Slimefun.api.Slimefun;
 public final class ResearchSetup {
 	
 	private ResearchSetup() {}
-	
+
 	public static void setupResearches() {
 	    Slimefun.registerResearch(new Research(0, "Мои любимые трости", 1), SlimefunItems.GRANDMAS_WALKING_STICK, SlimefunItems.GRANDPAS_WALKING_STICK);
 	    Slimefun.registerResearch(new Research(1, "Портативный крафтер", 1), SlimefunItems.PORTABLE_CRAFTER);
 	    Slimefun.registerResearch(new Research(2, "Печенье судьбы", 1), SlimefunItems.FORTUNE_COOKIE);
 	    Slimefun.registerResearch(new Research(4, "Портативный мусорный ящик", 2), SlimefunItems.PORTABLE_DUSTBIN);
-	    Slimefun.registerResearch(new Research(5, "Вяленая говядина", 2), SlimefunItems.BEEF_JERKY);
+	    Slimefun.registerResearch(new Research(5, "Вяленое мясо", 2), SlimefunItems.BEEF_JERKY, SlimefunItems.FISH_JERKY, SlimefunItems.RABBIT_JERKY, SlimefunItems.MUTTON_JERKY, SlimefunItems.CHICKEN_JERKY, SlimefunItems.PORK_JERKY);
 	    Slimefun.registerResearch(new Research(6, "Создание новой брони", 2), SlimefunItems.ARMOR_FORGE);
 	    Slimefun.registerResearch(new Research(8, "Осколки Незера и Эндера", 3), SlimefunItems.MAGIC_LUMP_1, SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ENDER_LUMP_1, SlimefunItems.ENDER_LUMP_2, SlimefunItems.ENDER_LUMP_3);
 	    Slimefun.registerResearch(new Research(9, "Эндер-рюкзак", 4), SlimefunItems.ENDER_BACKPACK);
@@ -188,14 +188,14 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(189, "Высокоуровневый передатчик", 44), SlimefunItems.GPS_TRANSMITTER_4);
 	    Slimefun.registerResearch(new Research(190, "Электрические сети", 6), SlimefunItems.ENERGY_REGULATOR);
 	    Slimefun.registerResearch(new Research(191, "Андроид-мясник", 32), SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER);
-	    Slimefun.registerResearch(new Research(192, "Органическая пища", 25), SlimefunItems.FOOD_FABRICATOR, SlimefunItems.WHEAT_ORGANIC_FOOD, SlimefunItems.CARROT_ORGANIC_FOOD, SlimefunItems.POTATO_ORGANIC_FOOD, SlimefunItems.SEEDS_ORGANIC_FOOD, SlimefunItems.BEETROOT_ORGANIC_FOOD, SlimefunItems.MELON_ORGANIC_FOOD, SlimefunItems.APPLE_ORGANIC_FOOD);
+	    Slimefun.registerResearch(new Research(192, "Органическая пища", 25), SlimefunItems.FOOD_FABRICATOR, SlimefunItems.WHEAT_ORGANIC_FOOD, SlimefunItems.CARROT_ORGANIC_FOOD, SlimefunItems.POTATO_ORGANIC_FOOD, SlimefunItems.SEEDS_ORGANIC_FOOD, SlimefunItems.BEETROOT_ORGANIC_FOOD, SlimefunItems.MELON_ORGANIC_FOOD, SlimefunItems.APPLE_ORGANIC_FOOD, SlimefunItems.SWEET_BERRIES_ORGANIC_FOOD);
 	    Slimefun.registerResearch(new Research(193, "Автоматизированное размножение", 25), SlimefunItems.AUTO_BREEDER);
 	    Slimefun.registerResearch(new Research(194, "Продвинутый Андроид", 60), SlimefunItems.PROGRAMMABLE_ANDROID_2);
 	    Slimefun.registerResearch(new Research(195, "Продвинутый Андроид-мясник", 30), SlimefunItems.PROGRAMMABLE_ANDROID_2_BUTCHER);
 	    Slimefun.registerResearch(new Research(196, "Продвинутый Андроид-рыбак", 30), SlimefunItems.PROGRAMMABLE_ANDROID_2_FISHERMAN);
 	    Slimefun.registerResearch(new Research(197, "Ускоритель роста животных", 32), SlimefunItems.ANIMAL_GROWTH_ACCELERATOR);
 	    Slimefun.registerResearch(new Research(198, "Хранилище опыта", 36), SlimefunItems.XP_COLLECTOR);
-	    Slimefun.registerResearch(new Research(199, "Органические удобрения", 36), SlimefunItems.FOOD_COMPOSTER, SlimefunItems.WHEAT_FERTILIZER, SlimefunItems.CARROT_FERTILIZER, SlimefunItems.POTATO_FERTILIZER, SlimefunItems.SEEDS_FERTILIZER, SlimefunItems.BEETROOT_FERTILIZER, SlimefunItems.MELON_FERTILIZER, SlimefunItems.APPLE_FERTILIZER);
+	    Slimefun.registerResearch(new Research(199, "Органические удобрения", 36), SlimefunItems.FOOD_COMPOSTER, SlimefunItems.WHEAT_FERTILIZER, SlimefunItems.CARROT_FERTILIZER, SlimefunItems.POTATO_FERTILIZER, SlimefunItems.SEEDS_FERTILIZER, SlimefunItems.BEETROOT_FERTILIZER, SlimefunItems.MELON_FERTILIZER, SlimefunItems.APPLE_FERTILIZER, SlimefunItems.SWEET_BERRIES_FERTILIZER);
 	    Slimefun.registerResearch(new Research(200, "Ускорение роста растений", 40), SlimefunItems.CROP_GROWTH_ACCELERATOR);
 	    Slimefun.registerResearch(new Research(201, "Модернизированный ускоритель роста растений", 44), SlimefunItems.CROP_GROWTH_ACCELERATOR_2);
 	    Slimefun.registerResearch(new Research(202, "Реакторные основы", 36), SlimefunItems.REACTOR_COOLANT_CELL, SlimefunItems.NEPTUNIUM, SlimefunItems.PLUTONIUM);
@@ -213,7 +213,6 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(214, "Улучшенная морозилка", 29), SlimefunItems.FREEZER_2);
 	    Slimefun.registerResearch(new Research(215, "\"Замкнутый круг\"", 30), SlimefunItems.BOOSTED_URANIUM);
 	    Slimefun.registerResearch(new Research(216, "Мусор", 8), SlimefunItems.TRASH_CAN);
-	    Slimefun.registerResearch(new Research(216, "Зарядное устройство-верстак", 8), SlimefunItems.CHARGING_BENCH);
 	    Slimefun.registerResearch(new Research(217, "Продвинутый грузовой узел", 24), SlimefunItems.CARGO_OUTPUT_ADVANCED);
 	    Slimefun.registerResearch(new Research(218, "Углеродный пресс", 28), SlimefunItems.CARBON_PRESS);
 	    Slimefun.registerResearch(new Research(219, "Электрическая плавильня", 28), SlimefunItems.ELECTRIC_SMELTERY);
@@ -246,5 +245,6 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(247, "Геокопатель", 24), SlimefunItems.GEO_MINER);
 	    Slimefun.registerResearch(new Research(248, "Молниевый элементальный посох", 24), SlimefunItems.RUNE_LIGHTNING);
 	    Slimefun.registerResearch(new Research(249, "Тотем бессмертия", 36), SlimefunItems.TOTEM_OF_UNDYING);
+		Slimefun.registerResearch(new Research(250, "Зарядное устройство-верстак", 8), SlimefunItems.CHARGING_BENCH);
 	}
 }
