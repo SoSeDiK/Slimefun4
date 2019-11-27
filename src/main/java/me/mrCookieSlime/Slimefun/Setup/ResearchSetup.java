@@ -246,5 +246,6 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(248, "Молниевый элементальный посох", 24), SlimefunItems.RUNE_LIGHTNING);
 	    Slimefun.registerResearch(new Research(249, "Тотем бессмертия", 36), SlimefunItems.TOTEM_OF_UNDYING);
 		Slimefun.registerResearch(new Research(250, "Зарядное устройство-верстак", 8), SlimefunItems.CHARGING_BENCH);
+	    Slimefun.registerResearch(new Research(251, "Незеритовый рудопромывочный лоток", 8), SlimefunItems.NETHER_GOLD_PAN);
 	}
 }

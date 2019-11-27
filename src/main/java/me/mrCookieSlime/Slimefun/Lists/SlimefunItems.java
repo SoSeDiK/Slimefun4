@@ -43,6 +43,7 @@ public final class SlimefunItems {
 	
 	/*		 Gadgets 		*/
 	public static final ItemStack GOLD_PAN = new SlimefunItemStack("GOLD_PAN", Material.BOWL, "&6Рудопромывочный лоток", "&a&oСможете ли Вы заполучить все виды полезностей…", "", "&7&eПравый клик&7 по гравию для добычи различных вещей");
+	public static final ItemStack NETHER_GOLD_PAN = new SlimefunItemStack("NETHER_GOLD_PAN", Material.BOWL, "&4Незеритовый рудопромывочный лоток", "", "&7&eПравый клик&7 по песку душ для добычи различных вещей");
 	public static final ItemStack PARACHUTE = new SlimefunItemStack("PARACHUTE", Material.LEATHER_CHESTPLATE, Color.WHITE, "&r&lПарашют", "", "&7Зажмите &eShift&7 для использования");
 	public static final ItemStack GRAPPLING_HOOK = new SlimefunItemStack("GRAPPLING_HOOK", Material.LEAD, "&6Крюк", "", "&7&eПравый клик&7 для использования");
 	public static final ItemStack SOLAR_HELMET = new SlimefunItemStack("SOLAR_HELMET", Material.IRON_HELMET, "&bСолнечный шлем", "", "&a&oЗаряжает броню и предметы в руках");
@@ -513,8 +514,8 @@ public final class SlimefunItems {
 
 	@Deprecated
 	public static final ItemStack ADVANCED_DIGITAL_MINER = new CustomItem(Material.DIAMOND_PICKAXE, "&6Продвинутый цифровой шахтёр", "", "&4УСТАРЕВШИЙ ПРЕДМЕТ", "&cЭта машина скоро будет удалена!");
-	
-	public static final ItemStack AUTOMATED_PANNING_MACHINE = new SlimefunItemStack("AUTOMATED_PANNING_MACHINE", Material.BOWL, "&aРудопромывочная машина", "", "&aСтруктурная версия рудопромывочного лотка");
+
+	public static final ItemStack AUTOMATED_PANNING_MACHINE = new SlimefunItemStack("AUTOMATED_PANNING_MACHINE", Material.BOWL, "&eРудопромывочная машина", "", "&rСтруктурная версия рудопромывочных лотков");
 	public static final ItemStack OUTPUT_CHEST = new SlimefunItemStack("OUTPUT_CHEST", Material.CHEST, "&4Выходной сундук", "", "&c&oРезультат крафта (на ул./маг. верстаке…)", "&c&oбудет помещён в сундук, если", "&c&oон размещён рядом с раздатчиком");
 	public static final ItemStack HOLOGRAM_PROJECTOR = new SlimefunItemStack("HOLOGRAM_PROJECTOR", Material.QUARTZ_SLAB, "&bГолограммный проектор", "", "&rПоказывает редактируемую голограмму");
 	

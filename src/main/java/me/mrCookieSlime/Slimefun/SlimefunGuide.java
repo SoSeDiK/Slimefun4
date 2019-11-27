@@ -1,21 +1,18 @@
 package me.mrCookieSlime.Slimefun;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.logging.Level;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 
-import io.github.thebusybiscuit.cscorelib2.math.DoubleHandler;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
-import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Setup.SlimefunManager;
@@ -25,8 +22,6 @@ import me.mrCookieSlime.Slimefun.guides.BookSlimefunGuide;
 import me.mrCookieSlime.Slimefun.guides.ChestSlimefunGuide;
 import me.mrCookieSlime.Slimefun.guides.ISlimefunGuide;
 import me.mrCookieSlime.Slimefun.guides.SlimefunGuideLayout;
-import me.mrCookieSlime.Slimefun.hooks.github.Contributor;
-import me.mrCookieSlime.Slimefun.hooks.github.IntegerFormat;
 
 public final class SlimefunGuide {
 
@@ -39,25 +34,38 @@ public final class SlimefunGuide {
 		layouts.put(SlimefunGuideLayout.CHEAT_SHEET, chestGuide);
 		layouts.put(SlimefunGuideLayout.BOOK, new BookSlimefunGuide());
 	}
-
-	private static final int[] SLOTS = new int[] {0, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
-
+	
 	@Deprecated
 	public static ItemStack getItem() {
 		return getItem(SlimefunGuideLayout.CHEST);
 	}
-
+	
 	public static ItemStack getItem(SlimefunGuideLayout design) {
+		ItemStack item = new ItemStack(Material.ENCHANTED_BOOK);
+		ItemMeta meta = item.getItemMeta();
+		List<String> lore = new LinkedList<>();
+		lore.addAll(Arrays.asList("", ChatColors.color("&eПравый клик &8\u21E8 &7Просмотреть предметы"), ChatColors.color("&eShift + Правый клик &8\u21E8 &7Открыть настройки / информацию")));
+		
 		switch (design) {
 		case BOOK:
-			return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aРуководство Slimefun &7(книжный интерфейс)", "", "&eПравый клик &8\u21E8 &7просмотр", "&eShift + правый клик &8\u21E8 &7открыть настройки");
+			meta.setDisplayName(ChatColors.color("&aРуководство Slimefun &7(книжный интерфейс)"));
+			break;
 		case CHEAT_SHEET:
-			return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&cРуководство Slimefun &4(режим выдачи предметов)", "", "&4&lОткрывается только администраторами", "", "&eПравый клик &8\u21E8 &7просмотр", "&eShift + правый клик &8\u21E8 &7открыть настройки");
+			meta.setDisplayName(ChatColors.color("&cРуководство Slimefun &4(режим выдачи предметов)"));
+			lore.add(0, ChatColors.color("&4&lОткрывается только администраторами"));
+			lore.add(0, "");
+			break;
 		case CHEST:
-			return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&aРуководство Slimefun &7(слотовый интерфейс)", "", "&eПравый клик &8\u21E8 &7просмотр", "&eShift + правый клик &8\u21E8 &7открыть настройки");
+			meta.setDisplayName(ChatColors.color("&aРуководство Slimefun &7(слотовый интерфейс)"));
+			break;
 		default:
 			return null;
 		}
+		
+		meta.setLore(lore);
+		SlimefunPlugin.getItemTextureService().setTexture(meta, "SLIMEFUN_GUIDE");
+		item.setItemMeta(meta);
+		return item;
 	}
 
 	@Deprecated
@@ -70,159 +78,6 @@ public final class SlimefunGuide {
 		return new CustomItem(new ItemStack(Material.ENCHANTED_BOOK), "&eРуководство Slimefun &7(правый клик)", (book ? "": "&2"), "&rЭто базовая информация по Slimefun системе", "&rТут Вы можете посмотреть продвинутые крафты предметов,", "&rкоторые были добавлены на сервер", "&rУдачи в изучении ;)");
 	}
 
-	public static void openSettings(Player p, final ItemStack guide) {
-		final ChestMenu menu = new ChestMenu("Настройки / Информация");
-
-		menu.setEmptySlotsClickable(false);
-		menu.addMenuOpeningHandler(
-				pl -> pl.playSound(pl.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP, 0.7F, 0.7F)
-		);
-
-		for (int i: SLOTS) {
-			menu.addItem(i, new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), " "));
-			menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
-		}
-
-
-		if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEST), true)) {
-			if (p.hasPermission("slimefun.cheat.items")) {
-				menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Текущий дизайн: &eслотовый интерфейс", "", "&aСлотовый интерфейс", "&7Книжный интерфейс", "&7Режим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
-				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
-					pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.BOOK));
-					openSettings(pl, pl.getInventory().getItemInMainHand());
-					return false;
-				});
-			}
-			else {
-				menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Дизайн: &eслотовый интерфейс", "", "&aСлотовый интерфейс", "&7Книжный интерфейс", "", "&8\u21E8 &eНажмите &7для изменения"));
-				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
-					pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.BOOK));
-					openSettings(pl, pl.getInventory().getItemInMainHand());
-					return false;
-				});
-			}
-		}
-		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.BOOK), true)) {
-			if (p.hasPermission("slimefun.cheat.items")) {
-				menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Текущий дизайн: &eкнижный интерфейс", "", "&7Слотовый интерфейс", "&aКнижный интерфейс", "&7Режим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
-				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
-					pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.CHEAT_SHEET));
-					openSettings(pl, pl.getInventory().getItemInMainHand());
-					return false;
-				});
-			}
-			else {
-				menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Дизайн: &eкнижный интерфейс", "", "&7Слотовый интерфейс", "&aКнижный интерфейс", "", "&8\u21E8 &eНажмите &7для изменения"));
-				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
-					pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.CHEST));
-					openSettings(pl, pl.getInventory().getItemInMainHand());
-					return false;
-				});
-			}
-		}
-		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEAT_SHEET), true)) {
-			menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Текущий дизайн: &eрежим выдачи предметов", "", "&7Слотовый интерфейс", "&7Книжный интерфейс", "&aРежим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
-			menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
-				pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.CHEST));
-				openSettings(pl, pl.getInventory().getItemInMainHand());
-				return false;
-			});
-		}
-
-		menu.addItem(1, new CustomItem(new ItemStack(Material.WRITABLE_BOOK), "&aО нас…", "", "&7Версия: &a" + Slimefun.getVersion(), "&7Установленные дополнения: &b" + Slimefun.getInstalledAddons().size(), "&7Авторы: &e" + SlimefunPlugin.getUtilities().contributors.size(), "", "&7\u21E8 Нажмите, чтобы увидеть список людей, создавших этот плагин :)"));
-		menu.addMenuClickHandler(1, (pl, slot, item, action) -> {
-			openCredits(pl, guide);
-			return false;
-		});
-
-		try {
-			menu.addItem(4, new CustomItem(new ItemStack(Material.COMPARATOR), "&eИсходный код", "", "&7Байтов в коде плагина: &6" + IntegerFormat.formatBigNumber(SlimefunPlugin.getUtilities().codeBytes), "&7Последнее обновление: &a" + IntegerFormat.timeDelta(SlimefunPlugin.getUtilities().lastUpdate) + " назад", "&7Форков: &e" + SlimefunPlugin.getUtilities().forks, "&7Звёзд: &e" + SlimefunPlugin.getUtilities().stars, "", "&7&oSlimefun 4 — это общедоступный проект,", "&7&oисходный код плагина доступен на сайте GitHub.", "&7&oИ если Вы хотите, чтобы плагин оставался 'жив',", "&7&oто подумайте над его улучшением.", "", "&7\u21E8 Нажмите, чтобы открыть страницу плагина на GitHub."));
-			menu.addMenuClickHandler(4, (pl, slot, item, action) -> {
-				pl.closeInventory();
-				pl.sendMessage("");
-				pl.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&ohttps://github.com/TheBusyBiscuit/Slimefun4"));
-				pl.sendMessage("");
-				return false;
-			});
-		} catch (Exception x) {
-			Slimefun.getLogger().log(Level.SEVERE, "An Error occured while creating the Info-Panel for Slimefun " + Slimefun.getVersion(), x);
-		}
-
-		menu.addItem(7, new CustomItem(new ItemStack(Material.REDSTONE), "&4Баг-трекер", "", "&7Нерешённые вопросы: &a" + SlimefunPlugin.getUtilities().issues, "&7Ожидаемые изменения: &a" + SlimefunPlugin.getUtilities().prs, "", "&7\u21E8 Нажмите, чтобы перейти на страницу багов Slimefun"));
-		menu.addMenuClickHandler(7, (pl, slot, item, action) -> {
-			pl.closeInventory();
-			pl.sendMessage("");
-			pl.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&ohttps://github.com/TheBusyBiscuit/Slimefun4/issues"));
-			pl.sendMessage("");
-			return false;
-		});
-
-		menu.open(p);
-	}
-
-	private static void openCredits(Player p, final ItemStack guide) {
-		final ChestMenu menu = new ChestMenu("Мы благодарны им:");
-
-		menu.setEmptySlotsClickable(false);
-		menu.addMenuOpeningHandler(pl -> pl.playSound(pl.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP, 0.7F, 0.7F));
-
-		for (int i = 0; i < 9; i++) {
-			if (i != 4) {
-				menu.addItem(i, new CustomItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), " "));
-				menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
-			}
-			else {
-				menu.addItem(4, new CustomItem(new ItemStack(Material.EMERALD), "&7\u21E6 Вернуться назад"));
-				menu.addMenuClickHandler(4, (pl, slot, item, action) -> {
-					openSettings(pl, guide);
-					return false;
-				});
-			}
-		}
-
-		int index = 9;
-		double total = 1.0 * SlimefunPlugin.getUtilities().contributors.stream().mapToInt(Contributor::getCommits).sum();
-
-		for (final Contributor contributor: SlimefunPlugin.getUtilities().contributors) {
-			ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
-
-			try {
-				String texture = contributor.getTexture();
-				if (texture != null) skull = CustomSkull.getItem(texture);
-			} catch (Exception x) {
-				Slimefun.getLogger().log(Level.SEVERE, "An Error occured while fetching a Contributor Head for Slimefun " + Slimefun.getVersion(), x);
-			}
-
-			SkullMeta meta = (SkullMeta) skull.getItemMeta();
-			meta.setDisplayName(ChatColor.GOLD + contributor.getName());
-
-			if (contributor.getCommits() > 0) {
-				double percentage = DoubleHandler.fixDouble((contributor.getCommits() * 100.0) / total, 2);
-				meta.setLore(Arrays.asList("", ChatColor.translateAlternateColorCodes('&', "&7Роль: &r" + contributor.getJob()), ChatColor.translateAlternateColorCodes('&', "&7Вклад: &r" + contributor.getCommits() + " коммитов &7(&r" + percentage + "%&7)"), "", ChatColor.translateAlternateColorCodes('&', "&7\u21E8 Нажмите для просмотра GitHub профиля")));
-			}
-			else {
-				meta.setLore(Arrays.asList("", ChatColor.translateAlternateColorCodes('&', "&7Роль: &r" + contributor.getJob())));
-			}
-
-			skull.setItemMeta(meta);
-
-			menu.addItem(index, skull);
-			menu.addMenuClickHandler(index, (pl, slot, item, action) -> {
-				if (contributor.getCommits() > 0) {
-					pl.closeInventory();
-					pl.sendMessage("");
-					pl.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7&o" + contributor.getProfile()));
-					pl.sendMessage("");
-				}
-				return false;
-			});
-
-			index++;
-		}
-
-		menu.open(p);
-	}
-
 	public static void openCheatMenu(Player p) {
 		openMainMenuAsync(p, false, SlimefunGuideLayout.CHEAT_SHEET, 1);
 	}
@@ -230,6 +85,18 @@ public final class SlimefunGuide {
 	@Deprecated
 	public static void openGuide(Player p, boolean book) {
 		openGuide(p, book ? SlimefunGuideLayout.BOOK: SlimefunGuideLayout.CHEST);
+	}
+
+	public static void openGuide(Player p, ItemStack guide) {
+		if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEST), true)) {
+			openGuide(p, SlimefunGuideLayout.CHEST);
+		}
+		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.BOOK), true)) {
+			openGuide(p, SlimefunGuideLayout.BOOK);
+		}
+		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEAT_SHEET), true)) {
+			openGuide(p, SlimefunGuideLayout.CHEAT_SHEET);
+		}
 	}
 
 	public static void openGuide(Player p, SlimefunGuideLayout layout) {
