@@ -195,7 +195,7 @@ public final class GuideSettings {
 			lore.add("");
 			
 			for (Map.Entry<String, Integer> entry: contributor.getContributions().entrySet()) {
-				lore.add(ChatColors.color(entry.getKey() + " &7(коммитов: + " + entry.getValue() +  )"));
+				lore.add(ChatColors.color(entry.getKey() + " &7(коммитов: + " + entry.getValue()));
 			}
 			
 			lore.add("");
