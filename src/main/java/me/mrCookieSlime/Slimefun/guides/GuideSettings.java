@@ -199,7 +199,7 @@ public final class GuideSettings {
 			}
 			
 			lore.add("");
-			lore.add("&7\u21E8 Нажмите для просмотра GitHub профиля " + contributor.getName());
+			lore.add(ChatColors.color("&7\u21E8 Нажмите для просмотра GitHub профиля " + contributor.getName()));
 			meta.setLore(lore);
 			skull.setItemMeta(meta);
 
@@ -210,9 +210,9 @@ public final class GuideSettings {
 				return false;
 			});
 		}
-		
+
 		if (hasPrevious) {
-			menu.addItem(46, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&e<- Предыдущая"));
+			menu.addItem(46, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&e\u21E6 Предыдущая страница"));
 			menu.addMenuClickHandler(46, (pl, slot, item, action) -> {
 				openCredits(pl, page - 1);
 				return false;
@@ -222,9 +222,9 @@ public final class GuideSettings {
 			menu.addItem(46, new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " "));
 			menu.addMenuClickHandler(46, (pl, slot, item, action) -> false);
 		}
-		
+
 		if (hasNext) {
-			menu.addItem(52, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&eСледующая ->"));
+			menu.addItem(52, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&eСледующая страница \u21E8"));
 			menu.addMenuClickHandler(52, (pl, slot, item, action) -> {
 				openCredits(pl, page + 1);
 				return false;
