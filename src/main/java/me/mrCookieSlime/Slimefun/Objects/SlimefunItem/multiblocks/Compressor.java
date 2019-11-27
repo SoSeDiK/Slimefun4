@@ -24,22 +24,23 @@ public class Compressor extends MultiBlockMachine {
 
 	public Compressor() {
 		super(
-				Categories.MACHINES_1, 
+				Categories.MACHINES_1,
 				SlimefunItems.COMPRESSOR,
+				"COMPRESSOR",
 				new ItemStack[] {null, null, null, null, new ItemStack(Material.NETHER_BRICK_FENCE), null, new ItemStack(Material.PISTON), new CustomItem(Material.DISPENSER, "Раздатчик (направлен вверх)"), new ItemStack(Material.PISTON)},
 				new ItemStack[] {
-					new CustomItem(SlimefunItems.STONE_CHUNK, 4), new ItemStack(Material.COBBLESTONE),
-					new ItemStack(Material.FLINT, 8), new ItemStack(Material.COBBLESTONE)
+						new CustomItem(SlimefunItems.STONE_CHUNK, 4), new ItemStack(Material.COBBLESTONE),
+						new ItemStack(Material.FLINT, 8), new ItemStack(Material.COBBLESTONE)
 				},
 				BlockFace.SELF
 		);
 	}
-	
+
 	@Override
 	public List<ItemStack> getDisplayRecipes() {
 		return recipes.stream().map(items -> items[0]).collect(Collectors.toList());
 	}
-	
+
 	@Override
 	public void onInteract(Player p, Block b) {
 		Block dispBlock = b.getRelative(BlockFace.DOWN);
@@ -56,11 +57,11 @@ public class Compressor extends MultiBlockMachine {
 						inv.removeItem(removing);
 						for (int i = 0; i < 4; i++) {
 							int j = i;
-							
+
 							Bukkit.getScheduler().runTaskLater(SlimefunPlugin.instance, () -> {
 								if (j < 3) {
 									p.getWorld().playSound(p.getLocation(), j == 1 ? Sound.BLOCK_PISTON_CONTRACT : Sound.BLOCK_PISTON_EXTEND, 1F, j == 0 ? 1F : 2F);
-								} 
+								}
 								else {
 									p.getWorld().playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1F, 1F);
 									outputInv.addItem(adding);
@@ -69,7 +70,7 @@ public class Compressor extends MultiBlockMachine {
 						}
 					}
 					else SlimefunPlugin.getLocal().sendMessage(p, "machines.full-inventory", true);
-					
+
 					return;
 				}
 			}
