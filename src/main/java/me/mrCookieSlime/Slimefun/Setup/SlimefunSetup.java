@@ -129,6 +129,7 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.Electric
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectricIngotFactory;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectricIngotPulverizer;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectricOreGrinder;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectricPress;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectricSmeltery;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElectrifiedCrucible;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.machines.electric.ElevatorPlate;
@@ -590,7 +591,7 @@ public final class SlimefunSetup {
 		.register(true);
 
 		new GrapplingHook(Categories.TOOLS, (SlimefunItemStack) SlimefunItems.GRAPPLING_HOOK, RecipeType.ENHANCED_CRAFTING_TABLE,
-		new ItemStack[] {null, SlimefunItems.HOOK, SlimefunItems.HOOK, null, SlimefunItems.CHAIN, SlimefunItems.HOOK, SlimefunItems.CHAIN, null, null},
+		new ItemStack[] {null, null, SlimefunItems.HOOK, null, SlimefunItems.CHAIN, null, SlimefunItems.CHAIN, null, null},
 		new String[] {"despawn-seconds"}, new Object[] {60})
 		.register(true);
 
@@ -618,40 +619,42 @@ public final class SlimefunSetup {
 				else return false;
 			}
 		});
+		
+		String[] multiToolItems = new String[] {"PORTABLE_CRAFTER", "MAGIC_EYE_OF_ENDER", "STAFF_ELEMENTAL_WIND", "GRAPPLING_HOOK"};
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.DURALUMIN_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.DURALUMIN_INGOT, null, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.DURALUMIN_INGOT, null, SlimefunItems.DURALUMIN_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.SOLDER_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.SOLDER_INGOT, null, SlimefunItems.SOLDER_INGOT, SlimefunItems.SOLDER_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.SOLDER_INGOT, null, SlimefunItems.SOLDER_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.BILLON_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.BILLON_INGOT, null, SlimefunItems.BILLON_INGOT, SlimefunItems.BILLON_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.BILLON_INGOT, null, SlimefunItems.BILLON_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.STEEL_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.STEEL_INGOT, null, SlimefunItems.STEEL_INGOT, SlimefunItems.STEEL_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.STEEL_INGOT, null, SlimefunItems.STEEL_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.DAMASCUS_STEEL_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.DAMASCUS_STEEL_INGOT, null, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.SMALL_CAPACITOR, SlimefunItems.DAMASCUS_STEEL_INGOT, null, SlimefunItems.DAMASCUS_STEEL_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.REINFORCED_ALLOY_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK"})
+		multiToolItems)
 		.register(true);
 
 		new MultiTool((SlimefunItemStack) SlimefunItems.CARBONADO_MULTI_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {SlimefunItems.CARBONADO, null, SlimefunItems.CARBONADO, SlimefunItems.CARBONADO, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.CARBONADO, null, SlimefunItems.CARBONADO, null},
-		new String[] {"mode.0.enabled", "mode.0.name", "mode.0.item", "mode.1.enabled", "mode.1.name", "mode.1.item", "mode.2.enabled", "mode.2.name", "mode.2.item", "mode.3.enabled", "mode.3.name", "mode.3.item", "mode.4.enabled", "mode.4.name", "mode.4.item"}, new Object[] {true, "Портативный крафтер", "PORTABLE_CRAFTER", true, "Магическое око Эндера", "MAGIC_EYE_OF_ENDER", true, "Ветряной элементальный посох", "STAFF_ELEMENTAL_WIND", true, "Крюк", "GRAPPLING_HOOK", true, "Рудопромывочный лоток", "GOLD_PAN"})
+		"PORTABLE_CRAFTER", "MAGIC_EYE_OF_ENDER", "STAFF_ELEMENTAL_WIND", "GRAPPLING_HOOK", "GOLD_PAN", "NETHER_GOLD_PAN")
 		.register(true);
 
 		new OreWasher().register();
@@ -1237,7 +1240,7 @@ public final class SlimefunSetup {
 		.register(true);
 
 		new SoulboundBackpack(36, Categories.PORTABLE, (SlimefunItemStack) SlimefunItems.BOUND_BACKPACK,
-		new ItemStack[] {SlimefunItems.ENDER_LUMP_2, null, SlimefunItems.ENDER_LUMP_2, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.RADIANT_BACKPACK, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.ENDER_LUMP_2, null, SlimefunItems.ENDER_LUMP_2})
+		new ItemStack[] {SlimefunItems.ENDER_LUMP_2, null, SlimefunItems.ENDER_LUMP_2, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.WOVEN_BACKPACK, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.ENDER_LUMP_2, null, SlimefunItems.ENDER_LUMP_2})
 		.register(true);
 
 		new JetBoots((SlimefunItemStack) SlimefunItems.DURALUMIN_JETBOOTS,
@@ -1552,7 +1555,7 @@ public final class SlimefunSetup {
 		.register(true);
 
 		new SlimefunItem(Categories.CHRISTMAS, SlimefunItems.CHRISTMAS_CHOCOLATE_APPLE, "CHRISTMAS_CHOCOLATE_APPLE", RecipeType.ENHANCED_CRAFTING_TABLE,
-		new ItemStack[] {null, new ItemStack(Material.COCOA_BEANS), null, null, new ItemStack(Material.APPLE), null, null, new ItemStack(Material.STICK), null}, new CustomItem(SlimefunItems.CHRISTMAS_CARAMEL_APPLE, 2))
+		new ItemStack[] {null, new ItemStack(Material.COCOA_BEANS), null, null, new ItemStack(Material.APPLE), null, null, new ItemStack(Material.STICK), null}, new CustomItem(SlimefunItems.CHRISTMAS_CHOCOLATE_APPLE, 2))
 		.register(true);
 
 		new SlimefunItem(Categories.CHRISTMAS, SlimefunItems.CHRISTMAS_PRESENT, "CHRISTMAS_PRESENT", RecipeType.MAGIC_WORKBENCH,
@@ -2054,6 +2057,36 @@ public final class SlimefunSetup {
 		new AutoDrier(Categories.ELECTRICITY, (SlimefunItemStack) SlimefunItems.AUTO_DRIER, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {null, null, null, SlimefunItems.HEATING_COIL, new ItemStack(Material.SMOKER), SlimefunItems.HEATING_COIL, null, new ItemStack(Material.CAMPFIRE), null})
 		.registerChargeableBlock(true, 128);
+
+		new ElectricPress(Categories.ELECTRICITY, (SlimefunItemStack) SlimefunItems.ELECTRIC_PRESS, RecipeType.ENHANCED_CRAFTING_TABLE,
+		new ItemStack[] {new ItemStack(Material.PISTON), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.PISTON), null, SlimefunItems.MEDIUM_CAPACITOR, null, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT}) {
+
+			@Override
+			public int getEnergyConsumption() {
+				return 8;
+			}
+
+			@Override
+			public int getSpeed() {
+				return 1;
+			}
+
+		}.registerChargeableBlock(true, 256);
+
+		new ElectricPress(Categories.ELECTRICITY, (SlimefunItemStack) SlimefunItems.ELECTRIC_PRESS_2, RecipeType.ENHANCED_CRAFTING_TABLE,
+		new ItemStack[] {new ItemStack(Material.STICKY_PISTON), SlimefunItems.ELECTRIC_PRESS, new ItemStack(Material.STICKY_PISTON), SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.BIG_CAPACITOR, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT}) {
+
+			@Override
+			public int getEnergyConsumption() {
+				return 20;
+			}
+
+			@Override
+			public int getSpeed() {
+				return 3;
+			}
+
+		}.registerChargeableBlock(true, 1024);
 
 		new AutoEnchanter(Categories.ELECTRICITY, (SlimefunItemStack) SlimefunItems.AUTO_ENCHANTER, RecipeType.ENHANCED_CRAFTING_TABLE,
 		new ItemStack[] {null, new ItemStack(Material.ENCHANTING_TABLE), null, SlimefunItems.CARBONADO, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.CARBONADO, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN})

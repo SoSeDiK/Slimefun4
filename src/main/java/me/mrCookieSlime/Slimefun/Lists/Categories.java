@@ -25,13 +25,13 @@ public final class Categories {
 	
 	public static final Category WEAPONS = new Category(new CustomItem(Material.GOLDEN_SWORD, "&7Оружие", "", LORE), 1);
 	public static final Category PORTABLE = new Category(new CustomItem(SlimefunItems.BACKPACK_MEDIUM, "&7Предметы", "", LORE), 1);
-	public static final Category FOOD = new Category(new CustomItem(Material.APPLE, "&7Еда", "", LORE), 2);
+	public static final Category FOOD = new Category(new CustomItem(SlimefunItems.FORTUNE_COOKIE, "&7Еда", "", LORE), 2);
 	public static final Category MACHINES_1 = new Category(new CustomItem(Material.SMITHING_TABLE, "&7Основные машины", "", LORE), 1);
 	public static final LockedCategory ELECTRICITY = new LockedCategory(new CustomItem(SlimefunItems.NUCLEAR_REACTOR, "&bЭлектричество", "", LORE), 4, MACHINES_1);
 	public static final LockedCategory GPS = new LockedCategory(new CustomItem(SlimefunItems.GPS_TRANSMITTER, "&bМашины на базе GPS", "", LORE), 4, MACHINES_1);
 	public static final Category ARMOR = new Category(new CustomItem(Material.IRON_CHESTPLATE, "&7Броня", "", LORE), 2);
 	public static final Category LUMPS_AND_MAGIC = new Category(new CustomItem(SlimefunItems.RUNE_ENDER, "&7Магические предметы", "", LORE), 2);
-	public static final Category MAGIC = new Category(new CustomItem(Material.ELYTRA, "&7Магические приборы", "", LORE), 3);
+	public static final Category MAGIC = new Category(new CustomItem(SlimefunItems.INFUSED_ELYTRA, "&7Магические приборы", "", LORE), 3);
 	public static final Category MISC = new Category(new CustomItem(SlimefunItems.CAN, "&7Разное", "", LORE), 2);
 	public static final Category TECH = new Category(new CustomArmor(new CustomItem(Material.LEATHER_CHESTPLATE, "&7Технические приборы", "", LORE), Color.SILVER), 3);
 	public static final Category RESOURCES = new Category(new CustomItem(SlimefunItems.SYNTHETIC_SAPPHIRE, "&7Ресурсы", "", LORE), 1);

@@ -10,7 +10,7 @@ public final class ChatUtils {
 	
 	public static void sendURL(Player p, String url) {
 		p.sendMessage("");
-		p.sendMessage(ChatColors.color("&7&oНажмите сюда:"));
+		p.sendMessage(ChatColors.color("&eНажмите сюда:"));
 		p.sendMessage(ChatColors.color("&7&o" + url));
 		p.sendMessage("");
 	}

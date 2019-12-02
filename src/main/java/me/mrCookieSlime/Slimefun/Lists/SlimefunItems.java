@@ -157,7 +157,7 @@ public final class SlimefunItems {
 	public static final ItemStack CHRISTMAS_APPLE_PIE = new CustomItem(Material.PUMPKIN_PIE, "&rЯблочный пирог");
 	public static final ItemStack CHRISTMAS_HOT_CHOCOLATE = new CustomPotion("&6Горячий шоколад", Color.MAROON, new PotionEffect(PotionEffectType.SATURATION, 14, 0), "", "&7&oВосстанавливает &b&o" + "7.0 единиц" + " &7&oголода");
 	public static final ItemStack CHRISTMAS_CAKE = new CustomItem(Material.PUMPKIN_PIE, Christmas.color("Рождественский торт"));
-	public static final ItemStack CHRISTMAS_CARAMEL = new CustomItem(Material.BRICKS, "&6Карамель");
+	public static final ItemStack CHRISTMAS_CARAMEL = new CustomItem(Material.BRICK, "&6Карамель");
 	public static final ItemStack CHRISTMAS_CARAMEL_APPLE = new CustomItem(Material.APPLE, "&6Карамельное яблоко");
 	public static final ItemStack CHRISTMAS_CHOCOLATE_APPLE = new CustomItem(Material.APPLE, "&6Шоколадное яблоко");
 	public static final ItemStack CHRISTMAS_PRESENT = new CustomItem(Material.CHEST, Christmas.color("Рождественский подарок"), "&7От &emrCookieSlime", "&7Для &eтебя :)", "", "&eПравый клик&7, чтобы открыть");
@@ -726,6 +726,9 @@ public final class SlimefunItems {
 	
 	public static final ItemStack ELECTRIC_SMELTERY = new SlimefunItemStack("ELECTRIC_SMELTERY", Material.FURNACE, "&cЭлектрическая плавильня", "", "&4Только сплавы, не переплавляет пыль в слитки", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 1x", "&8\u21E8 &e\u26A1 &720 Дж/с");
 	public static final ItemStack ELECTRIC_SMELTERY_2 = new SlimefunItemStack("ELECTRIC_SMELTERY_2", Material.FURNACE, "&cЭлектрическая плавильня &7– &eII", "", "&4Только сплавы, не переплавляет пыль в слитки", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 3x", "&8\u21E8 &e\u26A1 &740 Дж/с");
+	
+	public static final ItemStack ELECTRIC_PRESS = new SlimefunItemStack("ELECTRIC_PRESS", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQ1Y2Y5MmJjNzllYzE5ZjQxMDY0NDFhZmZmZjE0MDZhMTM2NzAxMGRjYWZiMTk3ZGQ5NGNmY2ExYTZkZTBmYyJ9fX0=", "&eЭлектрический пресс", "", MachineTier.MEDIUM.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 1x", "&8\u21E8 &e\u26A1 &716 Дж/с");
+	public static final ItemStack ELECTRIC_PRESS_2 = new SlimefunItemStack("ELECTRIC_PRESS_2", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGQ1Y2Y5MmJjNzllYzE5ZjQxMDY0NDFhZmZmZjE0MDZhMTM2NzAxMGRjYWZiMTk3ZGQ5NGNmY2ExYTZkZTBmYyJ9fX0=", "&eЭлектрический пресс &7- &eII", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 3x", "&8\u21E8 &e\u26A1 &740 Дж/с");
 	
 	public static final ItemStack ELECTRIFIED_CRUCIBLE = new SlimefunItemStack("ELECTRIFIED_CRUCIBLE", Material.RED_TERRACOTTA, "&cЭлектрический тигель", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 1x", "&8\u21E8 &e\u26A1 &748 Дж/с");
 	public static final ItemStack ELECTRIFIED_CRUCIBLE_2 = new SlimefunItemStack("ELECTRIFIED_CRUCIBLE_2", Material.RED_TERRACOTTA, "&cЭлектрический тигель &7– &eII", "", MachineTier.END_GAME.and(MachineType.MACHINE), "&8\u21E8 &7Скорость: 2x", "&8\u21E8 &e\u26A1 &780 Дж/с");
