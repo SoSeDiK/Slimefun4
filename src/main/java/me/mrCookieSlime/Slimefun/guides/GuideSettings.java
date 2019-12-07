@@ -121,7 +121,7 @@ public final class GuideSettings {
 			Slimefun.getLogger().log(Level.SEVERE, "An Error occured while creating the Info-Panel for Slimefun " + Slimefun.getVersion(), x);
 		}
 
-		menu.addItem(7, new CustomItem(new ItemStack(Material.KNOWLEDGE_BOOK), "&3Slimefun Вики", "", "&7Нужна помощь с предметом или машиной?", "&7Не можете понять, что делать дальше?", "&7*Вики поддерживается сообществом", "&7и доступна на английском языке!", "", "&7\u21E8 Нажмите, чтоьы перейти на официальную Вики Slimefun"));
+		menu.addItem(7, new CustomItem(new ItemStack(Material.KNOWLEDGE_BOOK), "&3Slimefun Вики", "", "&7Нужна помощь с предметом или машиной?", "&7Не можете понять, что делать дальше?", "&7*Вики поддерживается сообществом", "&7и доступна на английском языке!", "", "&7\u21E8 Нажмите, чтобы перейти на официальную Вики Slimefun"));
 		menu.addMenuClickHandler(7, (pl, slot, item, action) -> {
 			pl.closeInventory();
 			ChatUtils.sendURL(pl, "https://github.com/TheBusyBiscuit/Slimefun4/wiki");
