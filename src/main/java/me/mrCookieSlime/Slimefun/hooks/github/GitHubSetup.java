@@ -14,9 +14,9 @@ public final class GitHubSetup {
 	private GitHubSetup() {}
 	
 	public static void setup() {
-		new ContributionsConnector("code", REPOSITORY, "&6Автор");
+		new ContributionsConnector("code", REPOSITORY, "&6Разработчик");
 		new ContributionsConnector("wiki", "TheBusyBiscuit/Slimefun4-wiki", "&3Редактор Вики");
-		new ContributionsConnector("resourcepack", "TheBusyBiscuit/Slimefun4-Resourcepack", "&cТекстурщик голов");
+		new ContributionsConnector("resourcepack", "TheBusyBiscuit/Slimefun4-Resourcepack", "&cТекстурщик");
 		
 		new GitHubConnector() {
 			
