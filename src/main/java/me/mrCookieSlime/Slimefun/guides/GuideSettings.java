@@ -50,7 +50,7 @@ public final class GuideSettings {
 			menu.addMenuClickHandler(i, (pl, slot, item, action) -> false);
 		}
 
-		if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEST), true)) {
+		if (SlimefunManager.isItemSimilar(guide, getItem(SlimefunGuideLayout.CHEST), true)) {
 			if (p.hasPermission("slimefun.cheat.items")) {
 				menu.addItem(19, new CustomItem(new ItemStack(Material.CHEST), "&7Дизайн: &eслотовый интерфейс", "", "&aСлотовый интерфейс", "&7Книжный интерфейс", "&7Режим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
 				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
@@ -68,7 +68,7 @@ public final class GuideSettings {
 				});
 			}
 		}
-		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.BOOK), true)) {
+		else if (SlimefunManager.isItemSimilar(guide, getItem(SlimefunGuideLayout.BOOK), true)) {
 			if (p.hasPermission("slimefun.cheat.items")) {
 				menu.addItem(19, new CustomItem(new ItemStack(Material.BOOK), "&7Дизайн: &eкнижный интерфейс", "", "&7Слотовый интерфейс", "&aКнижный интерфейс", "&7Режим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
 				menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
@@ -86,7 +86,7 @@ public final class GuideSettings {
 				});
 			}
 		}
-		else if (SlimefunManager.isItemSimiliar(guide, getItem(SlimefunGuideLayout.CHEAT_SHEET), true)) {
+		else if (SlimefunManager.isItemSimilar(guide, getItem(SlimefunGuideLayout.CHEAT_SHEET), true)) {
 			menu.addItem(19, new CustomItem(new ItemStack(Material.COMMAND_BLOCK), "&7Дизайн: &eрежим выдачи предметов", "", "&7Слотовый интерфейс", "&7Книжный интерфейс", "&aРежим выдачи предметов", "", "&8\u21E8 &eНажмите &7для изменения"));
 			menu.addMenuClickHandler(19, (pl, slot, item, action) -> {
 				pl.getInventory().setItemInMainHand(getItem(SlimefunGuideLayout.CHEST));
@@ -185,11 +185,13 @@ public final class GuideSettings {
 			try {
 				skull = CustomSkull.getItem(contributor.getTexture());
 			} catch (Exception e) {
-				Slimefun.getLogger().log(Level.SEVERE, "An Error occured while inserting a Contributors head.", e);
+				Slimefun.getLogger().log(Level.SEVERE, "An Error occurred while inserting a Contributors head.", e);
 			}
 
 			SkullMeta meta = (SkullMeta) skull.getItemMeta();
-			meta.setDisplayName(ChatColor.GRAY + contributor.getName());
+			meta.setDisplayName(ChatColor.GRAY + contributor.getName()
+					+ (!contributor.getName().equals(contributor.getMinecraftName()) ? " (MC: " + contributor.getMinecraftName() + ")" : "")
+			);
 			
 			List<String> lore = new LinkedList<>();
 			lore.add("");

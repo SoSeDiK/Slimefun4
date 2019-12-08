@@ -19,6 +19,10 @@ import io.github.thebusybiscuit.cscorelib2.reflection.ReflectionUtils;
 import io.github.thebusybiscuit.cscorelib2.updater.BukkitUpdater;
 import io.github.thebusybiscuit.cscorelib2.updater.GitHubBuildsUpdater;
 import io.github.thebusybiscuit.cscorelib2.updater.Updater;
+import io.github.thebusybiscuit.slimefun4.core.services.BlockDataService;
+import io.github.thebusybiscuit.slimefun4.core.services.CustomItemDataService;
+import io.github.thebusybiscuit.slimefun4.core.services.CustomTextureService;
+import io.github.thebusybiscuit.slimefun4.core.services.MetricsService;
 import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.PluginUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -74,10 +78,6 @@ import me.mrCookieSlime.Slimefun.listeners.TalismanListener;
 import me.mrCookieSlime.Slimefun.listeners.TeleporterListener;
 import me.mrCookieSlime.Slimefun.listeners.ToolListener;
 import me.mrCookieSlime.Slimefun.listeners.WorldListener;
-import me.mrCookieSlime.Slimefun.services.BlockDataService;
-import me.mrCookieSlime.Slimefun.services.CustomItemDataService;
-import me.mrCookieSlime.Slimefun.services.CustomTextureService;
-import me.mrCookieSlime.Slimefun.services.MetricsService;
 import me.mrCookieSlime.Slimefun.utils.Settings;
 import me.mrCookieSlime.Slimefun.utils.Utilities;
 
@@ -310,14 +310,12 @@ public final class SlimefunPlugin extends JavaPlugin {
 
 			getServer().getScheduler().runTaskTimerAsynchronously(this, () -> {
 				utilities.connectors.forEach(GitHubConnector::pullFile);
-				
+
 				for (Contributor contributor: utilities.contributors.values()) {
 					if (!contributor.hasTexture()) {
-						String name = contributor.getName();
-						
 						try {
-							Optional<UUID> uuid = MinecraftAccount.getUUID(name);
-							
+							Optional<UUID> uuid = MinecraftAccount.getUUID(contributor.getMinecraftName());
+
 							if (uuid.isPresent()) {
 								Optional<String> skin = MinecraftAccount.getSkin(uuid.get());
 								contributor.setTexture(skin);
