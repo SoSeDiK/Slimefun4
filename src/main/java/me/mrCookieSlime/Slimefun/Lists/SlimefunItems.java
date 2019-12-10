@@ -545,6 +545,7 @@ public final class SlimefunItems {
 	public static final ItemStack SOULBOUND_AXE = new SlimefunItemStack("SOULBOUND_AXE", Material.DIAMOND_AXE, "&cПерсональный топор", "&7&oНе выпадает при смерти");
 	public static final ItemStack SOULBOUND_SHOVEL = new SlimefunItemStack("SOULBOUND_SHOVEL", Material.DIAMOND_SHOVEL, "&cПерсональная лопата", "&7&oНе выпадает при смерти");
 	public static final ItemStack SOULBOUND_HOE = new SlimefunItemStack("SOULBOUND_HOE", Material.DIAMOND_HOE, "&cПерсональная мотыга", "&7&oНе выпадает при смерти");
+	public static final ItemStack SOULBOUND_TRIDENT = new SlimefunItemStack("SOULBOUND_TRIDENT", Material.TRIDENT, "&cПерсональный трезубец");
 	
 	public static final ItemStack SOULBOUND_HELMET = new SlimefunItemStack("SOULBOUND_HELMET", Material.DIAMOND_HELMET, "&cПерсональный шлем", "&7&oНе выпадает при смерти");
 	public static final ItemStack SOULBOUND_CHESTPLATE = new SlimefunItemStack("SOULBOUND_CHESTPLATE", Material.DIAMOND_CHESTPLATE, "&cПерсональный нагрудник", "&7&oНе выпадает при смерти");
@@ -840,10 +841,10 @@ public final class SlimefunItems {
 	public static final ItemStack CHAINMAIL_BOOTS = new CustomItem(Material.CHAINMAIL_BOOTS, "&rКольчужные ботинки");
 	
 	// ChestTerminal Addon
-	
-	public static final ItemStack CHEST_TERMINAL = new CustomItem(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E0NGZmM2E1ZjQ5YzY5Y2FiNjc2YmFkOGQ5OGEwNjNmYTc4Y2ZhNjE5MTZmZGVmM2UyNjc1NTdmZWMxODI4MyJ9fX0="), "&3Терминал доступа", "&7Если этот блок подключен к", "&7грузовой сети, это позволит Вам удалённо", "&7взаимодействовать с любыми вещами, поставляемыми", "&7трубами в сетевой канал");
-	public static final ItemStack CT_IMPORT_BUS = new CustomItem(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTEzZGIyZTdlNzJlYTQ0MzJlZWZiZDZlNThhODVlYWEyNDIzZjgzZTY0MmNhNDFhYmM2YTkzMTc3NTdiODg5In19fQ=="), "&3Импортёр", "&7Если этот блок подключен к", "&7грузовой сети, то он будет брать вещи из", "&7инвентаря и ложить их в сетевой канал");
-	public static final ItemStack CT_EXPORT_BUS = new CustomItem(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTEzZGIyZTdlNzJlYTQ0MzJlZWZiZDZlNThhODVlYWEyNDIzZjgzZTY0MmNhNDFhYmM2YTkzMTc3NTdiODg5In19fQ=="), "&3Экспортёр", "&7Если этот блок подключен к", "&7грузовой сети, то он будет брать вещи из", "&7сетевого канала и ложить их в Ваш инвентарь");
+
+	public static final ItemStack CHEST_TERMINAL = new SlimefunItemStack("CHEST_TERMINAL", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E0NGZmM2E1ZjQ5YzY5Y2FiNjc2YmFkOGQ5OGEwNjNmYTc4Y2ZhNjE5MTZmZGVmM2UyNjc1NTdmZWMxODI4MyJ9fX0=", "&3Терминал доступа", "&7Если этот блок подключен к", "&7грузовой сети, это позволит Вам удалённо", "&7взаимодействовать с любыми вещами, поставляемыми", "&7трубами в сетевой канал");
+	public static final ItemStack CT_IMPORT_BUS = new SlimefunItemStack("CT_IMPORT_BUS", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTEzZGIyZTdlNzJlYTQ0MzJlZWZiZDZlNThhODVlYWEyNDIzZjgzZTY0MmNhNDFhYmM2YTkzMTc3NTdiODg5In19fQ==", "&3Импортёр", "&7Если этот блок подключен к", "&7грузовой сети, то он будет брать вещи из", "&7инвентаря и ложить их в сетевой канал");
+	public static final ItemStack CT_EXPORT_BUS = new SlimefunItemStack("CT_EXPORT_BUS", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTEzZGIyZTdlNzJlYTQ0MzJlZWZiZDZlNThhODVlYWEyNDIzZjgzZTY0MmNhNDFhYmM2YTkzMTc3NTdiODg5In19fQ==", "&3Экспортёр", "&7Если этот блок подключен к", "&7грузовой сети, то он будет брать вещи из", "&7сетевого канала и ложить их в Ваш инвентарь");
 	
 	private static ItemStack getSkull(String texture) {
 		try {

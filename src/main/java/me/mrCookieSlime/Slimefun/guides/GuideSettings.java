@@ -16,6 +16,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
+import io.github.thebusybiscuit.slimefun4.core.services.github.Contributor;
+import io.github.thebusybiscuit.slimefun4.core.utils.ChatUtils;
+import io.github.thebusybiscuit.slimefun4.core.utils.NumberUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
@@ -23,9 +26,6 @@ import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Setup.SlimefunManager;
 import me.mrCookieSlime.Slimefun.api.Slimefun;
-import me.mrCookieSlime.Slimefun.hooks.github.Contributor;
-import me.mrCookieSlime.Slimefun.hooks.github.IntegerFormat;
-import me.mrCookieSlime.Slimefun.utils.ChatUtils;
 
 public final class GuideSettings {
 	
@@ -111,7 +111,7 @@ public final class GuideSettings {
 		});
 
 		try {
-			menu.addItem(5, new CustomItem(new ItemStack(Material.COMPARATOR), "&eИсходный код", "", "&7Байтов в коде плагина: &6" + IntegerFormat.formatBigNumber(SlimefunPlugin.getUtilities().codeBytes), "&7Последнее обновление: &a" + IntegerFormat.timeDelta(SlimefunPlugin.getUtilities().lastUpdate) + " назад", "&7Форков: &e" + SlimefunPlugin.getUtilities().forks, "&7Звёзд: &e" + SlimefunPlugin.getUtilities().stars, "", "&7&oSlimefun 4 — это общедоступный проект,", "&7&oисходный код плагина доступен на сайте GitHub.", "&7&oИ если Вы хотите, чтобы плагин оставался 'жив',", "&7&oто подумайте над его улучшением.", "", "&7\u21E8 Нажмите, чтобы открыть страницу плагина на GitHub."));
+			menu.addItem(5, new CustomItem(new ItemStack(Material.COMPARATOR), "&eИсходный код", "", "&7Байтов в коде плагина: &6" + NumberUtils.formatBigNumber(SlimefunPlugin.getUtilities().codeBytes), "&7Последнее обновление: &a" + NumberUtils.timeDelta(SlimefunPlugin.getUtilities().lastUpdate) + " назад", "&7Форков: &e" + SlimefunPlugin.getUtilities().forks, "&7Звёзд: &e" + SlimefunPlugin.getUtilities().stars, "", "&7&oSlimefun 4 — это общедоступный проект,", "&7&oисходный код плагина доступен на сайте GitHub.", "&7&oИ если Вы хотите, чтобы плагин оставался 'жив',", "&7&oто подумайте над его улучшением.", "", "&7\u21E8 Нажмите, чтобы открыть страницу плагина на GitHub."));
 			menu.addMenuClickHandler(5, (pl, slot, item, action) -> {
 				pl.closeInventory();
 				ChatUtils.sendURL(pl, "https://github.com/TheBusyBiscuit/Slimefun4");
@@ -190,7 +190,7 @@ public final class GuideSettings {
 
 			SkullMeta meta = (SkullMeta) skull.getItemMeta();
 			meta.setDisplayName(ChatColor.GRAY + contributor.getName()
-					+ (!contributor.getName().equals(contributor.getMinecraftName()) ? " (MC: " + contributor.getMinecraftName() + ")" : "")
+					+ (!contributor.getName().equals(contributor.getMinecraftName()) ? ChatColor.DARK_GRAY + " (MC: " + contributor.getMinecraftName() + ")" : "")
 			);
 			
 			List<String> lore = new LinkedList<>();
