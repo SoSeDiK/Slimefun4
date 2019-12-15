@@ -1,4 +1,4 @@
-package me.mrCookieSlime.Slimefun.guides;
+package io.github.thebusybiscuit.slimefun4.core.guide;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 
-import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -16,12 +15,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
+import io.github.thebusybiscuit.cscorelib2.skull.SkullItem;
 import io.github.thebusybiscuit.slimefun4.core.services.github.Contributor;
 import io.github.thebusybiscuit.slimefun4.core.utils.ChatUtils;
 import io.github.thebusybiscuit.slimefun4.core.utils.NumberUtils;
+import me.mrCookieSlime.CSCoreLibPlugin.CSCoreLib;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
-import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
 import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Setup.SlimefunManager;
@@ -101,7 +101,7 @@ public final class GuideSettings {
 				"&7Версия Slimefun: &a" + Slimefun.getVersion(),
 				"&7Версия CS-CoreLib: &a" + CSCoreLib.getLib().getDescription().getVersion(),
 				"&7Установленные дополнения: &b" + Slimefun.getInstalledAddons().size(),
-				"&7Авторы: &e" + SlimefunPlugin.getUtilities().contributors.size(),
+				"&7Авторы: &e" + SlimefunPlugin.getGitHubService().getContributors().size(),
 				"",
 				"&7\u21E8 Нажмите, чтобы увидеть список людей, создавших этот плагин :)"
 		));
@@ -111,7 +111,7 @@ public final class GuideSettings {
 		});
 
 		try {
-			menu.addItem(5, new CustomItem(new ItemStack(Material.COMPARATOR), "&eИсходный код", "", "&7Байтов в коде плагина: &6" + NumberUtils.formatBigNumber(SlimefunPlugin.getUtilities().codeBytes), "&7Последнее обновление: &a" + NumberUtils.timeDelta(SlimefunPlugin.getUtilities().lastUpdate) + " назад", "&7Форков: &e" + SlimefunPlugin.getUtilities().forks, "&7Звёзд: &e" + SlimefunPlugin.getUtilities().stars, "", "&7&oSlimefun 4 — это общедоступный проект,", "&7&oисходный код плагина доступен на сайте GitHub.", "&7&oИ если Вы хотите, чтобы плагин оставался 'жив',", "&7&oто подумайте над его улучшением.", "", "&7\u21E8 Нажмите, чтобы открыть страницу плагина на GitHub."));
+			menu.addItem(5, new CustomItem(new ItemStack(Material.COMPARATOR), "&eИсходный код", "", "&7Байтов в коде плагина: &6" + NumberUtils.formatBigNumber(SlimefunPlugin.getGitHubService().getCodeSize()), "&7Последнее обновление: &a" + NumberUtils.timeDelta(SlimefunPlugin.getGitHubService().getLastUpdate()) + " назад", "&7Форков: &e" + SlimefunPlugin.getGitHubService().getForks(), "&7Звёзд: &e" + SlimefunPlugin.getGitHubService().getStars(), "", "&7&oSlimefun 4 — это общедоступный проект,", "&7&oисходный код плагина доступен на сайте GitHub.", "&7&oИ если Вы хотите, чтобы плагин оставался 'жив',", "&7&oто подумайте над его улучшением.", "", "&7\u21E8 Нажмите, чтобы открыть страницу плагина на GitHub."));
 			menu.addMenuClickHandler(5, (pl, slot, item, action) -> {
 				pl.closeInventory();
 				ChatUtils.sendURL(pl, "https://github.com/TheBusyBiscuit/Slimefun4");
@@ -128,7 +128,7 @@ public final class GuideSettings {
 			return false;
 		});
 
-		menu.addItem(20, new CustomItem(new ItemStack(Material.REDSTONE), "&4Баг-трекер", "", "&7Нерешённые вопросы: &a" + SlimefunPlugin.getUtilities().issues, "&7Ожидаемые изменения: &a" + SlimefunPlugin.getUtilities().prs, "", "&7\u21E8 Нажмите, чтобы перейти на страницу багов Slimefun"));
+		menu.addItem(20, new CustomItem(new ItemStack(Material.REDSTONE), "&4Баг-трекер", "", "&7Нерешённые вопросы: &a" + SlimefunPlugin.getGitHubService().getIssues(), "&7Ожидаемые изменения: &a" + SlimefunPlugin.getGitHubService().getPullRequests(), "", "&7\u21E8 Нажмите, чтобы перейти на страницу багов Slimefun"));
 		menu.addMenuClickHandler(20, (pl, slot, item, action) -> {
 			pl.closeInventory();
 			ChatUtils.sendURL(pl, "https://github.com/TheBusyBiscuit/Slimefun4/issues");
@@ -167,7 +167,7 @@ public final class GuideSettings {
 			}
 		}
 		
-		List<Contributor> contributors = new ArrayList<>(SlimefunPlugin.getUtilities().contributors.values());
+		List<Contributor> contributors = new ArrayList<>(SlimefunPlugin.getGitHubService().getContributors().values());
 		contributors.sort(Comparator.comparingInt(Contributor::index));
 		
 		boolean hasPrevious = page > 0;
@@ -183,7 +183,7 @@ public final class GuideSettings {
 			ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
 			
 			try {
-				skull = CustomSkull.getItem(contributor.getTexture());
+				skull = SkullItem.fromBase64(contributor.getTexture());
 			} catch (Exception e) {
 				Slimefun.getLogger().log(Level.SEVERE, "An Error occurred while inserting a Contributors head.", e);
 			}
@@ -196,7 +196,7 @@ public final class GuideSettings {
 			List<String> lore = new LinkedList<>();
 			lore.add("");
 			
-			for (Map.Entry<String, Integer> entry: contributor.getContributions().entrySet()) {
+			for (Map.Entry<String, Integer> entry : contributor.getContributions().entrySet()) {
 				String info = entry.getKey();
 				
 				if (entry.getValue() > 0) {

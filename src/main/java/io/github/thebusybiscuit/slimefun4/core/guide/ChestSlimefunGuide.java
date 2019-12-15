@@ -1,4 +1,4 @@
-package me.mrCookieSlime.Slimefun.guides;
+package io.github.thebusybiscuit.slimefun4.core.guide;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,9 +23,8 @@ import io.github.thebusybiscuit.cscorelib2.chat.ChatInput;
 import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 import io.github.thebusybiscuit.cscorelib2.recipes.MinecraftRecipe;
+import io.github.thebusybiscuit.cscorelib2.skull.SkullItem;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import me.mrCookieSlime.CSCoreLibPlugin.general.String.StringUtils;
-import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
 import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
@@ -94,7 +93,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 				Category category = categories.get(target);
 				boolean locked = true;
 
-				for (SlimefunItem item: category.getItems()) {
+				for (SlimefunItem item : category.getItems()) {
 					if (Slimefun.isEnabled(p, item, false)) {
 						locked = false;
 						break;
@@ -262,7 +261,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 					}
 					else {
 						List<String> message = sfitem.getNoPermissionTooltip();
-					    menu.addItem(index, new CustomItem(Material.BARRIER, StringUtils.formatItemName(sfitem.getItem(), false), message.toArray(new String[message.size()])));
+					    menu.addItem(index, new CustomItem(Material.BARRIER, sfitem.getItemName(), message.toArray(new String[message.size()])));
 						menu.addMenuClickHandler(index, (pl, slot, item, action) -> false);
 						index++;
 					}
@@ -442,7 +441,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 
 		if (Slimefun.getItemConfig().contains(item.getID() + ".youtube")) {
 			try {
-				menu.addItem(7, new CustomItem(CustomSkull.getItem("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rДемонстрационное видео &7(Youtube)", "", "&7\u21E8 Нажмите для просмотра"));
+				menu.addItem(7, new CustomItem(SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rДемонстрационное видео &7(Youtube)", "", "&7\u21E8 Нажмите для просмотра"));
 				menu.addMenuClickHandler(7, (pl, slot, itemstack, action) -> {
 					pl.closeInventory();
 					pl.sendMessage("");

@@ -28,7 +28,6 @@ import org.bukkit.util.Vector;
 
 import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
-import me.mrCookieSlime.CSCoreLibPlugin.general.String.StringUtils;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.SlimefunItems;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -163,7 +162,7 @@ public class AncientAltarListener implements Listener {
 
 	public static ItemStack fixItemStack(ItemStack itemStack, String customName) {
 		ItemStack stack = itemStack.clone();
-		if (customName.equals(StringUtils.formatItemName(new ItemStack(itemStack.getType()), false))) {
+		if (customName.equals(ItemUtils.getItemName(new ItemStack(itemStack.getType())))) {
 			ItemMeta im = stack.getItemMeta();
 			im.setDisplayName(null);
 			stack.setItemMeta(im);
@@ -191,9 +190,9 @@ public class AncientAltarListener implements Listener {
 		if (p.getGameMode() != GameMode.CREATIVE) {
 			ItemUtils.consumeItem(hand, false);
 		}
-		
-		String nametag = StringUtils.formatItemName(stack, false);
-		Item entity = b.getWorld().dropItem(b.getLocation().add(0.5, 1.2, 0.5), new CustomItem(stack, "&5&dАЛТАРЬ | &3Зонд – &e" + System.nanoTime()));
+
+		String nametag = ItemUtils.getItemName(stack);
+		Item entity = b.getWorld().dropItem(b.getLocation().add(0.5, 1.2, 0.5), new CustomItem(stack, "&5&dАЛТАРЬ | &3Зонд - &e" + System.nanoTime()));
 		entity.setVelocity(new Vector(0, 0.1, 0));
 		entity.setMetadata("no_pickup", new FixedMetadataValue(SlimefunPlugin.instance, "altar_item"));
 		entity.setCustomNameVisible(true);

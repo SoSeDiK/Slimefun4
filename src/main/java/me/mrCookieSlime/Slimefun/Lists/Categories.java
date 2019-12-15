@@ -2,11 +2,11 @@ package me.mrCookieSlime.Slimefun.Lists;
 
 import org.bukkit.Material;
 
+import io.github.thebusybiscuit.slimefun4.core.utils.ChatUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.LockedCategory;
 import me.mrCookieSlime.Slimefun.Objects.SeasonalCategory;
-import me.mrCookieSlime.Slimefun.utils.Christmas;
 
 /**
  * Built-in categories.
@@ -20,7 +20,7 @@ public final class Categories {
 	private Categories() {}
 
 	private static final String LORE = "&a> Нажмите, чтобы открыть";
-	
+
 	public static final Category WEAPONS = new Category(new CustomItem(SlimefunItems.SWORD_OF_BEHEADING, "&7Оружие", "", LORE), 1);
 	public static final Category TOOLS = new Category(new CustomItem(SlimefunItems.AUTO_SMELT_PICKAXE, "&7Инструменты", "", LORE), 1);
 	public static final Category PORTABLE = new Category(new CustomItem(SlimefunItems.BACKPACK_MEDIUM, "&7Предметы", "", LORE), 1);
@@ -41,9 +41,9 @@ public final class Categories {
 	public static final LockedCategory TALISMANS_2 = new LockedCategory(new CustomItem(SlimefunItems.ENDER_TALISMAN, "&7Талисманы – &aступень II", "", LORE), 3, TALISMANS_1);
 	
 	// Seasonal Categories
-	public static final SeasonalCategory CHRISTMAS = new SeasonalCategory(12, 1, new CustomItem(Material.NETHER_STAR, Christmas.color("Рождество"), "", "&c> Нажмите, чтобы помочь &aСанте"));
-	public static final SeasonalCategory VALENTINES_DAY = new SeasonalCategory(2, 2, new CustomItem(Material.POPPY, "&dДень святого Валентина", "", "&d> Нажмите, чтобы отпраздновать любовь"));
-	public static final SeasonalCategory EASTER = new SeasonalCategory(4, 2, new CustomItem(Material.EGG, "&6Пасха", "", "&a> Нажмите, чтобы порисовать яйца"));
+	public static final SeasonalCategory CHRISTMAS = new SeasonalCategory(12, 1, new CustomItem(Material.NETHER_STAR, Christmas.color("Рождество") + " &7(декабрь)", "", "&c> Нажмите, чтобы помочь &aСанте"));
+	public static final SeasonalCategory VALENTINES_DAY = new SeasonalCategory(2, 2, new CustomItem(Material.POPPY, "&dДень святого Валентина" + " &7(февраль)", "", "&d> Нажмите, чтобы отпраздновать любовь"));
+	public static final SeasonalCategory EASTER = new SeasonalCategory(4, 2, new CustomItem(Material.EGG, "&6Пасха" + " &7(апрель)", "", "&a> Нажмите, чтобы порисовать яйца"));
 	public static final SeasonalCategory BIRTHDAY = new SeasonalCategory(10, 1, new CustomItem(Material.FIREWORK_ROCKET, "&a&lДень рождения TheBusyBiscuit &7(26-е октября)", "", "&a> Нажмите, чтобы отпраздновать вместе с автором плагина!"));
 	
 }
