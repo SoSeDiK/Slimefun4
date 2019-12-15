@@ -41,7 +41,7 @@ public final class Categories {
 	public static final LockedCategory TALISMANS_2 = new LockedCategory(new CustomItem(SlimefunItems.ENDER_TALISMAN, "&7Талисманы – &aступень II", "", LORE), 3, TALISMANS_1);
 	
 	// Seasonal Categories
-	public static final SeasonalCategory CHRISTMAS = new SeasonalCategory(12, 1, new CustomItem(Material.NETHER_STAR, Christmas.color("Рождество") + " &7(декабрь)", "", "&c> Нажмите, чтобы помочь &aСанте"));
+	public static final SeasonalCategory CHRISTMAS = new SeasonalCategory(12, 1, new CustomItem(Material.NETHER_STAR, ChatUtils.christmas("Рождество") + " &7(декабрь)", "", "&c> Нажмите, чтобы помочь &aСанте"));
 	public static final SeasonalCategory VALENTINES_DAY = new SeasonalCategory(2, 2, new CustomItem(Material.POPPY, "&dДень святого Валентина" + " &7(февраль)", "", "&d> Нажмите, чтобы отпраздновать любовь"));
 	public static final SeasonalCategory EASTER = new SeasonalCategory(4, 2, new CustomItem(Material.EGG, "&6Пасха" + " &7(апрель)", "", "&a> Нажмите, чтобы порисовать яйца"));
 	public static final SeasonalCategory BIRTHDAY = new SeasonalCategory(10, 1, new CustomItem(Material.FIREWORK_ROCKET, "&a&lДень рождения TheBusyBiscuit &7(26-е октября)", "", "&a> Нажмите, чтобы отпраздновать вместе с автором плагина!"));
