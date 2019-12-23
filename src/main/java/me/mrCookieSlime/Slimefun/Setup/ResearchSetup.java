@@ -231,7 +231,7 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(232, "Модернизированная электрическая плавильня", 28), SlimefunItems.ELECTRIC_SMELTERY_2);
 	    Slimefun.registerResearch(new Research(233, "Продвинутый Андроид-фермер", 30), SlimefunItems.PROGRAMMABLE_ANDROID_2_FARMER);
 	    Slimefun.registerResearch(new Research(234, "Лавовый генератор", 38), SlimefunItems.LAVA_GENERATOR);
-	    Slimefun.registerResearch(new Research(235, "Незеритовая ячейка охлаждающей жидкости", 45), SlimefunItems.NETHER_ICE, SlimefunItems.ENRICHED_NETHER_ICE, SlimefunItems.NETHER_ICE_COOLANT_CELL, SlimefunItems.NETHER_DRILL);
+	    Slimefun.registerResearch(new Research(235, "Незеритовая ячейка охлаждающей жидкости", 45), SlimefunItems.NETHER_ICE, SlimefunItems.ENRICHED_NETHER_ICE, SlimefunItems.NETHER_ICE_COOLANT_CELL);
 	    Slimefun.registerResearch(new Research(236, "Незеритовый звёздный реактор", 60), SlimefunItems.NETHERSTAR_REACTOR);
 	    Slimefun.registerResearch(new Research(237, "Раскалённые слитки", 38), SlimefunItems.BLISTERING_INGOT, SlimefunItems.BLISTERING_INGOT_2, SlimefunItems.BLISTERING_INGOT_3);
 	    Slimefun.registerResearch(new Research(239, "Автоматическая камера зажигания", 12), SlimefunItems.IGNITION_CHAMBER);

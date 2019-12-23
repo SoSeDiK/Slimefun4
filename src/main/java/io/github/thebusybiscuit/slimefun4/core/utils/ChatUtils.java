@@ -1,19 +1,19 @@
 package io.github.thebusybiscuit.slimefun4.core.utils;
 
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
+import org.bukkit.command.CommandSender;
 
 import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
 
 public final class ChatUtils {
 	
 	private ChatUtils() {}
-	
-	public static void sendURL(Player p, String url) {
-		p.sendMessage("");
-		p.sendMessage(ChatColors.color("&eНажмите сюда:"));
-		p.sendMessage(ChatColors.color("&7&o" + url));
-		p.sendMessage("");
+
+	public static void sendURL(CommandSender sender, String url) {
+		sender.sendMessage("");
+		sender.sendMessage(ChatColors.color("&eНажмите сюда:"));
+		sender.sendMessage(ChatColors.color("&7&o" + url));
+		sender.sendMessage("");
 	}
 	
 	public static String christmas(String text) {

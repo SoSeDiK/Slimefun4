@@ -190,8 +190,8 @@ public abstract class GEOMiner extends AContainer implements InventoryBlock, Rec
 							
 							processing.put(b, r);
 							progress.put(b, r.getTicks());
-							OreGenSystem.setSupplies(resource, b.getChunk(), supplies - 1);
-							SimpleHologram.update(b, "&7Добыча: &r" + resource.getName().toLowerCase());
+							OreGenSystem.setSupplies(resource, chunk, supplies - 1);
+							SimpleHologram.update(b, "&7Добыча: &r" + resource.getName());
 							return;
 						}
 					}
