@@ -1,8 +1,8 @@
 package me.mrCookieSlime.Slimefun.Objects.SlimefunItem.items;
 
-import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 
+import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
 import io.github.thebusybiscuit.cscorelib2.math.DoubleHandler;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
@@ -24,8 +24,8 @@ public class Multimeter extends SimpleSlimefunItem<ItemInteractionHandler> {
         		if (e.getClickedBlock() != null && ChargableBlock.isChargable(e.getClickedBlock())) {
 					e.setCancelled(true);
 					p.sendMessage("");
-					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bНакопленное электричество: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getCharge(e.getClickedBlock())) + " Дж"));
-					p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bВместимость: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getMaxCharge(e.getClickedBlock())) + " Дж"));
+					p.sendMessage(ChatColors.color("&bНакопленное электричество: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getCharge(e.getClickedBlock())) + " Дж"));
+					p.sendMessage(ChatColors.color("&bВместимость: &3" + DoubleHandler.getFancyDouble(ChargableBlock.getMaxCharge(e.getClickedBlock())) + " Дж"));
 					p.sendMessage("");
 				}
 				return true;
