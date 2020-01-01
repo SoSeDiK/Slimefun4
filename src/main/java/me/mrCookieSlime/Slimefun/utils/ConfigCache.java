@@ -2,14 +2,15 @@ package me.mrCookieSlime.Slimefun.utils;
 
 import java.util.List;
 
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import io.github.thebusybiscuit.cscorelib2.config.Config;
 
-public final class Settings {
+public final class ConfigCache {
 	
 	public final boolean printOutLoading;
 	
 	public boolean researchesEnabled;
 	public final boolean researchesFreeInCreative;
+	public final boolean researchFireworksEnabled;
 	public final List<String> researchesTitles;
 	
 	public final int blocksInfoLoadingDelay;
@@ -24,11 +25,12 @@ public final class Settings {
 	
 	public int smelteryFireBreakChance;
 	
-	public Settings(Config cfg) {
+	public ConfigCache(Config cfg) {
 		printOutLoading = cfg.getBoolean("options.print-out-loading");
 		
 		researchesFreeInCreative = cfg.getBoolean("options.allow-free-creative-research");
 		researchesTitles = cfg.getStringList("research-ranks");
+		researchFireworksEnabled = cfg.getBoolean("options.research-unlock-fireworks");
 		
 		blocksInfoLoadingDelay = cfg.getInt("URID.info-delay");
 		

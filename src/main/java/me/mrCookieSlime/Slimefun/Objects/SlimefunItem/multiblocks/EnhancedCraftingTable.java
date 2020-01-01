@@ -16,7 +16,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
+import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.implementation.listeners.BackpackListener;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.Categories;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
@@ -26,7 +27,6 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Setup.SlimefunManager;
 import me.mrCookieSlime.Slimefun.api.PlayerProfile;
 import me.mrCookieSlime.Slimefun.api.Slimefun;
-import me.mrCookieSlime.Slimefun.listeners.BackpackListener;
 
 public class EnhancedCraftingTable extends MultiBlockMachine {
 
@@ -71,7 +71,7 @@ public class EnhancedCraftingTable extends MultiBlockMachine {
 			}
 
 			if (craft) {
-				final ItemStack adding = RecipeType.getRecipeOutputList(this, inputs.get(i)).clone();
+				ItemStack adding = RecipeType.getRecipeOutputList(this, inputs.get(i)).clone();
 				if (Slimefun.hasUnlocked(p, adding, true)) {
 					Inventory inv2 = Bukkit.createInventory(null, 9, "test");
 					

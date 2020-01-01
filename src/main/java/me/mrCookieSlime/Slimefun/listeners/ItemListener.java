@@ -1,7 +1,6 @@
 package me.mrCookieSlime.Slimefun.listeners;
 
 import java.util.List;
-import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -37,10 +36,11 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import io.github.thebusybiscuit.cscorelib2.skull.SkullBlock;
 import io.github.thebusybiscuit.slimefun4.core.guide.GuideSettings;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideLayout;
+import io.github.thebusybiscuit.slimefun4.implementation.listeners.BackpackListener;
 import me.mrCookieSlime.CSCoreLibPlugin.events.ItemUseEvent;
-import me.mrCookieSlime.CSCoreLibPlugin.general.World.CustomSkull;
 import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.SlimefunItems;
@@ -138,11 +138,7 @@ public class ItemListener implements Listener {
 					if (p.isSneaking()) {
 						Block b = e.getClickedBlock().getRelative(e.getBlockFace());
 						b.setType(Material.PLAYER_HEAD);
-						try {
-							CustomSkull.setSkull(b, "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTllYjlkYTI2Y2YyZDMzNDEzOTdhN2Y0OTEzYmEzZDM3ZDFhZDEwZWFlMzBhYjI1ZmEzOWNlYjg0YmMifX19");
-						} catch (Exception x) {
-							Slimefun.getLogger().log(Level.SEVERE, "An Error occured while using the Debug-Fish for Slimefun " + Slimefun.getVersion(), x);
-						}
+						SkullBlock.setFromBase64(b, "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTllYjlkYTI2Y2YyZDMzNDEzOTdhN2Y0OTEzYmEzZDM3ZDFhZDEwZWFlMzBhYjI1ZmEzOWNlYjg0YmMifX19");
 					}
 					else if (BlockStorage.hasBlockInfo(e.getClickedBlock())) {
 						p.sendMessage(" ");
@@ -208,7 +204,7 @@ public class ItemListener implements Listener {
 			return;
 		}
 
-		final Player p = e.getPlayer();
+		Player p = e.getPlayer();
 		ItemStack item = e.getItem();
 
 		if (SlimefunManager.isItemSimilar(item, SlimefunGuide.getItem(SlimefunGuideLayout.BOOK), true)) {
@@ -283,10 +279,9 @@ public class ItemListener implements Listener {
 			String id = BlockStorage.checkID(e.getClickedBlock());
 			if (BlockMenuPreset.isInventory(id) && !canPlaceCargoNodes(p, item, e.getClickedBlock().getRelative(e.getParentEvent().getBlockFace())) && (!p.isSneaking() || item == null || item.getType() == Material.AIR)) {
 				e.setCancelled(true);
-				BlockStorage storage = BlockStorage.getStorage(e.getClickedBlock().getWorld());
 
-				if (storage.hasUniversalInventory(id)) {
-					UniversalBlockMenu menu = storage.getUniversalInventory(id);
+				if (BlockStorage.hasUniversalInventory(id)) {
+					UniversalBlockMenu menu = BlockStorage.getUniversalInventory(id);
 					if (menu.canOpen(e.getClickedBlock(), p)) {
 						menu.open(p);
 					}
@@ -294,7 +289,7 @@ public class ItemListener implements Listener {
 						SlimefunPlugin.getLocal().sendMessage(p, "inventory.no-access", true);
 					}
 				}
-				else if (storage.hasInventory(e.getClickedBlock().getLocation())) {
+				else if (BlockStorage.getStorage(e.getClickedBlock().getWorld()).hasInventory(e.getClickedBlock().getLocation())) {
 					BlockMenu menu = BlockStorage.getInventory(e.getClickedBlock().getLocation());
 					if (menu.canOpen(e.getClickedBlock(), p)) {
 						menu.open(p);
@@ -322,7 +317,7 @@ public class ItemListener implements Listener {
 
 	@EventHandler
 	public void onEat(PlayerItemConsumeEvent e) {
-		final Player p = e.getPlayer();
+		Player p = e.getPlayer();
 		ItemStack item = e.getItem();
 		SlimefunItem sfItem = SlimefunItem.getByItem(item);
 		

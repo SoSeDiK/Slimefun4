@@ -27,8 +27,8 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.cscorelib2.inventory.ItemUtils;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Particles.FireworkShow;
+import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.core.utils.FireworkUtils;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.SlimefunItems;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunBlockHandler;
@@ -148,7 +148,7 @@ public class ToolListener implements Listener {
 				ItemUtils.consumeItem(item, false);
 			}
 			
-			FireworkShow.launchRandom(e.getPlayer(), 3);
+			FireworkUtils.launchRandom(e.getPlayer(), 3);
 			List<ItemStack> gifts = new ArrayList<>();
 			
 			gifts.add(new CustomItem(SlimefunItems.CHRISTMAS_HOT_CHOCOLATE, 1));
@@ -251,7 +251,7 @@ public class ToolListener implements Listener {
 			} 
 			else {
 				// Walk over all registered block break handlers until one says that it'll handle it.
-				for (ItemHandler handler: SlimefunItem.getHandlers("BlockBreakHandler")) {
+				for (ItemHandler handler : SlimefunItem.getHandlers("BlockBreakHandler")) {
 					if (((BlockBreakHandler) handler).onBlockBreak(e, item, fortune, drops)) break;
 				}
 			}

@@ -17,8 +17,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 import io.github.thebusybiscuit.cscorelib2.skull.SkullItem;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomPotion;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.items.StormStaff;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
@@ -144,6 +144,8 @@ public final class SlimefunItems {
 	public static final ItemStack MUTTON_JERKY = new SlimefunItemStack("MUTTON_JERKY", Material.COOKED_MUTTON, "&6Вяленая баранина", "", "&rНасыщает до предела!");
 	public static final ItemStack RABBIT_JERKY = new SlimefunItemStack("RABBIT_JERKY", Material.COOKED_RABBIT, "&6Вяленая крольчатина", "", "&rНасыщает до предела!");
 	public static final ItemStack FISH_JERKY = new SlimefunItemStack("FISH_JERKY", Material.COOKED_COD, "&6Вяленая рыба", "", "&rНасыщает до предела!");
+
+	public static final ItemStack KELP_COOKIE = new SlimefunItemStack("KELP_COOKIE", Material.COOKIE, "&2Печенье из ламанарий");
 	
 	/*		Christmas		*/
 	public static final ItemStack CHRISTMAS_MILK = new CustomPotion("&6Стакан молока", Color.WHITE, new PotionEffect(PotionEffectType.SATURATION, 5, 0), "", "&7&oВосстанавливает &b&o" + "2.5 единицы" + " &7&oголода");

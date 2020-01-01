@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 import org.bukkit.ChatColor;
@@ -18,6 +16,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.RecipeChoice;
+import org.bukkit.inventory.RecipeChoice.MaterialChoice;
 
 import io.github.thebusybiscuit.cscorelib2.chat.ChatColors;
 import io.github.thebusybiscuit.cscorelib2.chat.ChatInput;
@@ -28,6 +27,7 @@ import io.github.thebusybiscuit.cscorelib2.skull.SkullItem;
 import io.github.thebusybiscuit.slimefun4.core.utils.ChatUtils;
 import io.github.thebusybiscuit.slimefun4.core.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.MenuClickHandler;
 import me.mrCookieSlime.Slimefun.SlimefunGuide;
 import me.mrCookieSlime.Slimefun.SlimefunPlugin;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
@@ -44,6 +44,7 @@ import me.mrCookieSlime.Slimefun.api.Slimefun;
 
 public class ChestSlimefunGuide implements ISlimefunGuide {
 	
+	private static final int[] RECIPE_SLOTS = {3, 4, 5, 12, 13, 14, 21, 22, 23};
 	private static final int CATEGORY_SIZE = 36;
 
 	@Override
@@ -71,18 +72,13 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		List<GuideHandler> handlers = SlimefunPlugin.getUtilities().guideHandlers.values().stream().flatMap(List::stream).collect(Collectors.toList());
 
 		int index = 9;
-		int pages = 1;
-
+		int pages = (categories.size() + handlers.size() - 1) / CATEGORY_SIZE + 1;
+		
 		fillInv(profile, menu, survival);
 
 		int target = (CATEGORY_SIZE * (page - 1)) - 1;
 
-		while (target < (categories.size() + handlers.size() - 1)) {
-			if (index >= CATEGORY_SIZE + 9) {
-				pages++;
-				break;
-			}
-
+		while (target < (categories.size() + handlers.size() - 1) && index < CATEGORY_SIZE + 9) {
 			target++;
 
 			if (target >= categories.size()) {
@@ -342,7 +338,7 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		
 		if (item == null || item.getType() == Material.AIR) return;
 
-		final SlimefunItem sfItem = SlimefunItem.getByItem(item);
+		SlimefunItem sfItem = SlimefunItem.getByItem(item);
 		
 		if (sfItem != null) {
 			displayItem(profile, sfItem, addToHistory);
@@ -353,54 +349,95 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 			return;
 		}
 		
-		Set<Recipe> recipes = SlimefunPlugin.getMinecraftRecipes().getRecipesFor(item);
+		Recipe[] recipes = SlimefunPlugin.getMinecraftRecipes().getRecipesFor(item).toArray(new Recipe[0]);
 		
-		ItemStack[] recipe = new ItemStack[9];
-		RecipeType recipeType = null;
-		ItemStack result = null;
-		
-		for (Recipe r : recipes) {
-			Optional<MinecraftRecipe<? super Recipe>> optional = MinecraftRecipe.of(r);
-			
-			if (optional.isPresent()) {
-				MinecraftRecipe<?> mcRecipe = optional.get();
-				
-				RecipeChoice[] choices = SlimefunPlugin.getMinecraftRecipes().getRecipeInput(r);
-				
-				if (choices.length == 1) {
-					recipe[4] = choices[0].getItemStack();
-				}
-				else {
-					for (int i = 0; i < choices.length; i++) {
-						if (choices[i] != null) {
-							recipe[i] = choices[i].getItemStack();
-						}
-					}
-				}
-				
-				if (mcRecipe == MinecraftRecipe.SHAPED_CRAFTING) {
-					recipeType = new RecipeType(new CustomItem(mcRecipe.getMachine(), null, "&7Обычный рецепт"));
-				}
-				else if (mcRecipe == MinecraftRecipe.SHAPELESS_CRAFTING) {
-					recipeType = new RecipeType(new CustomItem(mcRecipe.getMachine(), null, "&7Бесформенный рецепт"));
-				}
-				else {
-					recipeType = new RecipeType(mcRecipe);
-				}
-				
-				result = r.getResult();
-				
-				break;
-			}
-		}
-		
-		if (recipeType == null) {
+		if (recipes.length == 0) {
 			return;
 		}
 		
+		showMinecraftRecipe(recipes, 0, item, profile, p, addToHistory);
+	}
+	
+	private void showMinecraftRecipe(Recipe[] recipes, int index, ItemStack item, PlayerProfile profile, Player p, boolean addToHistory) {
+		Recipe recipe = recipes[index];
+		
+		ItemStack[] recipeItems = new ItemStack[9];
+		RecipeType recipeType = RecipeType.NULL;
+		ItemStack result = null;
+		
+		Optional<MinecraftRecipe<? super Recipe>> optional = MinecraftRecipe.of(recipe);
+		RecipeChoiceTask task = new RecipeChoiceTask();
+		
+		if (optional.isPresent()) {
+			MinecraftRecipe<?> mcRecipe = optional.get();
+			
+			RecipeChoice[] choices = SlimefunPlugin.getMinecraftRecipes().getRecipeInput(recipe);
+			
+			if (choices.length == 1) {
+				recipeItems[4] = choices[0].getItemStack();
+				
+				if (choices[0] instanceof MaterialChoice && ((MaterialChoice) choices[0]).getChoices().size() > 1) {
+					task.add(RECIPE_SLOTS[4], (MaterialChoice) choices[0]);
+				}
+			}
+			else {
+				for (int i = 0; i < choices.length; i++) {
+					if (choices[i] != null) {
+						recipeItems[i] = choices[i].getItemStack();
+						
+						if (choices[i] instanceof MaterialChoice && ((MaterialChoice) choices[i]).getChoices().size() > 1) {
+							task.add(RECIPE_SLOTS[i], (MaterialChoice) choices[i]);
+						}
+					}
+				}
+			}
+			
+			if (mcRecipe == MinecraftRecipe.SHAPED_CRAFTING) {
+				recipeType = new RecipeType(new CustomItem(mcRecipe.getMachine(), null, "&7Обычный рецепт"));
+			}
+			else if (mcRecipe == MinecraftRecipe.SHAPELESS_CRAFTING) {
+				recipeType = new RecipeType(new CustomItem(mcRecipe.getMachine(), null, "&7Бесформенный рецепт"));
+			}
+			else {
+				recipeType = new RecipeType(mcRecipe);
+			}
+			
+			result = recipe.getResult();
+		}
+		else {
+			recipeItems = new ItemStack[] {null, null, null, null, new CustomItem(Material.BARRIER, "&4Не удалось отобразить этот рецепт :/"), null, null, null, null};
+		}
+		
 		ChestMenu menu = create();
-		displayItem(menu, profile, p, item, result, recipeType, recipe, addToHistory);
+		displayItem(menu, profile, p, item, result, recipeType, recipeItems, addToHistory);
+		
+		if (recipes.length > 1) {
+			for (int i = 27; i < 36; i++) {
+				menu.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
+			}
+			
+			menu.addItem(28, ChestMenuUtils.getPreviousButton(index + 1, recipes.length),
+			(pl, slot, action, stack) -> {
+				if (index > 0) {
+					showMinecraftRecipe(recipes, index - 1, item, profile, p, false);
+				}
+				return false;
+			});
+			
+			menu.addItem(34, ChestMenuUtils.getNextButton(index + 1, recipes.length),
+			(pl, slot, action, stack) -> {
+				if (index < recipes.length - 1) {
+					showMinecraftRecipe(recipes, index + 1, item, profile, p, false);
+				}
+				return false;
+			});
+		}
+		
 		menu.open(p);
+		
+		if (!task.isEmpty()) {
+			task.start(menu.toInventory());
+		}
 	}
 	
 	@Override
@@ -415,29 +452,21 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		ChestMenu menu = create();
 		
 		if (item.hasWiki()) {
-			try {
-				menu.addItem(8, new CustomItem(Material.KNOWLEDGE_BOOK, "&rИнформация о предмете &7(Slimefun Wiki)", "", "&7\u21E8 Нажмите, чтобы открыть страницу"));
-				menu.addMenuClickHandler(8, (pl, slot, itemstack, action) -> {
-					pl.closeInventory();
-					ChatUtils.sendURL(pl, item.getWiki());
-					return false;
-				});
-			} catch (Exception x) {
-				Slimefun.getLogger().log(Level.SEVERE, "An Error occurred while adding a Wiki Page for Slimefun " + Slimefun.getVersion(), x);
-			}
+			menu.addItem(8, new CustomItem(Material.KNOWLEDGE_BOOK, "&rИнформация о предмете &7(Slimefun Wiki)", "", "&7\u21E8 Нажмите, чтобы открыть страницу"));
+			menu.addMenuClickHandler(8, (pl, slot, itemstack, action) -> {
+				pl.closeInventory();
+				ChatUtils.sendURL(pl, item.getWiki());
+				return false;
+			});
 		}
 
 		if (Slimefun.getItemConfig().contains(item.getID() + ".youtube")) {
-			try {
-				menu.addItem(7, new CustomItem(SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rДемонстрационное видео &7(Youtube)", "", "&7\u21E8 Нажмите для просмотра"));
-				menu.addMenuClickHandler(7, (pl, slot, itemstack, action) -> {
-					pl.closeInventory();
-					ChatUtils.sendURL(pl, Slimefun.getItemConfig().getString(item.getID() + ".youtube"));
-					return false;
-				});
-			} catch (Exception x) {
-				Slimefun.getLogger().log(Level.SEVERE, "An Error occurred while adding a Youtube Video for Slimefun " + Slimefun.getVersion(), x);
-			}
+			menu.addItem(7, new CustomItem(SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0="), "&rДемонстрационное видео &7(Youtube)", "", "&7\u21E8 Нажмите для просмотра"));
+			menu.addMenuClickHandler(7, (pl, slot, itemstack, action) -> {
+				pl.closeInventory();
+				ChatUtils.sendURL(pl, Slimefun.getItemConfig().getString(item.getID() + ".youtube"));
+				return false;
+			});
 		}
 		
 		displayItem(menu, profile, p, item, result, recipeType, recipe, addToHistory);
@@ -458,66 +487,18 @@ public class ChestSlimefunGuide implements ISlimefunGuide {
 		}
 		
 		addBackButton(menu, 0, profile, true);
-
-		menu.addItem(3, getDisplayItem(p, isSlimefunRecipe, recipe[0]));
-		menu.addMenuClickHandler(3, (pl, slot, itemstack, action) -> {
+		
+		MenuClickHandler clickHandler = (pl, slot, itemstack, action) -> {
 			displayItem(profile, itemstack, true);
 			return false;
-		});
+		};
+		
+		for (int i = 0; i < 9; i++) {
+			menu.addItem(RECIPE_SLOTS[i], getDisplayItem(p, isSlimefunRecipe, recipe[i]), clickHandler);
+		}
 
-		menu.addItem(4, getDisplayItem(p, isSlimefunRecipe, recipe[1]));
-		menu.addMenuClickHandler(4, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(5, getDisplayItem(p, isSlimefunRecipe, recipe[2]));
-		menu.addMenuClickHandler(5, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(10, recipeType.toItem());
-		menu.addMenuClickHandler(10, ChestMenuUtils.getEmptyClickHandler());
-
-		menu.addItem(12, getDisplayItem(p, isSlimefunRecipe, recipe[3]));
-		menu.addMenuClickHandler(12, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(13, getDisplayItem(p, isSlimefunRecipe, recipe[4]));
-		menu.addMenuClickHandler(13, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(14, getDisplayItem(p, isSlimefunRecipe, recipe[5]));
-		menu.addMenuClickHandler(14, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(16, output);
-		menu.addMenuClickHandler(16, ChestMenuUtils.getEmptyClickHandler());
-
-		menu.addItem(21, getDisplayItem(p, isSlimefunRecipe, recipe[6]));
-		menu.addMenuClickHandler(21, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(22, getDisplayItem(p, isSlimefunRecipe, recipe[7]));
-		menu.addMenuClickHandler(22, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
-
-		menu.addItem(23, getDisplayItem(p, isSlimefunRecipe, recipe[8]));
-		menu.addMenuClickHandler(23, (pl, slot, itemstack, action) -> {
-			displayItem(profile, itemstack, true);
-			return false;
-		});
+		menu.addItem(10, recipeType.toItem(), ChestMenuUtils.getEmptyClickHandler());
+		menu.addItem(16, output, ChestMenuUtils.getEmptyClickHandler());
 	}
 
 	private void fillInv(PlayerProfile profile, ChestMenu menu, boolean survival) {

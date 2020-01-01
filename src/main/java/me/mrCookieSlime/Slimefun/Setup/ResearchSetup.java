@@ -249,5 +249,6 @@ public final class ResearchSetup {
 	    Slimefun.registerResearch(new Research(251, "Незеритовый рудопромывочный лоток", 8), SlimefunItems.NETHER_GOLD_PAN);
 	    Slimefun.registerResearch(new Research(252, "Электрический пресс", 16), SlimefunItems.ELECTRIC_PRESS, SlimefunItems.ELECTRIC_PRESS_2);
 	    Slimefun.registerResearch(new Research(253, "Магниевое питание", 20), SlimefunItems.MAGNESIUM_SALT, SlimefunItems.MAGNESIUM_GENERATOR);
+		Slimefun.registerResearch(new Research(254, "Вкусные ламинарии", 4), SlimefunItems.KELP_COOKIE);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
@@ -15,8 +16,8 @@ public final class ChestMenuUtils {
 	private ChestMenuUtils() {}
 	
 	private static final ItemStack UI_BACKGROUND = new SlimefunItemStack("_UI_BACKGROUND", Material.GRAY_STAINED_GLASS_PANE, " ");
-	private static final ItemStack BACK_BUTTON = new SlimefunItemStack("_UI_BACK", Material.ENCHANTED_BOOK, "&7\u21E6 Назад");
-	private static final ItemStack MENU_BUTTON = new SlimefunItemStack("_UI_MENU", Material.ENCHANTED_BOOK, "&eНастройки / Информация", "", "&7\u21E8 Нажмите, чтобы увидеть больше");
+	private static final ItemStack BACK_BUTTON = new SlimefunItemStack("_UI_BACK", Material.ENCHANTED_BOOK, "&7\u21E6 Назад", meta -> meta.addItemFlags(ItemFlag.HIDE_ENCHANTS));
+	private static final ItemStack MENU_BUTTON = new SlimefunItemStack("_UI_MENU", Material.COMPARATOR, "&eНастройки / Информация", "", "&7\u21E8 Нажмите, чтобы увидеть больше");
 	private static final ItemStack SEARCH_BUTTON = new SlimefunItemStack("_UI_SEARCH", Material.NAME_TAG, "&bПоиск");
 	private static final ItemStack WIKI_BUTTON = new SlimefunItemStack("_UI_WIKI", Material.KNOWLEDGE_BOOK, "&3Slimefun Вики");
 	
